@@ -8,25 +8,28 @@ Scope: ecosystem
 - **ENTRY-ECO-001**: Dan approved The Record Phase 1 Foundation as the operating foundation for the MAXAI ecosystem, effective July 10, 2026, with vigor.
 
 ## Working Context
-- **ENTRY-ECO-002**: A migration audit found four candidate named rulings in continuity context, but no authoritative source for a six-ruling list. Three supplied ChatVault captures document The Record's foundation process and do not contain that list. Migration is blocked against invention until the governing source is supplied or Dan corrects the expected count.
+- **ENTRY-ECO-002**: The phrase 'six standing ecosystem rulings' conflates three taxonomy-session items described as made or proposed with three decisions that remained owed. The supplied foundation-process captures do not establish ratification of those items. Selective migration requires explicit human adoption and durable provenance; proceeding with implementation is not treated as approval.
 
 ## Active State
 - **constitution_version**: 1.0.0
 - **foundation_status**: approved
+- **made_or_proposed_items**: 3
+- **open_decisions**: 3
 - **record_phase**: phase1-foundation
-- **standing_rulings_expected**: 6
-- **standing_rulings_migration_status**: blocked-source-required
-- **standing_rulings_verified**: 4
+- **standing_rulings_claim_status**: conflated
+- **standing_rulings_migration_status**: requires-explicit-human-adoption-and-provenance
 - **system_status**: operational
 
 ## Open Items
 - Migrate the six standing ecosystem rulings through separately reviewed Record Entries.
 - Resolve long-term branch-protection enforcement for a private GitHub Free repository.
 - Decide whether to merge the draft manual-CI workflow enhancement.
-- Locate the source containing RECORD-5 and RECORD-6, if those rulings exist.
-- If no such source exists, Dan must explicitly correct the expected ruling count from six to four through a new Approved Canon entry.
-- Do not promote RECORD-1 through RECORD-4 until their source artifacts and approval provenance are attached.
-- Do not treat the three foundation-process captures as approval evidence for the standing ecosystem rulings.
+- Dan must decide whether to adopt the Maxai authority sentence as a separate Approved Canon entry or rely on Constitution principle 5 as the governing canon.
+- Dan must explicitly adopt, reject, or revise the fieldmouth.com and fieldmouthai.com domain split; no approval may be inferred from proceeding.
+- Determine whether The Record's four-condition adoption needs a separate historical migration entry or is sufficiently governed by ENTRY-ECO-001 and Constitution v1.0.0.
+- Resolve the Sidecar, benchmark identity fork, and TR-000 registration questions through future human decisions; do not migrate them as completed rulings.
+- Attach the original taxonomy-session artifact and exact spans before promoting historical claims.
+- Do not treat the three foundation-process captures as approval evidence for the taxonomy-session items.
 
 ## Source Entry IDs
 - ENTRY-ECO-001
