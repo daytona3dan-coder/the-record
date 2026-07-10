@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-012",
+  "created_at": "2026-07-10T21:03:24.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan reserved TR-000 as unassigned, established TR-001 as the beginning of the public FieldMouth Transformation Registry, and prohibited inferred or retroactive assignment of TR-000.",
+  "decisions": [
+    "TR-000 is reserved and unassigned. It is not a transformation contract, registry entry, meta-contract, identity transformation, genesis record, or executable object.",
+    "The FieldMouth public Transformation Registry begins with TR-001. TR-001 remains the first transformation-contract implementation and registration target.",
+    "No system, document, model, or contributor may assign meaning or content to TR-000 by inference or retroactive convention.",
+    "Any future use of TR-000 requires a new explicit human-authored Approved Canon ruling defining its purpose, authority, compatibility, and effect on the existing registry. Existing TR identifiers must not be silently renumbered.",
+    "Claude's AI-authored TR-000 draft records only that the question existed and must not be promoted as a completed decision."
+  ],
+  "completed_work": [
+    "Searched supplied captures, prior conversations, the FieldMouth provisional disclosure, registry addendum, and CICP Constitution without locating any prior definition or assignment for TR-000.",
+    "Confirmed that concrete transformation examples and the first implementation target begin at TR-001 Resolve Relative Date.",
+    "Dan explicitly adopted the complete TR-000 reservation ruling in writing as his human-authored Approved Canon record."
+  ],
+  "active_state": {
+    "fieldmouth_public_registry_start": "TR-001",
+    "tr000_assignment": "reserved-and-unassigned",
+    "tr001_status": "first-implementation-and-registration-target"
+  },
+  "open_items": [
+    "Implement and register TR-001 Resolve Relative Date end to end under the governing transformation-contract and benchmark canon."
+  ],
+  "supersedes": [],
+  "evidence": [
+    {
+      "artifact": "sha256:43b7ea445450f9d5ec29e51e444be0aa668e53ab4d4b3596facfec8472b573cc",
+      "description": "ChatVault JSON capture Form Recording vs Creation; messages 7-8 establish TR-001 Resolve Relative Date as the first complete implementation and registration target, with no assigned TR-000 content. Dan's explicit adoption supplies authority for the reservation ruling.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 7,
+          "end": 8
+        }
+      ]
+    }
+  ],
+  "next_chat_starting_context": "Approved Canon: TR-000 is reserved and unassigned. The FieldMouth public Transformation Registry begins with TR-001, which remains the first end-to-end implementation and registration target. Do not infer, retroactively assign, or silently renumber TR-000; any future use requires new explicit human-authored Approved Canon.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-10T21:03:24.000Z"
+  }
+}
