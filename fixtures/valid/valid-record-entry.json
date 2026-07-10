@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-001",
+  "created_at": "2026-07-10T00:00:00.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "Initial ecosystem record entry establishing The Record governance system for the MAXAI ecosystem.",
+  "decisions": [
+    "The Record will use append-only JSON entries committed to a repository.",
+    "SHA-256 artifact hashes are the canonical evidence reference format."
+  ],
+  "completed_work": [
+    "Phase 1 Foundation files created.",
+    "Schemas, scripts, tests, and CI workflow established."
+  ],
+  "active_state": {
+    "phase": "phase1-record-foundation",
+    "status": "in-progress"
+  },
+  "open_items": [
+    "Migrate existing DECISIONS.md content through traceable entries.",
+    "Configure branch protection in GitHub repository settings."
+  ],
+  "supersedes": [],
+  "evidence": [
+    {
+      "artifact": "sha256:a39c69bcf85007726dac8d3a3e2ccc3708669fbbb428cc3eb78c71209914bcb1",
+      "description": "Phase 1 Foundation specification message from Dan.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 0,
+          "end": 0
+        }
+      ]
+    }
+  ],
+  "next_chat_starting_context": "The Record Phase 1 Foundation has been established. Repository-backed governance system is operational. All schemas, scripts, and tests are in place. No entries are yet in Approved Canon; everything is Working Context. Next action: author the first governing entries and submit for human approval."
+}
