@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-record/schemas/record-entry.schema.json",
+  "title": "Record Entry",
+  "description": "An append-only governing record entry in The Record system.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "entry_id",
+    "created_at",
+    "created_by",
+    "scope",
+    "authority_class",
+    "summary",
+    "decisions",
+    "completed_work",
+    "active_state",
+    "open_items",
+    "supersedes",
+    "evidence",
+    "next_chat_starting_context"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "description": "Semantic version of the record-entry schema used."
+    },
+    "entry_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Globally unique identifier for this entry."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of entry creation."
+    },
+    "created_by": {
+      "type": "object",
+      "required": ["actor_type", "name"],
+      "properties": {
+        "actor_type": {
+          "type": "string",
+          "enum": ["human", "ai"],
+          "description": "Whether the author is a human or an AI system."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Name of the author."
+        },
+        "account": {
+          "type": "string",
+          "description": "Account identifier (e.g., GitHub username)."
+        }
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["ecosystem", "product", "workstream"],
+      "description": "Governance scope of this entry."
+    },
+    "authority_class": {
+      "type": "string",
+      "enum": [
+        "source_evidence",
+        "derived_summary",
+        "working_context",
+        "approved_canon",
+        "superseded"
+      ],
+      "description": "Authority class governing how this entry ranks relative to others."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable summary of what this entry records."
+    },
+    "decisions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of decisions captured in this entry."
+    },
+    "completed_work": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of completed work items documented in this entry."
+    },
+    "active_state": {
+      "type": "object",
+      "description": "Key-value state snapshot at the time of this entry."
+    },
+    "open_items": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Open items or known gaps at the time of this entry."
+    },
+    "supersedes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Entry IDs that this entry supersedes."
+    },
+    "evidence": {
+      "type": "array",
+      "description": "Optional references to external evidence artifacts by hash.",
+      "items": {
+        "type": "object",
+        "required": ["artifact"],
+        "properties": {
+          "artifact": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "description": "SHA-256 hash of the referenced artifact."
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the artifact."
+          },
+          "spans": {
+            "type": "array",
+            "description": "Optional sub-ranges within the artifact.",
+            "items": {
+              "type": "object",
+              "required": ["unit", "start", "end"],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": ["message", "line", "byte"],
+                  "description": "Unit of measurement for the span."
+                },
+                "start": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Inclusive start index."
+                },
+                "end": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Inclusive end index; must be >= start (enforced programmatically)."
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "next_chat_starting_context": {
+      "type": "string",
+      "description": "Authored context string to carry into the next conversation."
+    },
+    "approval": {
+      "type": "object",
+      "required": ["approved_by_type", "approved_by_name", "approved_at"],
+      "description": "Human approval record; required when authority_class is approved_canon.",
+      "properties": {
+        "approved_by_type": {
+          "type": "string",
+          "const": "human",
+          "description": "Must be 'human'; AI actors may not approve canon."
+        },
+        "approved_by_name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Name of the approving individual."
+        },
+        "approved_by_account": {
+          "type": "string",
+          "description": "Account identifier of the approving individual."
+        },
+        "approved_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of approval."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "if": {
+    "properties": {
+      "authority_class": { "const": "approved_canon" }
+    },
+    "required": ["authority_class"]
+  },
+  "then": {
+    "required": ["approval"]
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-record/schemas/current-state.schema.json",
+  "title": "Current State",
+  "description": "Derived, deterministic snapshot of the active governing state for a scope.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_at",
+    "scope",
+    "constitution_version",
+    "approved_canon",
+    "working_context",
+    "active_state",
+    "open_items",
+    "source_entry_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "description": "Semantic version of the current-state schema."
+    },
+    "generated_at": {
+      "type": "string",
+      "description": "ISO 8601 timestamp when this state was generated."
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["ecosystem", "product", "workstream"],
+      "description": "Scope this state snapshot covers."
+    },
+    "constitution_version": {
+      "type": "string",
+      "description": "Version of the Constitution in effect when this state was generated."
+    },
+    "approved_canon": {
+      "type": "array",
+      "description": "Active Approved Canon entries, ordered by entry_id.",
+      "items": {
+        "type": "object",
+        "required": ["entry_id", "summary"],
+        "properties": {
+          "entry_id": { "type": "string" },
+          "summary": { "type": "string" },
+          "decisions": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "working_context": {
+      "type": "array",
+      "description": "Active Working Context entries, ordered by entry_id.",
+      "items": {
+        "type": "object",
+        "required": ["entry_id", "summary"],
+        "properties": {
+          "entry_id": { "type": "string" },
+          "summary": { "type": "string" }
+        }
+      }
+    },
+    "active_state": {
+      "type": "object",
+      "description": "Merged key-value state from all active entries."
+    },
+    "open_items": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Aggregated open items from all active entries."
+    },
+    "source_entry_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "IDs of the active (non-superseded) entries that produced this state."
+    }
+  },
+  "additionalProperties": false
+}

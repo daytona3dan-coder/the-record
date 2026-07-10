@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "{{ISO_DATE}}",
+  "scope": "{{SCOPE}}",
+  "constitution_version": "1.0.0",
+  "approved_canon": [],
+  "working_context": [],
+  "active_state": {},
+  "open_items": [],
+  "source_entry_ids": []
+}

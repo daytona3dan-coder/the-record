@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-CYCLE-B-001",
+  "created_at": "2026-07-10T01:00:00.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "Entry B in a supersession cycle (B supersedes A, A supersedes B).",
+  "decisions": [],
+  "completed_work": [],
+  "active_state": {},
+  "open_items": [],
+  "supersedes": ["ENTRY-CYCLE-A-001"],
+  "evidence": [],
+  "next_chat_starting_context": "Test context."
+}
