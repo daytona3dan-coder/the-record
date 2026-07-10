@@ -8,7 +8,7 @@
 
 **Constitution version:** 1.0.0
 **Generated from:** `CURRENT_STATE.json` (scope: ecosystem)
-**Generated at:** 2026-07-10T18:31:23.000Z
+**Generated at:** 2026-07-10T18:42:01.000Z
 
 ---
 
@@ -42,6 +42,16 @@ Dan adopted the FieldMouth domain split as ecosystem Approved Canon, effective J
 - FieldMouthAI.com is the home of the product: the governed runtime, tool catalog, pricing, and reference implementation, with its authority and claims pointing back to the standard at FieldMouth.com.
 - The June 29 FieldMouth.com builder-registry framing is preserved within this structure. It describes interfaces serving the standard and registry; it does not convert FieldMouth.com into the commercial runtime product.
 
+### ENTRY-ECO-007
+
+Dan ruled that ENTRY-ECO-001 and Constitution v1.0.0 already govern The Record Phase 1 Foundation adoption, so Claude's duplicate historical draft must not be promoted or imported.
+
+**Decisions:**
+- The Record Phase 1 Foundation adoption is already governed by ENTRY-ECO-001 and Constitution v1.0.0. Claude's AI-authored draft ENTRY-ECO-0003 must not be promoted or imported as a duplicate historical canon entry.
+- The four conditions remain valid implementation and review history: CI-enforced validation with negative fixtures; Bolt and AI systems propose through branches and pull requests while only an identified human approves and merges; evidence references use SHA-256 artifact identifiers with optional exact spans; and the Constitution preserves migration-not-abandonment and continuity-not-execution-ledger boundaries.
+- Where the historical draft conflicts with current Git evidence or existing Approved Canon, including its old branch, commit, review, and awaiting-approval status, current Git evidence and existing Approved Canon control.
+- Branch-protection configuration remains a separate operational open item.
+
 
 ---
 
@@ -49,7 +59,7 @@ Dan adopted the FieldMouth domain split as ecosystem Approved Canon, effective J
 
 _Working Context informs but does not govern. It may be superseded without a new canon approval._
 
-- **ENTRY-ECO-006**: The FieldMouth domain split has been explicitly adopted in ENTRY-ECO-005. The selective migration now has two approved rulings and four remaining historical or unresolved items.
+- **ENTRY-ECO-008**: The duplicate historical foundation-adoption draft has been disposed of by ENTRY-ECO-007. The selective migration now has three approved rulings or dispositions and three genuinely unresolved decisions.
 
 ---
 
@@ -58,13 +68,15 @@ _Working Context informs but does not govern. It may be superseded without a new
 - **constitution_version**: 1.0.0
 - **fieldmouth_com_role**: standard-registry-and-supporting-developer-interfaces
 - **fieldmouthai_com_role**: commercial-governed-runtime-and-reference-implementation
+- **foundation_adoption_authority**: ENTRY-ECO-001-and-Constitution-v1.0.0
 - **foundation_status**: approved
+- **historical_duplicate_entry_disposition**: do-not-import-or-promote
 - **human_authority_identity**: actual-human-required
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **migration_items_remaining**: 4
-- **migration_rulings_approved**: 2
+- **migration_items_remaining**: 3
+- **migration_rulings_approved**: 3
 - **record_phase**: phase1-foundation
-- **standing_rulings_migration_status**: two-approved-four-unresolved-or-requiring-necessity-decision
+- **standing_rulings_migration_status**: three-approved-three-open-decisions
 - **system_status**: operational
 
 ---
@@ -77,9 +89,11 @@ _Working Context informs but does not govern. It may be superseded without a new
 - Audit other MAXAI ledgers and approval records for authority fields that identify a brand, product, AI system, or automation instead of the actual human.
 - Audit FieldMouth.com and FieldMouthAI.com documentation and site content for conflicts with the approved domain split.
 - Attach the June 29 builder-registry source artifact and exact spans when available.
-- Determine whether The Record's four-condition adoption needs a separate historical migration entry or is sufficiently governed by ENTRY-ECO-001 and Constitution v1.0.0.
-- Resolve the Sidecar format, benchmark identity fork, and TR-000 registration questions through future human decisions; do not migrate them as completed rulings.
-- Attach the original taxonomy-session artifact and exact spans before promoting historical claims.
+- Resolve long-term branch-protection enforcement for the private GitHub repository.
+- Resolve the ChatVaultAI Markdown Sidecar format through an explicit human decision.
+- Recover or define the benchmark identity fork, then record Dan's explicit ruling.
+- Recover or define TR-000 and rule on its registration.
+- Attach the original taxonomy-session artifact and exact spans when available.
 - Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning.
 
 ---
@@ -98,9 +112,13 @@ Approved Canon: Maxai may name the role and interface of human review, but every
 
 Approved Canon: FieldMouth.com hosts the standard, public registry, and supporting developer interfaces; FieldMouthAI.com hosts the governed commercial runtime, tool catalog, pricing, and reference implementation. The June 29 builder-registry framing remains valid inside FieldMouth.com's standard-and-registry role.
 
-### From ENTRY-ECO-006
+### From ENTRY-ECO-007
 
-ENTRY-ECO-003 governs human authority identity and ENTRY-ECO-005 governs the FieldMouth domain split. Four migration items remain: decide whether a separate four-condition Record history entry is necessary, then resolve Sidecar format, benchmark identity fork, and TR-000 registration. Require Dan's explicit ruling for each.
+Approved Canon: ENTRY-ECO-001 and Constitution v1.0.0 govern The Record Phase 1 Foundation. Do not import Claude's duplicate historical draft. Preserve its four conditions as implementation history, let current Git and existing canon control conflicts, and keep branch protection as a separate operational item.
+
+### From ENTRY-ECO-008
+
+Three migration decisions remain. First rule on ChatVaultAI Markdown Sidecar format. Then recover or define the benchmark identity fork and TR-000 registration before ruling. Do not promote Claude's open-item drafts as completed decisions.
 
 
 ---
@@ -110,7 +128,8 @@ ENTRY-ECO-003 governs human authority identity and ENTRY-ECO-005 governs the Fie
 - ENTRY-ECO-001
 - ENTRY-ECO-003
 - ENTRY-ECO-005
-- ENTRY-ECO-006
+- ENTRY-ECO-007
+- ENTRY-ECO-008
 
 ---
 

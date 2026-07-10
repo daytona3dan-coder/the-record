@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-007",
+  "created_at": "2026-07-10T18:42:00.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan ruled that ENTRY-ECO-001 and Constitution v1.0.0 already govern The Record Phase 1 Foundation adoption, so Claude's duplicate historical draft must not be promoted or imported.",
+  "decisions": [
+    "The Record Phase 1 Foundation adoption is already governed by ENTRY-ECO-001 and Constitution v1.0.0. Claude's AI-authored draft ENTRY-ECO-0003 must not be promoted or imported as a duplicate historical canon entry.",
+    "The four conditions remain valid implementation and review history: CI-enforced validation with negative fixtures; Bolt and AI systems propose through branches and pull requests while only an identified human approves and merges; evidence references use SHA-256 artifact identifiers with optional exact spans; and the Constitution preserves migration-not-abandonment and continuity-not-execution-ledger boundaries.",
+    "Where the historical draft conflicts with current Git evidence or existing Approved Canon, including its old branch, commit, review, and awaiting-approval status, current Git evidence and existing Approved Canon control.",
+    "Branch-protection configuration remains a separate operational open item."
+  ],
+  "completed_work": [
+    "Dan explicitly adopted this migration disposition in writing as his human-authored Approved Canon record.",
+    "The duplicate AI-authored historical draft was excluded from promotion without discarding its valid implementation-history substance."
+  ],
+  "active_state": {
+    "foundation_adoption_authority": "ENTRY-ECO-001-and-Constitution-v1.0.0",
+    "historical_duplicate_entry_disposition": "do-not-import-or-promote"
+  },
+  "open_items": [
+    "Resolve long-term branch-protection enforcement for the private GitHub repository."
+  ],
+  "supersedes": [],
+  "evidence": [],
+  "next_chat_starting_context": "Approved Canon: ENTRY-ECO-001 and Constitution v1.0.0 govern The Record Phase 1 Foundation. Do not import Claude's duplicate historical draft. Preserve its four conditions as implementation history, let current Git and existing canon control conflicts, and keep branch protection as a separate operational item.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-10T18:42:00.000Z"
+  }
+}
