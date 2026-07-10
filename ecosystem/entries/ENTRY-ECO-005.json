@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-005",
+  "created_at": "2026-07-10T18:31:22.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan adopted the FieldMouth domain split as ecosystem Approved Canon, effective July 10, 2026, while preserving the June 29 builder-registry framing within the standard and registry role.",
+  "decisions": [
+    "FieldMouth.com is the home of the standard: the Transformation Contract specification, invariant definitions, Evidence Interface, public transformation-contract registry, PROV-compatibility statement, and supporting developer-facing builder, registry, and versioning interfaces.",
+    "FieldMouthAI.com is the home of the product: the governed runtime, tool catalog, pricing, and reference implementation, with its authority and claims pointing back to the standard at FieldMouth.com.",
+    "The June 29 FieldMouth.com builder-registry framing is preserved within this structure. It describes interfaces serving the standard and registry; it does not convert FieldMouth.com into the commercial runtime product."
+  ],
+  "completed_work": [
+    "Dan explicitly adopted the complete domain-split ruling in writing as his human-authored Approved Canon record.",
+    "The earlier builder-registry framing was reconciled as a supporting interface of the FieldMouth.com standard and registry rather than silently abandoned or superseded."
+  ],
+  "active_state": {
+    "fieldmouth_com_role": "standard-registry-and-supporting-developer-interfaces",
+    "fieldmouthai_com_role": "commercial-governed-runtime-and-reference-implementation"
+  },
+  "open_items": [
+    "Audit FieldMouth.com and FieldMouthAI.com documentation and site content for conflicts with the approved domain split.",
+    "Attach the June 29 builder-registry source artifact and exact spans when available."
+  ],
+  "supersedes": [],
+  "evidence": [],
+  "next_chat_starting_context": "Approved Canon: FieldMouth.com hosts the standard, public registry, and supporting developer interfaces; FieldMouthAI.com hosts the governed commercial runtime, tool catalog, pricing, and reference implementation. The June 29 builder-registry framing remains valid inside FieldMouth.com's standard-and-registry role.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-10T18:31:22.000Z"
+  }
+}
