@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-004",
+  "created_at": "2026-07-10T17:53:15.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "The Maxai human-authority identity rule has been explicitly adopted in ENTRY-ECO-003. The selective migration now contains two remaining proposed or historical items and three unresolved decisions; none is Approved Canon yet.",
+  "decisions": [],
+  "completed_work": [
+    "Dan explicitly adopted the Maxai human-authority identity rule as human-authored Approved Canon in ENTRY-ECO-003.",
+    "Reviewed Claude's six-entry proposal archive without promoting its AI-authored Working Context entries.",
+    "Preserved the distinction between a proposal, an implemented historical condition, and an unresolved decision."
+  ],
+  "active_state": {
+    "migration_items_remaining": 5,
+    "migration_rulings_approved": 1,
+    "standing_rulings_migration_status": "one-approved-five-unresolved-or-unratified"
+  },
+  "open_items": [
+    "Dan must explicitly adopt, reject, or revise the fieldmouth.com and fieldmouthai.com domain split; no approval may be inferred from proceeding.",
+    "Determine whether The Record's four-condition adoption needs a separate historical migration entry or is sufficiently governed by ENTRY-ECO-001 and Constitution v1.0.0.",
+    "Resolve the Sidecar format, benchmark identity fork, and TR-000 registration questions through future human decisions; do not migrate them as completed rulings.",
+    "Attach the original taxonomy-session artifact and exact spans before promoting historical claims.",
+    "Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-002"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:cdf1a3ae34bbe4a6ca53054e16dc47124e79726790787dd6686ee0e790a1f0dd",
+      "description": "User-supplied archive of six AI-authored draft migration entries; proposal material only and not approval evidence."
+    }
+  ],
+  "next_chat_starting_context": "ENTRY-ECO-003 now governs human authority identity. Five migration items remain: the FieldMouth domain split is unratified; The Record four-condition history needs a necessity decision; Sidecar format, benchmark identity fork, and TR-000 registration remain unresolved. Require Dan's explicit ruling for each and do not infer approval from implementation or proceeding."
+}
