@@ -1,0 +1,24 @@
+{
+  "name": "the-record",
+  "version": "0.1.0",
+  "description": "Repository-backed continuity and governance system for the MAXAI ecosystem.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "echo \"No build step required.\"",
+    "test": "node --test tests/*.test.js",
+    "validate:record": "node scripts/validate-record.js",
+    "check:supersession": "node scripts/check-supersession.js",
+    "check:immutability": "node scripts/check-entry-immutability.js",
+    "build:state": "node scripts/build-current-state.js",
+    "generate:next-chat": "node scripts/generate-next-chat.js",
+    "record:create-product": "node scripts/create-product-record.js"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

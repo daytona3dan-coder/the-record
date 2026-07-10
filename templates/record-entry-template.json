@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-{{SCOPE_PREFIX}}-{{SEQUENCE}}",
+  "created_at": "{{ISO_DATE}}",
+  "created_by": {
+    "actor_type": "human",
+    "name": "{{AUTHOR_NAME}}",
+    "account": "{{AUTHOR_ACCOUNT}}"
+  },
+  "scope": "{{SCOPE}}",
+  "authority_class": "working_context",
+  "summary": "{{SUMMARY}}",
+  "decisions": [],
+  "completed_work": [],
+  "active_state": {},
+  "open_items": [],
+  "supersedes": [],
+  "evidence": [],
+  "next_chat_starting_context": "{{NEXT_CHAT_CONTEXT}}"
+}

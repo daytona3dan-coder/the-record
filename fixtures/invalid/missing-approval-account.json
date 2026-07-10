@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-INVALID-NO-ACCOUNT-001",
+  "created_at": "2026-07-10T00:00:00.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Invalid fixture: approval object omits approved_by_account, violating Constitution principle 5.",
+  "decisions": [],
+  "completed_work": [],
+  "active_state": {},
+  "open_items": [],
+  "supersedes": [],
+  "evidence": [],
+  "next_chat_starting_context": "This fixture must never validate.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan",
+    "approved_at": "2026-07-10T00:00:00.000Z"
+  }
+}

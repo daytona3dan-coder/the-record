@@ -1,0 +1,12 @@
+{
+  "created_at": "1970-01-01T00:00:00.000Z",
+  "description": "Desktop application for AI conversation capture, evidence preservation, and receipt management.",
+  "display_name": "ChatVaultAI",
+  "product_id": "chatvaultai",
+  "repository": {
+    "owner": "daytona3dan-coder",
+    "provider": "github",
+    "repository": "chatvault-ai-desktop"
+  },
+  "schema_version": "1.0.0"
+}

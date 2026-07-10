@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "product_id": "{{PRODUCT_ID}}",
+  "display_name": "{{DISPLAY_NAME}}",
+  "created_at": "{{ISO_DATE}}"
+}
