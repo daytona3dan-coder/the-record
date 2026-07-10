@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-016",
+  "created_at": "2026-07-10T23:12:51.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan adopted the private GitHub Free operating model for The Record, explicitly distinguishing procedural governance from unavailable technical branch protection.",
+  "decisions": [
+    "The Record remains a private repository on GitHub Free.",
+    "GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.",
+    "Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.",
+    "The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.",
+    "If repository plan or visibility changes later, technical protection of main must be configured and verified."
+  ],
+  "completed_work": [
+    "Verified the current GitHub plan limitation against official GitHub documentation.",
+    "Merged fail-closed same-authority active_state collision protection with 67 passing tests.",
+    "Closed the stale manual-CI enhancement PR without merge.",
+    "Dan explicitly adopted this operating ruling in writing as his human-authored Approved Canon record."
+  ],
+  "active_state": {
+    "branch_protection_enforcement": "procedural-not-technical",
+    "foundation_maintenance_status": "complete",
+    "github_repository_plan": "free",
+    "github_repository_visibility": "private",
+    "manual_ci_enhancement_status": "closed-without-merge",
+    "state_collision_guard": "enforced-fail-closed"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-014"
+  ],
+  "evidence": [],
+  "next_chat_starting_context": "The Record remains private on GitHub Free. Branch protection is procedural, not technically enforced: use pull requests, require green Record CI, preserve advisory AI review, and reserve approval and merge for Dan. Direct and force pushes and deletion of main are prohibited by governance. Foundation maintenance is complete; begin TR-001 Resolve Relative Date.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-10T23:12:51.000Z"
+  }
+}
