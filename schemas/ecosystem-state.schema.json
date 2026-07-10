@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-record/schemas/ecosystem-state.schema.json",
+  "title": "Ecosystem State",
+  "description": "Current state snapshot for the ecosystem scope.",
+  "$ref": "https://the-record/schemas/current-state.schema.json",
+  "properties": {
+    "scope": {
+      "type": "string",
+      "const": "ecosystem",
+      "description": "Ecosystem state must have scope 'ecosystem'."
+    }
+  }
+}

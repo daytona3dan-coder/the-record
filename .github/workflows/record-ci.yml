@@ -1,0 +1,42 @@
+name: Record CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    name: Validate Record
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history so immutability check can diff against base commit
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run test suite
+        run: npm test
+
+      - name: Validate record schemas and entries
+        run: npm run validate:record
+
+      - name: Check supersession integrity
+        run: npm run check:supersession
+
+      # Diff-aware immutability check — pull requests only
+      - name: Check entry immutability (PR only)
+        if: github.event_name == 'pull_request'
+        run: npm run check:immutability -- --base ${{ github.event.pull_request.base.sha }}

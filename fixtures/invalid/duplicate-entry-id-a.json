@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-DUPLICATE-001",
+  "created_at": "2026-07-10T00:00:00.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "First entry with a duplicated ID (duplicate-a).",
+  "decisions": [],
+  "completed_work": [],
+  "active_state": {},
+  "open_items": [],
+  "supersedes": [],
+  "evidence": [],
+  "next_chat_starting_context": "Test context."
+}
