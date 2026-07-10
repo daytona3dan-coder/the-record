@@ -7,10 +7,10 @@
     "fieldmouth_com_role": "standard-registry-and-supporting-developer-interfaces",
     "fieldmouth_public_registry_start": "TR-001",
     "fieldmouthai_com_role": "commercial-governed-runtime-and-reference-implementation",
-    "foundation_adoption_authority": "ENTRY-ECO-001-and-Constitution-v1.0.0",
+    "foundation_reconciliation_status": "complete",
     "foundation_status": "approved",
-    "historical_duplicate_entry_disposition": "do-not-import-or-promote",
     "human_authority_identity": "actual-human-required",
+    "inaugural_migration_status": "complete",
     "maxai_role_naming": "permitted-with-human-authority-identity",
     "migration_items_remaining": 0,
     "migration_rulings_approved": 6,
@@ -21,15 +21,6 @@
     "tr001_status": "first-implementation-and-registration-target"
   },
   "approved_canon": [
-    {
-      "decisions": [
-        "The Record Phase 1 Foundation is the approved operating foundation for the MAXAI ecosystem.",
-        "The Record Constitution v1.0.0 governs authority, immutability, supersession, evidence boundaries, and next-chat generation.",
-        "AI review remains advisory; approval and merge authority remain human acts performed by Dan."
-      ],
-      "entry_id": "ENTRY-ECO-001",
-      "summary": "Dan approved The Record Phase 1 Foundation as the operating foundation for the MAXAI ecosystem, effective July 10, 2026, with vigor."
-    },
     {
       "decisions": [
         "Maxai may name the role and interface of human review; the ledger's authority field always records the actual human.",
@@ -46,16 +37,6 @@
       ],
       "entry_id": "ENTRY-ECO-005",
       "summary": "Dan adopted the FieldMouth domain split as ecosystem Approved Canon, effective July 10, 2026, while preserving the June 29 builder-registry framing within the standard and registry role."
-    },
-    {
-      "decisions": [
-        "The Record Phase 1 Foundation adoption is already governed by ENTRY-ECO-001 and Constitution v1.0.0. Claude's AI-authored draft ENTRY-ECO-0003 must not be promoted or imported as a duplicate historical canon entry.",
-        "The four conditions remain valid implementation and review history: CI-enforced validation with negative fixtures; Bolt and AI systems propose through branches and pull requests while only an identified human approves and merges; evidence references use SHA-256 artifact identifiers with optional exact spans; and the Constitution preserves migration-not-abandonment and continuity-not-execution-ledger boundaries.",
-        "Where the historical draft conflicts with current Git evidence or existing Approved Canon, including its old branch, commit, review, and awaiting-approval status, current Git evidence and existing Approved Canon control.",
-        "Branch-protection configuration remains a separate operational open item."
-      ],
-      "entry_id": "ENTRY-ECO-007",
-      "summary": "Dan ruled that ENTRY-ECO-001 and Constitution v1.0.0 already govern The Record Phase 1 Foundation adoption, so Claude's duplicate historical draft must not be promoted or imported."
     },
     {
       "decisions": [
@@ -79,15 +60,21 @@
       ],
       "entry_id": "ENTRY-ECO-012",
       "summary": "Dan reserved TR-000 as unassigned, established TR-001 as the beginning of the public FieldMouth Transformation Registry, and prohibited inferred or retroactive assignment of TR-000."
+    },
+    {
+      "decisions": [
+        "The Record Phase 1 Foundation remains approved and operational under Constitution v1.0.0.",
+        "The inaugural six-item migration is complete. The prior instruction to migrate the six standing ecosystem rulings is closed and must no longer appear as an active open item or next-chat instruction.",
+        "This ruling supersedes ENTRY-ECO-001 and ENTRY-ECO-007 for active-state derivation while preserving both entries unchanged as historical records.",
+        "The governing Foundation conditions remain: CI-enforced validation with negative fixtures; Bolt and AI systems propose through branches and pull requests while only an identified human approves and merges; evidence references use SHA-256 artifact identifiers with optional exact spans; the Constitution preserves migration-not-abandonment and continuity-not-execution-ledger boundaries; and AI review is advisory while Dan retains approval and merge authority."
+      ],
+      "entry_id": "ENTRY-ECO-014",
+      "summary": "Dan reconciled the Phase 1 Foundation canon after completion of the inaugural migration, closing the obsolete migration instruction while preserving the Foundation and its governing conditions."
     }
   ],
   "constitution_version": "1.0.0",
-  "generated_at": "2026-07-10T21:03:25.000Z",
+  "generated_at": "2026-07-10T22:35:31.000Z",
   "next_chat_contexts": [
-    {
-      "context": "The Record Phase 1 Foundation is approved and operational for the MAXAI ecosystem under Constitution v1.0.0. Dan retains approval and merge authority. Begin selective migration of the six standing ecosystem rulings as separately authored and reviewed Record Entries; do not bulk-ingest chat history or raw transcripts.",
-      "entry_id": "ENTRY-ECO-001"
-    },
     {
       "context": "Approved Canon: Maxai may name the role and interface of human review, but every ledger and approval authority field records the actual human. Dan Demarest, account daytona3dan-coder, adopted this rule effective July 10, 2026.",
       "entry_id": "ENTRY-ECO-003"
@@ -95,10 +82,6 @@
     {
       "context": "Approved Canon: FieldMouth.com hosts the standard, public registry, and supporting developer interfaces; FieldMouthAI.com hosts the governed commercial runtime, tool catalog, pricing, and reference implementation. The June 29 builder-registry framing remains valid inside FieldMouth.com's standard-and-registry role.",
       "entry_id": "ENTRY-ECO-005"
-    },
-    {
-      "context": "Approved Canon: ENTRY-ECO-001 and Constitution v1.0.0 govern The Record Phase 1 Foundation. Do not import Claude's duplicate historical draft. Preserve its four conditions as implementation history, let current Git and existing canon control conflicts, and keep branch protection as a separate operational item.",
-      "entry_id": "ENTRY-ECO-007"
     },
     {
       "context": "Approved Canon: the FieldMouth transformation benchmark is currently an internal conformance suite. Design toward a vendor-neutral evidence interface, but do not claim public benchmark status until all five readiness conditions are met and Dan explicitly promotes it. ChatVaultAI may later be the reference implementation but never a required dependency.",
@@ -109,41 +92,41 @@
       "entry_id": "ENTRY-ECO-012"
     },
     {
-      "context": "The inaugural six-item migration is complete. Governing canon now covers Maxai authority identity, FieldMouth domain roles, The Record foundation disposition, ChatVaultAI Sidecar exports, FieldMouth benchmark identity, and TR-000 reservation with TR-001 as the registry start. Continue from active canon open items; separately improve active_state collision detection or namespacing guidance.",
-      "entry_id": "ENTRY-ECO-013"
+      "context": "The Record Phase 1 Foundation is approved and operational under Constitution v1.0.0, and the inaugural six-item migration is complete. AI and Bolt propose through branches and pull requests; only an identified human approves and merges; Dan retains authority. Continue with the three Foundation operational items: branch protection, disposition of the draft manual-CI enhancement, and collision-safe state derivation.",
+      "entry_id": "ENTRY-ECO-014"
+    },
+    {
+      "context": "Foundation reconciliation is complete under ENTRY-ECO-014. The inaugural migration is closed. Use the active Approved Canon open items as the operational queue; do not reintroduce the completed six-item migration as unfinished work.",
+      "entry_id": "ENTRY-ECO-015"
     }
   ],
   "open_items": [
-    "Migrate the six standing ecosystem rulings through separately reviewed Record Entries.",
-    "Resolve long-term branch-protection enforcement for a private GitHub Free repository.",
-    "Decide whether to merge the draft manual-CI workflow enhancement.",
     "Audit other MAXAI ledgers and approval records for authority fields that identify a brand, product, AI system, or automation instead of the actual human.",
     "Audit FieldMouth.com and FieldMouthAI.com documentation and site content for conflicts with the approved domain split.",
     "Attach the June 29 builder-registry source artifact and exact spans when available.",
-    "Resolve long-term branch-protection enforcement for the private GitHub repository.",
     "Implement the internal conformance suite end to end.",
     "Stabilize a vendor-neutral evidence interface.",
     "Produce reproducible fixtures, grader rules, and adoption and implementation documentation.",
     "Demonstrate independent participation without requiring ChatVaultAI before proposing public-benchmark promotion.",
     "Implement and register TR-001 Resolve Relative Date end to end under the governing transformation-contract and benchmark canon.",
-    "Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning.",
-    "Continue implementation work from the open items carried by the active Approved Canon entries."
+    "Resolve long-term branch-protection enforcement for the private GitHub repository.",
+    "Decide whether to merge or close the draft manual-CI workflow enhancement.",
+    "Correct the active-state and open-item collision hazard through namespacing or validator enforcement."
   ],
   "schema_version": "1.0.0",
   "scope": "ecosystem",
   "source_entry_ids": [
-    "ENTRY-ECO-001",
     "ENTRY-ECO-003",
     "ENTRY-ECO-005",
-    "ENTRY-ECO-007",
     "ENTRY-ECO-010",
     "ENTRY-ECO-012",
-    "ENTRY-ECO-013"
+    "ENTRY-ECO-014",
+    "ENTRY-ECO-015"
   ],
   "working_context": [
     {
-      "entry_id": "ENTRY-ECO-013",
-      "summary": "The six-item inaugural migration queue is complete. TR-000 registration was resolved by reserving TR-000 as unassigned and beginning the public Transformation Registry at TR-001 in ENTRY-ECO-012."
+      "entry_id": "ENTRY-ECO-015",
+      "summary": "The Foundation and inaugural migration are reconciled by ENTRY-ECO-014. Obsolete migration instructions are closed; three Foundation operational items remain."
     }
   ]
 }
