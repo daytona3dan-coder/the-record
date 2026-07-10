@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-010",
+  "created_at": "2026-07-10T19:21:40.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan resolved the FieldMouth benchmark identity fork as an internal conformance suite first, with later public vendor-neutral promotion requiring an explicit decision and defined readiness conditions.",
+  "decisions": [
+    "The FieldMouth transformation benchmark begins as an internal conformance suite.",
+    "The internal suite may use ChatVaultAI-specific artifact structures and test implementation details while proving transformation-contract compliance, invariant enforcement, evidence addressing, deterministic replay, and grading behavior.",
+    "The evidence interface is designed so the suite can later become vendor-neutral without replacing its governing concepts.",
+    "The benchmark is not represented as a public standard or broadly adoptable public benchmark until the internal conformance suite works end to end, the evidence interface is stable and vendor-neutral, reproducible fixtures and grader rules exist, adoption and implementation documentation exists, and independent implementations can participate without requiring ChatVaultAI.",
+    "After those conditions are met, ChatVaultAI may serve as the reference implementation but is not a required dependency.",
+    "Public vendor-neutral benchmark status requires a later explicit promotion decision."
+  ],
+  "completed_work": [
+    "Recovered the original benchmark identity fork and staged recommendation from the July 10 Form Recording vs Creation capture.",
+    "Dan explicitly adopted the complete benchmark identity ruling in writing as his human-authored Approved Canon record."
+  ],
+  "active_state": {
+    "benchmark_current_identity": "internal-conformance-suite",
+    "benchmark_public_status": "not-promoted",
+    "benchmark_public_trajectory": "vendor-neutral-after-readiness-and-explicit-promotion"
+  },
+  "open_items": [
+    "Implement the internal conformance suite end to end.",
+    "Stabilize a vendor-neutral evidence interface.",
+    "Produce reproducible fixtures, grader rules, and adoption and implementation documentation.",
+    "Demonstrate independent participation without requiring ChatVaultAI before proposing public-benchmark promotion."
+  ],
+  "supersedes": [],
+  "evidence": [
+    {
+      "artifact": "sha256:43b7ea445450f9d5ec29e51e444be0aa668e53ab4d4b3596facfec8472b573cc",
+      "description": "ChatVault JSON capture Form Recording vs Creation; messages 9-10 contain the unresolved identity fork and the internal-first, vendor-neutral-later recommendation. Capture was source material marked captured_not_reviewed; Dan's explicit adoption supplies authority.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 9,
+          "end": 10
+        }
+      ]
+    }
+  ],
+  "next_chat_starting_context": "Approved Canon: the FieldMouth transformation benchmark is currently an internal conformance suite. Design toward a vendor-neutral evidence interface, but do not claim public benchmark status until all five readiness conditions are met and Dan explicitly promotes it. ChatVaultAI may later be the reference implementation but never a required dependency.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-10T19:21:40.000Z"
+  }
+}
