@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-013",
+  "created_at": "2026-07-10T21:03:25.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "The six-item inaugural migration queue is complete. TR-000 registration was resolved by reserving TR-000 as unassigned and beginning the public Transformation Registry at TR-001 in ENTRY-ECO-012.",
+  "decisions": [],
+  "completed_work": [
+    "Resolved all six original migration items through explicit human adoption or an explicit migration disposition.",
+    "Recorded Maxai human-authority identity, the FieldMouth domain split, The Record foundation migration disposition, ChatVaultAI Sidecar doctrine, FieldMouth benchmark identity, and TR-000 reservation.",
+    "Preserved unresolved implementation obligations separately from completed governance decisions."
+  ],
+  "active_state": {
+    "migration_items_remaining": 0,
+    "migration_rulings_approved": 6,
+    "standing_rulings_migration_status": "complete"
+  },
+  "open_items": [
+    "Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning.",
+    "Continue implementation work from the open items carried by the active Approved Canon entries."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-011"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:43b7ea445450f9d5ec29e51e444be0aa668e53ab4d4b3596facfec8472b573cc",
+      "description": "ChatVault JSON capture supporting the TR-001 first-target context used to resolve the final migration item.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 7,
+          "end": 8
+        }
+      ]
+    }
+  ],
+  "next_chat_starting_context": "The inaugural six-item migration is complete. Governing canon now covers Maxai authority identity, FieldMouth domain roles, The Record foundation disposition, ChatVaultAI Sidecar exports, FieldMouth benchmark identity, and TR-000 reservation with TR-001 as the registry start. Continue from active canon open items; separately improve active_state collision detection or namespacing guidance."
+}

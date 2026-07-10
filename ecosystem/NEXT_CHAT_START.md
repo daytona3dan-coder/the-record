@@ -8,7 +8,7 @@
 
 **Constitution version:** 1.0.0
 **Generated from:** `CURRENT_STATE.json` (scope: ecosystem)
-**Generated at:** 2026-07-10T19:21:41.000Z
+**Generated at:** 2026-07-10T21:03:25.000Z
 
 ---
 
@@ -64,6 +64,17 @@ Dan resolved the FieldMouth benchmark identity fork as an internal conformance s
 - After those conditions are met, ChatVaultAI may serve as the reference implementation but is not a required dependency.
 - Public vendor-neutral benchmark status requires a later explicit promotion decision.
 
+### ENTRY-ECO-012
+
+Dan reserved TR-000 as unassigned, established TR-001 as the beginning of the public FieldMouth Transformation Registry, and prohibited inferred or retroactive assignment of TR-000.
+
+**Decisions:**
+- TR-000 is reserved and unassigned. It is not a transformation contract, registry entry, meta-contract, identity transformation, genesis record, or executable object.
+- The FieldMouth public Transformation Registry begins with TR-001. TR-001 remains the first transformation-contract implementation and registration target.
+- No system, document, model, or contributor may assign meaning or content to TR-000 by inference or retroactive convention.
+- Any future use of TR-000 requires a new explicit human-authored Approved Canon ruling defining its purpose, authority, compatibility, and effect on the existing registry. Existing TR identifiers must not be silently renumbered.
+- Claude's AI-authored TR-000 draft records only that the question existed and must not be promoted as a completed decision.
+
 
 ---
 
@@ -71,7 +82,7 @@ Dan resolved the FieldMouth benchmark identity fork as an internal conformance s
 
 _Working Context informs but does not govern. It may be superseded without a new canon approval._
 
-- **ENTRY-ECO-011**: The benchmark identity fork has been resolved by ENTRY-ECO-010. Five migration rulings or dispositions are approved; TR-000 registration is the sole unresolved item from the original six-item migration queue.
+- **ENTRY-ECO-013**: The six-item inaugural migration queue is complete. TR-000 registration was resolved by reserving TR-000 as unassigned and beginning the public Transformation Registry at TR-001 in ENTRY-ECO-012.
 
 ---
 
@@ -82,17 +93,20 @@ _Working Context informs but does not govern. It may be superseded without a new
 - **benchmark_public_trajectory**: vendor-neutral-after-readiness-and-explicit-promotion
 - **constitution_version**: 1.0.0
 - **fieldmouth_com_role**: standard-registry-and-supporting-developer-interfaces
+- **fieldmouth_public_registry_start**: TR-001
 - **fieldmouthai_com_role**: commercial-governed-runtime-and-reference-implementation
 - **foundation_adoption_authority**: ENTRY-ECO-001-and-Constitution-v1.0.0
 - **foundation_status**: approved
 - **historical_duplicate_entry_disposition**: do-not-import-or-promote
 - **human_authority_identity**: actual-human-required
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **migration_items_remaining**: 1
-- **migration_rulings_approved**: 5
+- **migration_items_remaining**: 0
+- **migration_rulings_approved**: 6
 - **record_phase**: phase1-foundation
-- **standing_rulings_migration_status**: five-approved-one-open-decision
+- **standing_rulings_migration_status**: complete
 - **system_status**: operational
+- **tr000_assignment**: reserved-and-unassigned
+- **tr001_status**: first-implementation-and-registration-target
 
 ---
 
@@ -109,8 +123,9 @@ _Working Context informs but does not govern. It may be superseded without a new
 - Stabilize a vendor-neutral evidence interface.
 - Produce reproducible fixtures, grader rules, and adoption and implementation documentation.
 - Demonstrate independent participation without requiring ChatVaultAI before proposing public-benchmark promotion.
-- Recover or define TR-000 and rule on its registration.
+- Implement and register TR-001 Resolve Relative Date end to end under the governing transformation-contract and benchmark canon.
 - Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning.
+- Continue implementation work from the open items carried by the active Approved Canon entries.
 
 ---
 
@@ -136,9 +151,13 @@ Approved Canon: ENTRY-ECO-001 and Constitution v1.0.0 govern The Record Phase 1 
 
 Approved Canon: the FieldMouth transformation benchmark is currently an internal conformance suite. Design toward a vendor-neutral evidence interface, but do not claim public benchmark status until all five readiness conditions are met and Dan explicitly promotes it. ChatVaultAI may later be the reference implementation but never a required dependency.
 
-### From ENTRY-ECO-011
+### From ENTRY-ECO-012
 
-Five of the six migration items are resolved. TR-000 registration is the sole unresolved item. Recover or define TR-000 and obtain Dan's explicit registration ruling; do not promote Claude's empty-decision draft. Separately address active_state key-collision detection or namespacing guidance.
+Approved Canon: TR-000 is reserved and unassigned. The FieldMouth public Transformation Registry begins with TR-001, which remains the first end-to-end implementation and registration target. Do not infer, retroactively assign, or silently renumber TR-000; any future use requires new explicit human-authored Approved Canon.
+
+### From ENTRY-ECO-013
+
+The inaugural six-item migration is complete. Governing canon now covers Maxai authority identity, FieldMouth domain roles, The Record foundation disposition, ChatVaultAI Sidecar exports, FieldMouth benchmark identity, and TR-000 reservation with TR-001 as the registry start. Continue from active canon open items; separately improve active_state collision detection or namespacing guidance.
 
 
 ---
@@ -150,7 +169,8 @@ Five of the six migration items are resolved. TR-000 registration is the sole un
 - ENTRY-ECO-005
 - ENTRY-ECO-007
 - ENTRY-ECO-010
-- ENTRY-ECO-011
+- ENTRY-ECO-012
+- ENTRY-ECO-013
 
 ---
 
