@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-014",
+  "created_at": "2026-07-10T22:35:30.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan reconciled the Phase 1 Foundation canon after completion of the inaugural migration, closing the obsolete migration instruction while preserving the Foundation and its governing conditions.",
+  "decisions": [
+    "The Record Phase 1 Foundation remains approved and operational under Constitution v1.0.0.",
+    "The inaugural six-item migration is complete. The prior instruction to migrate the six standing ecosystem rulings is closed and must no longer appear as an active open item or next-chat instruction.",
+    "This ruling supersedes ENTRY-ECO-001 and ENTRY-ECO-007 for active-state derivation while preserving both entries unchanged as historical records.",
+    "The governing Foundation conditions remain: CI-enforced validation with negative fixtures; Bolt and AI systems propose through branches and pull requests while only an identified human approves and merges; evidence references use SHA-256 artifact identifiers with optional exact spans; the Constitution preserves migration-not-abandonment and continuity-not-execution-ledger boundaries; and AI review is advisory while Dan retains approval and merge authority."
+  ],
+  "completed_work": [
+    "The Record Phase 1 Foundation was implemented, independently reviewed, approved, and placed into operation.",
+    "The inaugural six-item migration was completed through separately reviewed entries and explicit human adoption or disposition.",
+    "Dan explicitly adopted this reconciliation ruling in writing as his human-authored Approved Canon record."
+  ],
+  "active_state": {
+    "constitution_version": "1.0.0",
+    "foundation_status": "approved",
+    "inaugural_migration_status": "complete",
+    "record_phase": "phase1-foundation",
+    "system_status": "operational"
+  },
+  "open_items": [
+    "Resolve long-term branch-protection enforcement for the private GitHub repository.",
+    "Decide whether to merge or close the draft manual-CI workflow enhancement.",
+    "Correct the active-state and open-item collision hazard through namespacing or validator enforcement."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-001",
+    "ENTRY-ECO-007"
+  ],
+  "evidence": [],
+  "next_chat_starting_context": "The Record Phase 1 Foundation is approved and operational under Constitution v1.0.0, and the inaugural six-item migration is complete. AI and Bolt propose through branches and pull requests; only an identified human approves and merges; Dan retains authority. Continue with the three Foundation operational items: branch protection, disposition of the draft manual-CI enhancement, and collision-safe state derivation.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-10T22:35:30.000Z"
+  }
+}
