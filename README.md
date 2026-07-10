@@ -146,24 +146,24 @@ Bolt is a proposer, not an approver. Bolt may author Record Entries with authori
 
 ## Review Vocabulary
 
-AI reviewers (Bolt, Claude, or other AI systems) and human reviewers use distinct vocabularies:
+### AI Verdicts
 
-### AI Reviewer Responses
+An AI reviewer (Bolt, Claude, or any other AI system) may return exactly one of these verdicts:
 
-| Response | Meaning |
-|----------|---------|
+| Verdict | Meaning |
+|---------|---------|
 | **RECOMMEND** | AI finds no issues. Recommends human approval. |
 | **RECOMMEND WITH ITEMS** | AI finds non-blocking observations. Recommends approval after human review of listed items. |
 | **BLOCK** | AI identifies a defect, inconsistency, or Constitution violation. Requests correction before further review. |
 
-### Human Authority (Dan only)
+APPROVE is not an AI verdict. AI systems must never use the word APPROVE as a verdict or status.
 
-| Action | Meaning |
-|--------|---------|
-| **APPROVE** | Dan explicitly authorizes merge to main. Only Dan may issue this. |
-| **MERGE** | Dan executes the merge. Only Dan may do this. |
+### Human Authority
 
-**AI reviewers cannot return APPROVE.** The word "APPROVE" and merge authorization belong exclusively to Dan. An AI system that returns RECOMMEND is expressing a non-binding assessment, not granting authority.
+- Only Dan may APPROVE.
+- Only Dan may authorize a merge.
+
+An AI verdict of RECOMMEND is a non-binding assessment. It does not constitute approval and does not authorize any merge action.
 
 ---
 
