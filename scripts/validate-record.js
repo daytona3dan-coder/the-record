@@ -13,7 +13,7 @@ async function loadSchema(root, name) {
 }
 
 export function buildAjv() {
-  const ajv = new Ajv2020({ allErrors: true });
+  const ajv = new Ajv2020({ allErrors: true, strict: false });
   addFormats(ajv);
   return ajv;
 }
@@ -30,19 +30,22 @@ export async function createCurrentStateValidator(root = ROOT) {
   return ajv.compile(schema);
 }
 
+export async function createEcosystemStateValidator(root = ROOT) {
+  const ajv = buildAjv();
+  const schema = await loadSchema(root, 'ecosystem-state.schema.json');
+  return ajv.compile(schema);
+}
+
+export async function createProductStateValidator(root = ROOT) {
+  const ajv = buildAjv();
+  const schema = await loadSchema(root, 'product-state.schema.json');
+  return ajv.compile(schema);
+}
+
 export async function createProductProfileValidator(root = ROOT) {
   const ajv = buildAjv();
   const schema = await loadSchema(root, 'product-profile.schema.json');
   return ajv.compile(schema);
-}
-
-export async function createEcosystemStateValidator(root = ROOT) {
-  const ajv = buildAjv();
-  const csSchema = await loadSchema(root, 'current-state.schema.json');
-  const ajv2 = buildAjv();
-  ajv2.addSchema(csSchema);
-  const ecoSchema = await loadSchema(root, 'ecosystem-state.schema.json');
-  return ajv2.compile(csSchema);
 }
 
 function validateEvidenceSpans(entry) {
@@ -67,13 +70,29 @@ export function validateEntryData(data, ajvValidate) {
     }
   }
   errors.push(...validateEvidenceSpans(data));
+
+  // Programmatic check: approved_canon requires valid human approval
   if (data.authority_class === 'approved_canon') {
     if (!data.approval) {
       errors.push('approved_canon entry missing approval object');
-    } else if (data.approval.approved_by_type !== 'human') {
-      errors.push(`approved_canon approval must have approved_by_type "human", got: ${data.approval.approved_by_type}`);
+    } else {
+      if (data.approval.approved_by_type !== 'human') {
+        errors.push(`approved_canon approval must have approved_by_type "human", got: "${data.approval.approved_by_type}"`);
+      }
+      if (!data.approval.approved_by_name || data.approval.approved_by_name.trim() === '') {
+        errors.push('approved_canon approval must have a non-empty approved_by_name');
+      }
+      if (!data.approval.approved_at) {
+        errors.push('approved_canon approval must have approved_at timestamp');
+      }
     }
   }
+
+  // Programmatic check: product scope requires product_id
+  if (data.scope === 'product' && !data.product_id) {
+    errors.push('product-scoped entry must include product_id');
+  }
+
   return errors;
 }
 
@@ -92,23 +111,49 @@ async function loadEntriesFromDir(dir) {
   return results;
 }
 
+async function fileExists(filePath) {
+  try {
+    await stat(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export async function validateRecord(options = {}) {
   const { root = ROOT } = options;
   const errors = [];
-  const warnings = [];
 
   const entryValidator = await createEntryValidator(root);
-  const currentStateValidator = await createCurrentStateValidator(root);
-  const productProfileValidator = await createProductProfileValidator(root);
   const ecosystemStateValidator = await createEcosystemStateValidator(root);
+  const productStateValidator = await createProductStateValidator(root);
+  const productProfileValidator = await createProductProfileValidator(root);
 
   const allEntries = [];
+
+  // --- Ecosystem validation ---
+  const ecoStateFile = join(root, 'ecosystem', 'CURRENT_STATE.json');
+  if (!(await fileExists(ecoStateFile))) {
+    errors.push('Missing required file: ecosystem/CURRENT_STATE.json');
+  } else {
+    try {
+      const raw = await readFile(ecoStateFile, 'utf8');
+      const cs = JSON.parse(raw);
+      if (!ecosystemStateValidator(cs)) {
+        for (const e of ecosystemStateValidator.errors) {
+          errors.push(`Ecosystem CURRENT_STATE.json: ${e.instancePath || '(root)'} ${e.message}`);
+        }
+      }
+    } catch (e) {
+      errors.push(`Ecosystem CURRENT_STATE.json parse error: ${e.message}`);
+    }
+  }
 
   // Ecosystem entries
   const ecoEntries = await loadEntriesFromDir(join(root, 'ecosystem', 'entries'));
   allEntries.push(...ecoEntries);
 
-  // Product entries + product profiles + product current states
+  // --- Product validation ---
   let productNames = [];
   try {
     const items = await readdir(join(root, 'products'));
@@ -123,37 +168,48 @@ export async function validateRecord(options = {}) {
   for (const productId of productNames) {
     const productDir = join(root, 'products', productId);
 
+    // PRODUCT_PROFILE.json is required
+    const profilePath = join(productDir, 'PRODUCT_PROFILE.json');
+    if (!(await fileExists(profilePath))) {
+      errors.push(`Missing required file: products/${productId}/PRODUCT_PROFILE.json`);
+    } else {
+      try {
+        const raw = await readFile(profilePath, 'utf8');
+        const profile = JSON.parse(raw);
+        if (!productProfileValidator(profile)) {
+          for (const e of productProfileValidator.errors) {
+            errors.push(`Product ${productId} profile: ${e.instancePath || '(root)'} ${e.message}`);
+          }
+        }
+      } catch (e) {
+        errors.push(`Product ${productId} profile parse error: ${e.message}`);
+      }
+    }
+
+    // CURRENT_STATE.json is required with scope "product"
+    const csPath = join(productDir, 'CURRENT_STATE.json');
+    if (!(await fileExists(csPath))) {
+      errors.push(`Missing required file: products/${productId}/CURRENT_STATE.json`);
+    } else {
+      try {
+        const raw = await readFile(csPath, 'utf8');
+        const cs = JSON.parse(raw);
+        if (!productStateValidator(cs)) {
+          for (const e of productStateValidator.errors) {
+            errors.push(`Product ${productId} CURRENT_STATE.json: ${e.instancePath || '(root)'} ${e.message}`);
+          }
+        }
+      } catch (e) {
+        errors.push(`Product ${productId} CURRENT_STATE.json parse error: ${e.message}`);
+      }
+    }
+
+    // Product entries
     const productEntries = await loadEntriesFromDir(join(productDir, 'entries'));
     allEntries.push(...productEntries);
-
-    // Validate PRODUCT_PROFILE.json
-    try {
-      const raw = await readFile(join(productDir, 'PRODUCT_PROFILE.json'), 'utf8');
-      const profile = JSON.parse(raw);
-      if (!productProfileValidator(profile)) {
-        for (const e of productProfileValidator.errors) {
-          errors.push(`Product ${productId} profile: ${e.instancePath || '(root)'} ${e.message}`);
-        }
-      }
-    } catch (e) {
-      if (e.code !== 'ENOENT') errors.push(`Product ${productId}: cannot read PRODUCT_PROFILE.json: ${e.message}`);
-    }
-
-    // Validate product CURRENT_STATE.json
-    try {
-      const raw = await readFile(join(productDir, 'CURRENT_STATE.json'), 'utf8');
-      const cs = JSON.parse(raw);
-      if (!currentStateValidator(cs)) {
-        for (const e of currentStateValidator.errors) {
-          errors.push(`Product ${productId} current state: ${e.instancePath || '(root)'} ${e.message}`);
-        }
-      }
-    } catch (e) {
-      if (e.code !== 'ENOENT') errors.push(`Product ${productId}: cannot read CURRENT_STATE.json: ${e.message}`);
-    }
   }
 
-  // Validate each entry
+  // --- Entry validation ---
   const seenIds = new Map();
   for (const { path, data } of allEntries) {
     const entryErrors = validateEntryData(data, entryValidator);
@@ -168,28 +224,12 @@ export async function validateRecord(options = {}) {
     }
   }
 
-  // Validate ecosystem CURRENT_STATE.json
-  try {
-    const raw = await readFile(join(root, 'ecosystem', 'CURRENT_STATE.json'), 'utf8');
-    const cs = JSON.parse(raw);
-    if (!ecosystemStateValidator(cs)) {
-      for (const e of ecosystemStateValidator.errors) {
-        errors.push(`Ecosystem current state: ${e.instancePath || '(root)'} ${e.message}`);
-      }
-    }
-  } catch (e) {
-    if (e.code !== 'ENOENT') errors.push(`Cannot read ecosystem CURRENT_STATE.json: ${e.message}`);
-  }
-
-  return { ok: errors.length === 0, errors, warnings, entryCount: allEntries.length };
+  return { ok: errors.length === 0, errors, entryCount: allEntries.length };
 }
 
 const isMain = process.argv[1] === __filename;
 if (isMain) {
   validateRecord().then(result => {
-    if (result.warnings.length > 0) {
-      for (const w of result.warnings) console.warn('WARN:', w);
-    }
     if (result.ok) {
       console.log(`Validation passed. ${result.entryCount} entries checked.`);
       process.exit(0);

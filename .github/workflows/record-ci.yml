@@ -15,7 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # Fetch full history so immutability check can diff against base commit
           fetch-depth: 0
 
       - name: Set up Node.js
@@ -36,7 +35,33 @@ jobs:
       - name: Check supersession integrity
         run: npm run check:supersession
 
-      # Diff-aware immutability check — pull requests only
+      # Fail-closed immutability check on pull requests
       - name: Check entry immutability (PR only)
         if: github.event_name == 'pull_request'
         run: npm run check:immutability -- --base ${{ github.event.pull_request.base.sha }}
+
+      # Deterministic rebuild verification: regenerate all derived files and
+      # fail if committed versions differ from freshly generated output.
+      - name: Rebuild derived files
+        run: |
+          npm run build:state
+          npm run build:state -- --product chatvaultai
+          npm run generate:next-chat
+          npm run generate:next-chat -- --product chatvaultai
+
+      - name: Detect generated-file drift
+        run: |
+          if ! git diff --exit-code -- \
+            ecosystem/CURRENT_STATE.json \
+            ecosystem/CURRENT_STATE.md \
+            ecosystem/NEXT_CHAT_START.md \
+            products/*/CURRENT_STATE.json \
+            products/*/CURRENT_STATE.md \
+            products/*/NEXT_CHAT_START.md; then
+            echo ""
+            echo "ERROR: Committed derived files are stale or manually altered."
+            echo "Run 'npm run build:state' and 'npm run generate:next-chat' locally,"
+            echo "then commit the updated output."
+            exit 1
+          fi
+          echo "Generated files are up to date."

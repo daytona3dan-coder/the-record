@@ -41,7 +41,7 @@ export function checkSupersession(entries) {
   const errors = [];
   const idMap = new Map();
 
-  // Check for duplicate entry IDs
+  // Duplicate entry IDs
   for (const entry of entries) {
     if (!entry.entry_id) continue;
     if (idMap.has(entry.entry_id)) {
@@ -59,21 +59,31 @@ export function checkSupersession(entries) {
       errors.push(`Self-supersession: "${entry.entry_id}" lists itself in supersedes`);
     }
 
-    // Missing superseded entry IDs
     for (const targetId of entry.supersedes) {
       if (targetId === entry.entry_id) continue;
+
+      // Missing superseded entry
       if (!idMap.has(targetId)) {
         errors.push(`Entry "${entry.entry_id}" supersedes unknown entry: "${targetId}"`);
+        continue;
       }
-    }
 
-    // Incompatible scope references
-    for (const targetId of entry.supersedes) {
       const target = idMap.get(targetId);
-      if (target && target.scope !== entry.scope) {
+
+      // Incompatible scope
+      if (target.scope !== entry.scope) {
         errors.push(
           `Incompatible scope: "${entry.entry_id}" (${entry.scope}) cannot supersede "${targetId}" (${target.scope})`
         );
+      }
+
+      // Cross-product supersession: product entries must share the same product_id
+      if (entry.scope === 'product' && target.scope === 'product') {
+        if (entry.product_id && target.product_id && entry.product_id !== target.product_id) {
+          errors.push(
+            `Cross-product supersession: "${entry.entry_id}" (product: ${entry.product_id}) cannot supersede "${targetId}" (product: ${target.product_id})`
+          );
+        }
       }
     }
   }

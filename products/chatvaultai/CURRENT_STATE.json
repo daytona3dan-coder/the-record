@@ -1,11 +1,12 @@
 {
-  "schema_version": "1.0.0",
-  "generated_at": "2026-07-10T00:00:00.000Z",
-  "scope": "product",
-  "constitution_version": "1.0.0",
-  "approved_canon": [],
-  "working_context": [],
   "active_state": {},
+  "approved_canon": [],
+  "constitution_version": "1.0.0",
+  "generated_at": "1970-01-01T00:00:00.000Z",
+  "next_chat_contexts": [],
   "open_items": [],
-  "source_entry_ids": []
+  "schema_version": "1.0.0",
+  "scope": "product",
+  "source_entry_ids": [],
+  "working_context": []
 }

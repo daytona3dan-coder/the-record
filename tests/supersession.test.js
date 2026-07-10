@@ -17,80 +17,65 @@ async function loadFixture(dir, name) {
 test('valid single entry passes supersession check', async () => {
   const entry = await loadFixture(VALID_DIR, 'valid-record-entry.json');
   const result = checkSupersession([entry]);
-  assert.ok(result.ok, `Expected ok, got errors: ${result.errors.join(', ')}`);
-  assert.equal(result.errors.length, 0);
+  assert.ok(result.ok, `Expected ok, errors: ${result.errors.join(', ')}`);
 });
 
 test('empty entry list passes supersession check', () => {
   const result = checkSupersession([]);
   assert.ok(result.ok);
-  assert.equal(result.errors.length, 0);
 });
 
 test('detects duplicate entry IDs', async () => {
   const a = await loadFixture(INVALID_DIR, 'duplicate-entry-id-a.json');
   const b = await loadFixture(INVALID_DIR, 'duplicate-entry-id-b.json');
   const result = checkSupersession([a, b]);
-  assert.ok(!result.ok, 'Expected failure for duplicate entry IDs');
-  assert.ok(
-    result.errors.some(e => e.toLowerCase().includes('duplicate')),
-    `Expected "duplicate" in errors: ${result.errors.join(', ')}`
-  );
+  assert.ok(!result.ok);
+  assert.ok(result.errors.some(e => e.toLowerCase().includes('duplicate')));
 });
 
 test('detects supersession cycles', async () => {
   const a = await loadFixture(INVALID_DIR, 'supersession-cycle-a.json');
   const b = await loadFixture(INVALID_DIR, 'supersession-cycle-b.json');
   const result = checkSupersession([a, b]);
-  assert.ok(!result.ok, 'Expected failure for supersession cycle');
-  assert.ok(
-    result.errors.some(e => e.toLowerCase().includes('cycle')),
-    `Expected "cycle" in errors: ${result.errors.join(', ')}`
-  );
+  assert.ok(!result.ok);
+  assert.ok(result.errors.some(e => e.toLowerCase().includes('cycle')));
 });
 
 test('detects self-supersession', () => {
-  const entry = {
-    entry_id: 'ENTRY-SELF-001',
-    scope: 'ecosystem',
-    supersedes: ['ENTRY-SELF-001'],
-  };
+  const entry = { entry_id: 'ENTRY-SELF-001', scope: 'ecosystem', supersedes: ['ENTRY-SELF-001'] };
   const result = checkSupersession([entry]);
   assert.ok(!result.ok);
   assert.ok(result.errors.some(e => e.toLowerCase().includes('self')));
 });
 
 test('detects missing superseded entry ID', () => {
-  const entry = {
-    entry_id: 'ENTRY-MISSING-001',
-    scope: 'ecosystem',
-    supersedes: ['ENTRY-DOES-NOT-EXIST-999'],
-  };
+  const entry = { entry_id: 'ENTRY-MISSING-001', scope: 'ecosystem', supersedes: ['ENTRY-DOES-NOT-EXIST'] };
   const result = checkSupersession([entry]);
   assert.ok(!result.ok);
-  assert.ok(
-    result.errors.some(e => e.includes('ENTRY-DOES-NOT-EXIST-999')),
-    `Expected error mentioning missing ID: ${result.errors.join(', ')}`
-  );
+  assert.ok(result.errors.some(e => e.includes('ENTRY-DOES-NOT-EXIST')));
 });
 
 test('detects incompatible scope references', () => {
-  const ecoEntry = {
-    entry_id: 'ENTRY-ECO-SCOPE-001',
-    scope: 'ecosystem',
-    supersedes: [],
-  };
-  const productEntry = {
-    entry_id: 'ENTRY-PROD-SCOPE-001',
-    scope: 'product',
-    supersedes: ['ENTRY-ECO-SCOPE-001'],
-  };
-  const result = checkSupersession([ecoEntry, productEntry]);
+  const eco = { entry_id: 'ENTRY-ECO-S-001', scope: 'ecosystem', supersedes: [] };
+  const prod = { entry_id: 'ENTRY-PROD-S-001', scope: 'product', product_id: 'foo', supersedes: ['ENTRY-ECO-S-001'] };
+  const result = checkSupersession([eco, prod]);
   assert.ok(!result.ok);
-  assert.ok(
-    result.errors.some(e => e.toLowerCase().includes('scope') || e.toLowerCase().includes('incompatible')),
-    `Expected scope incompatibility error: ${result.errors.join(', ')}`
-  );
+  assert.ok(result.errors.some(e => e.toLowerCase().includes('scope') || e.toLowerCase().includes('incompatible')));
+});
+
+test('detects cross-product supersession', () => {
+  const a = { entry_id: 'ENTRY-PRODA-001', scope: 'product', product_id: 'alpha', supersedes: [] };
+  const b = { entry_id: 'ENTRY-PRODB-001', scope: 'product', product_id: 'beta', supersedes: ['ENTRY-PRODA-001'] };
+  const result = checkSupersession([a, b]);
+  assert.ok(!result.ok);
+  assert.ok(result.errors.some(e => e.toLowerCase().includes('cross-product')));
+});
+
+test('allows same-product supersession', () => {
+  const a = { entry_id: 'ENTRY-SAME-001', scope: 'product', product_id: 'alpha', supersedes: [] };
+  const b = { entry_id: 'ENTRY-SAME-002', scope: 'product', product_id: 'alpha', supersedes: ['ENTRY-SAME-001'] };
+  const result = checkSupersession([a, b]);
+  assert.ok(result.ok, `Expected ok, errors: ${result.errors.join(', ')}`);
 });
 
 test('derives superseded_by map correctly', () => {

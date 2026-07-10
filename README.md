@@ -82,7 +82,7 @@ npm run validate:record
 # Check supersession integrity
 npm run check:supersession
 
-# Check entry immutability against a base git ref
+# Check entry immutability against a base git ref (fail-closed: requires valid ref)
 npm run check:immutability -- --base <ref>
 
 # Build current state (ecosystem)
@@ -91,10 +91,10 @@ npm run build:state
 # Build current state (product)
 npm run build:state -- --product chatvaultai
 
-# Generate next-chat context (ecosystem)
+# Generate next-chat context (ecosystem, validates CURRENT_STATE.json first)
 npm run generate:next-chat
 
-# Generate next-chat context (product)
+# Generate next-chat context (product, validates CURRENT_STATE.json first)
 npm run generate:next-chat -- --product chatvaultai
 
 # Create a new product record
@@ -111,10 +111,12 @@ CI runs on pull requests and pushes to `main` (see `.github/workflows/record-ci.
 2. `npm test` — run the full test suite
 3. `npm run validate:record` — validate all schemas, entries, and state files
 4. `npm run check:supersession` — validate supersession graph integrity
+5. Rebuild all derived files (`CURRENT_STATE.json`, `CURRENT_STATE.md`, `NEXT_CHAT_START.md`)
+6. Detect generated-file drift — fail if committed derived files are stale or manually altered
 
-On pull requests, CI additionally runs the diff-aware immutability check against the PR base commit. This fails the build if any merged entry file was modified, deleted, or renamed.
+On pull requests, CI additionally runs the fail-closed immutability check against the PR base commit. This fails the build if any merged entry file was modified, deleted, or renamed. **Missing or invalid base references also fail** (fail-closed design).
 
-Branch protection must be configured separately in GitHub repository settings after the workflow exists.
+Branch protection must be configured separately in GitHub repository settings after the workflow exists (see "Required GitHub Branch Protection Settings" below).
 
 ---
 
@@ -139,3 +141,54 @@ Existing `DECISIONS.md` and `STATE.md` content from other repositories or docume
 ## Bolt's Role
 
 Bolt is a proposer, not an approver. Bolt may author Record Entries with authority class `working_context` or `derived_summary`. Bolt may never satisfy the `approved_by_type: "human"` requirement. Every Approved Canon entry requires a human approval act recorded in its `approval` object.
+
+---
+
+## Required GitHub Branch Protection Settings
+
+After the CI workflow exists and tests pass, configure the following branch protection rules on `main` in GitHub repository settings. These must be configured by a repository administrator (Dan).
+
+### Branch protection for `main`:
+
+| Setting | Value | Rationale |
+|---------|-------|-----------|
+| Require pull request reviews before merging | Enabled | No direct pushes to main |
+| Required number of approvals | 1 (Dan) | Constitution principle 3: nothing becomes canon automatically |
+| Dismiss stale pull request approvals | Enabled | Re-review required after changes |
+| Require review from code owners | Enabled (if CODEOWNERS configured) | Ensures Dan reviews governance changes |
+| Require status checks to pass before merging | Enabled | CI must pass |
+| Required status checks | `Validate Record` job | Ensures schemas, tests, supersession, and immutability checks pass |
+| Require branches to be up to date before merging | Enabled | Prevents stale-branch merge conflicts |
+| Include administrators | Enabled | Even admins must follow the process |
+| Restrict who can push to matching branches | Only Dan's account | No automated merge tools |
+| Allow force pushes | Disabled | Immutability guarantee |
+| Allow deletions | Disabled | Immutability guarantee |
+
+### CODEOWNERS (optional, recommended):
+
+Create `.github/CODEOWNERS`:
+```
+* @daytona3dan-coder
+```
+
+This ensures Dan is automatically requested as a reviewer on every PR. Combined with "Require review from code owners", it prevents bypassing approval.
+
+### Why these settings matter:
+
+- **Constitution Principle 3**: Nothing becomes Approved Canon automatically. Branch protection ensures every merge is a deliberate human action.
+- **Constitution Principle 4**: AI systems cannot approve. Branch protection restricts approval to human GitHub accounts.
+- **Constitution Principle 6**: Entries are immutable after merge. Force-push and deletion protections enforce this at the repository level.
+- **CI immutability check**: The diff-aware `check-entry-immutability.js` enforces immutability at the file level within PRs.
+
+---
+
+## Deterministic Output Guarantee
+
+All derived files (`CURRENT_STATE.json`, `CURRENT_STATE.md`, `NEXT_CHAT_START.md`) are generated deterministically:
+
+- `generated_at` is derived from the maximum `created_at` timestamp of active entries (epoch `1970-01-01T00:00:00.000Z` when no entries exist)
+- JSON keys are sorted alphabetically at every depth
+- Arrays maintain stable ordering (by entry_id or insertion order from sorted filenames)
+- No wall-clock time, randomness, or environment-dependent values
+
+CI verifies this: it regenerates all derived files and fails if committed versions differ.

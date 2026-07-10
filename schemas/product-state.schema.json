@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://the-record/schemas/ecosystem-state.schema.json",
-  "title": "Ecosystem State",
-  "description": "Current state snapshot for the ecosystem scope. Requires scope to be 'ecosystem'.",
+  "$id": "https://the-record/schemas/product-state.schema.json",
+  "title": "Product State",
+  "description": "Current state snapshot for a product scope. Requires scope to be 'product'.",
   "type": "object",
   "required": [
     "schema_version",
@@ -19,7 +19,7 @@
   "properties": {
     "schema_version": { "type": "string" },
     "generated_at": { "type": "string", "format": "date-time" },
-    "scope": { "type": "string", "const": "ecosystem" },
+    "scope": { "type": "string", "const": "product" },
     "constitution_version": { "type": "string" },
     "approved_canon": {
       "type": "array",

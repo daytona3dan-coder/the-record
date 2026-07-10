@@ -13,29 +13,26 @@
     "working_context",
     "active_state",
     "open_items",
-    "source_entry_ids"
+    "source_entry_ids",
+    "next_chat_contexts"
   ],
   "properties": {
     "schema_version": {
-      "type": "string",
-      "description": "Semantic version of the current-state schema."
+      "type": "string"
     },
     "generated_at": {
       "type": "string",
-      "description": "ISO 8601 timestamp when this state was generated."
+      "format": "date-time"
     },
     "scope": {
       "type": "string",
-      "enum": ["ecosystem", "product", "workstream"],
-      "description": "Scope this state snapshot covers."
+      "enum": ["ecosystem", "product", "workstream"]
     },
     "constitution_version": {
-      "type": "string",
-      "description": "Version of the Constitution in effect when this state was generated."
+      "type": "string"
     },
     "approved_canon": {
       "type": "array",
-      "description": "Active Approved Canon entries, ordered by entry_id.",
       "items": {
         "type": "object",
         "required": ["entry_id", "summary"],
@@ -46,34 +43,45 @@
             "type": "array",
             "items": { "type": "string" }
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "working_context": {
       "type": "array",
-      "description": "Active Working Context entries, ordered by entry_id.",
       "items": {
         "type": "object",
         "required": ["entry_id", "summary"],
         "properties": {
           "entry_id": { "type": "string" },
           "summary": { "type": "string" }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "active_state": {
-      "type": "object",
-      "description": "Merged key-value state from all active entries."
+      "type": "object"
     },
     "open_items": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "Aggregated open items from all active entries."
+      "items": { "type": "string" }
     },
     "source_entry_ids": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "IDs of the active (non-superseded) entries that produced this state."
+      "items": { "type": "string" }
+    },
+    "next_chat_contexts": {
+      "type": "array",
+      "description": "Preserved next_chat_starting_context values from active entries.",
+      "items": {
+        "type": "object",
+        "required": ["entry_id", "context"],
+        "properties": {
+          "entry_id": { "type": "string" },
+          "context": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
     }
   },
   "additionalProperties": false

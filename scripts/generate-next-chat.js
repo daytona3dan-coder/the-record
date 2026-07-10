@@ -1,17 +1,13 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createCurrentStateValidator, createEcosystemStateValidator, createProductStateValidator } from './validate-record.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 
-export function generateNextChatFromState(state) {
-  const scopeLabel =
-    state.scope === 'ecosystem'
-      ? 'Ecosystem'
-      : state.scope === 'product'
-      ? `Product`
-      : state.scope;
+export function generateNextChatFromState(state, label) {
+  const scopeLabel = label || (state.scope === 'ecosystem' ? 'Ecosystem' : 'Product');
 
   const lines = [
     `# Next Chat Start — ${scopeLabel}`,
@@ -63,7 +59,7 @@ export function generateNextChatFromState(state) {
   }
 
   lines.push('', '---', '', '## Active State', '');
-  const stateKeys = Object.keys(state.active_state);
+  const stateKeys = Object.keys(state.active_state).sort();
   if (stateKeys.length === 0) {
     lines.push('_No active state recorded._');
   } else {
@@ -78,6 +74,15 @@ export function generateNextChatFromState(state) {
   } else {
     for (const item of state.open_items) {
       lines.push(`- ${item}`);
+    }
+  }
+
+  // Include preserved next_chat_starting_context from entries
+  if (state.next_chat_contexts && state.next_chat_contexts.length > 0) {
+    lines.push('', '---', '', '## Carried Context', '');
+    for (const ctx of state.next_chat_contexts) {
+      lines.push(`### From ${ctx.entry_id}`, '');
+      lines.push(ctx.context, '');
     }
   }
 
@@ -97,21 +102,39 @@ export function generateNextChatFromState(state) {
 export async function generateNextChat(options = {}) {
   const { scope = 'ecosystem', productId = null, root = ROOT } = options;
 
-  let stateFile, outputFile;
+  let stateFile, outputFile, label;
   if (scope === 'ecosystem') {
     stateFile = join(root, 'ecosystem', 'CURRENT_STATE.json');
     outputFile = join(root, 'ecosystem', 'NEXT_CHAT_START.md');
+    label = 'Ecosystem';
   } else if (scope === 'product' && productId) {
     stateFile = join(root, 'products', productId, 'CURRENT_STATE.json');
     outputFile = join(root, 'products', productId, 'NEXT_CHAT_START.md');
+    label = productId;
   } else {
     throw new Error('scope must be "ecosystem" or "product" with a productId');
   }
 
+  // Read state
   const raw = await readFile(stateFile, 'utf8');
   const state = JSON.parse(raw);
-  const md = generateNextChatFromState(state);
 
+  // Validate state BEFORE producing output (fail closed)
+  let validator;
+  if (scope === 'ecosystem') {
+    validator = await createEcosystemStateValidator(root);
+  } else {
+    validator = await createProductStateValidator(root);
+  }
+
+  if (!validator(state)) {
+    const msgs = validator.errors.map(e => `${e.instancePath || '(root)'} ${e.message}`);
+    throw new Error(
+      `CURRENT_STATE.json failed validation — refusing to generate NEXT_CHAT_START.md:\n  ${msgs.join('\n  ')}`
+    );
+  }
+
+  const md = generateNextChatFromState(state, label);
   await writeFile(outputFile, md, 'utf8');
   return md;
 }
@@ -124,8 +147,8 @@ if (isMain) {
   const scope = productId ? 'product' : 'ecosystem';
 
   generateNextChat({ scope, productId }).then(() => {
-    const label = productId ? `product: ${productId}` : 'ecosystem';
-    console.log(`NEXT_CHAT_START.md generated for ${label}.`);
+    const lbl = productId ? `product: ${productId}` : 'ecosystem';
+    console.log(`NEXT_CHAT_START.md generated for ${lbl}.`);
     process.exit(0);
   }).catch(e => {
     console.error('Error generating next-chat context:', e.message);

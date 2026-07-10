@@ -2,9 +2,18 @@ import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { checkSupersession } from './check-supersession.js';
+import { createEntryValidator, validateEntryData } from './validate-record.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
+
+// Authority precedence: higher index wins in active_state conflicts
+const AUTHORITY_RANK = {
+  working_context: 0,
+  derived_summary: 1,
+  source_evidence: 2,
+  approved_canon: 3,
+};
 
 function sortObject(value) {
   if (Array.isArray(value)) return value.map(sortObject);
@@ -18,6 +27,15 @@ function sortObject(value) {
   return value;
 }
 
+function deriveTimestamp(entries) {
+  if (entries.length === 0) return '1970-01-01T00:00:00.000Z';
+  let max = entries[0].created_at;
+  for (const e of entries) {
+    if (e.created_at > max) max = e.created_at;
+  }
+  return max;
+}
+
 async function loadEntriesFromDir(dir) {
   const entries = [];
   try {
@@ -25,7 +43,7 @@ async function loadEntriesFromDir(dir) {
     for (const file of files) {
       if (extname(file) !== '.json') continue;
       const raw = await readFile(join(dir, file), 'utf8');
-      entries.push(JSON.parse(raw));
+      entries.push({ path: join(dir, file), data: JSON.parse(raw) });
     }
   } catch (e) {
     if (e.code !== 'ENOENT') throw e;
@@ -33,7 +51,7 @@ async function loadEntriesFromDir(dir) {
   return entries;
 }
 
-export function buildStateFromEntries(entries) {
+export function buildStateFromEntries(entries, scope) {
   const supersessionResult = checkSupersession(entries);
   if (!supersessionResult.ok) {
     throw new Error(
@@ -44,6 +62,7 @@ export function buildStateFromEntries(entries) {
   const { supersededBy } = supersessionResult;
   const activeEntries = entries.filter(e => !supersededBy.has(e.entry_id));
 
+  // Separate by authority class
   const approvedCanon = activeEntries
     .filter(e => e.authority_class === 'approved_canon')
     .map(e => sortObject({ decisions: e.decisions || [], entry_id: e.entry_id, summary: e.summary }));
@@ -52,29 +71,44 @@ export function buildStateFromEntries(entries) {
     .filter(e => ['working_context', 'derived_summary', 'source_evidence'].includes(e.authority_class))
     .map(e => sortObject({ entry_id: e.entry_id, summary: e.summary }));
 
-  const activeState = activeEntries.reduce(
-    (acc, e) => Object.assign(acc, e.active_state || {}),
-    {}
-  );
+  // Authority-aware active_state merge: lower rank applied first, higher rank overwrites
+  const rankedEntries = [...activeEntries]
+    .filter(e => e.authority_class !== 'superseded')
+    .sort((a, b) => (AUTHORITY_RANK[a.authority_class] ?? -1) - (AUTHORITY_RANK[b.authority_class] ?? -1));
+
+  const activeState = {};
+  for (const entry of rankedEntries) {
+    if (entry.active_state && typeof entry.active_state === 'object') {
+      Object.assign(activeState, entry.active_state);
+    }
+  }
 
   const openItems = activeEntries.flatMap(e => e.open_items || []);
-  const sourceEntryIds = activeEntries.map(e => e.entry_id).filter(Boolean);
+  const sourceEntryIds = activeEntries.map(e => e.entry_id).filter(Boolean).sort();
+
+  // Preserve next_chat_starting_context from active entries
+  const nextChatContexts = activeEntries
+    .filter(e => e.next_chat_starting_context)
+    .map(e => ({ context: e.next_chat_starting_context, entry_id: e.entry_id }))
+    .sort((a, b) => a.entry_id.localeCompare(b.entry_id));
+
+  const generatedAt = deriveTimestamp(activeEntries.length > 0 ? activeEntries : entries);
 
   return sortObject({
     active_state: activeState,
     approved_canon: approvedCanon,
     constitution_version: '1.0.0',
-    generated_at: new Date().toISOString(),
+    generated_at: generatedAt,
+    next_chat_contexts: nextChatContexts,
     open_items: openItems,
     schema_version: '1.0.0',
-    scope: activeEntries[0]?.scope ?? 'ecosystem',
+    scope,
     source_entry_ids: sourceEntryIds,
     working_context: workingContext,
   });
 }
 
-function renderCurrentStateMd(state) {
-  const label = state.scope === 'ecosystem' ? 'Ecosystem' : state.scope;
+function renderCurrentStateMd(state, label) {
   const lines = [
     `# Current State — ${label}`,
     '',
@@ -103,7 +137,7 @@ function renderCurrentStateMd(state) {
   }
 
   lines.push('', '## Active State');
-  const stateKeys = Object.keys(state.active_state);
+  const stateKeys = Object.keys(state.active_state).sort();
   if (stateKeys.length === 0) {
     lines.push('_No active state._');
   } else {
@@ -137,29 +171,49 @@ function renderCurrentStateMd(state) {
 export async function buildCurrentState(options = {}) {
   const { scope = 'ecosystem', productId = null, root = ROOT } = options;
 
-  let entriesDir, outputDir;
+  let entriesDir, outputDir, label;
   if (scope === 'ecosystem') {
     entriesDir = join(root, 'ecosystem', 'entries');
     outputDir = join(root, 'ecosystem');
+    label = 'Ecosystem';
   } else if (scope === 'product' && productId) {
     entriesDir = join(root, 'products', productId, 'entries');
     outputDir = join(root, 'products', productId);
+    label = productId;
   } else {
     throw new Error('scope must be "ecosystem" or "product" with a productId');
   }
 
-  const entries = await loadEntriesFromDir(entriesDir);
-  const state = buildStateFromEntries(entries);
+  // Load and validate entries
+  const rawEntries = await loadEntriesFromDir(entriesDir);
+  const entryValidator = await createEntryValidator(root);
+  const validEntries = [];
 
-  // Override scope to correct value when entries dir is empty
-  if (scope === 'ecosystem') state.scope = 'ecosystem';
+  for (const { path, data } of rawEntries) {
+    const errors = validateEntryData(data, entryValidator);
+    if (errors.length > 0) {
+      throw new Error(
+        `Entry ${path} failed validation (cannot build state from invalid entries):\n  ${errors.join('\n  ')}`
+      );
+    }
+    // Reject approved_canon without valid human approval
+    if (data.authority_class === 'approved_canon') {
+      if (!data.approval || data.approval.approved_by_type !== 'human') {
+        throw new Error(
+          `Entry ${path}: approved_canon without valid recorded human approval cannot enter derived state.`
+        );
+      }
+    }
+    validEntries.push(data);
+  }
 
-  await writeFile(
-    join(outputDir, 'CURRENT_STATE.json'),
-    JSON.stringify(state, null, 2) + '\n',
-    'utf8'
-  );
-  await writeFile(join(outputDir, 'CURRENT_STATE.md'), renderCurrentStateMd(state), 'utf8');
+  const state = buildStateFromEntries(validEntries, scope);
+
+  const jsonOutput = JSON.stringify(state, null, 2) + '\n';
+  const mdOutput = renderCurrentStateMd(state, label);
+
+  await writeFile(join(outputDir, 'CURRENT_STATE.json'), jsonOutput, 'utf8');
+  await writeFile(join(outputDir, 'CURRENT_STATE.md'), mdOutput, 'utf8');
 
   return state;
 }
@@ -172,8 +226,8 @@ if (isMain) {
   const scope = productId ? 'product' : 'ecosystem';
 
   buildCurrentState({ scope, productId }).then(() => {
-    const label = productId ? `product: ${productId}` : 'ecosystem';
-    console.log(`Current state built for ${label}.`);
+    const lbl = productId ? `product: ${productId}` : 'ecosystem';
+    console.log(`Current state built for ${lbl}.`);
     process.exit(0);
   }).catch(e => {
     console.error('Error building current state:', e.message);

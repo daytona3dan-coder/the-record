@@ -36,22 +36,26 @@ test('rejects non-json in entries dir', () => {
   assert.ok(!isEntryPath('ecosystem/entries/.gitkeep'));
 });
 
-// --- checkImmutability ---
+// --- checkImmutability fail-closed behavior ---
 
-test('skips check when no base ref is provided', async () => {
+test('FAILS CLOSED when no base ref is provided (undefined)', async () => {
   const result = await checkImmutability(undefined);
-  assert.ok(result.skipped);
-  assert.ok(result.ok);
+  assert.ok(!result.ok, 'Missing base ref must fail closed');
+  assert.ok(result.errors.some(e => e.includes('No base ref')));
 });
 
-test('skips check when empty string base ref is provided', async () => {
+test('FAILS CLOSED when base ref is empty string', async () => {
   const result = await checkImmutability('');
-  assert.ok(result.skipped);
-  assert.ok(result.ok);
+  assert.ok(!result.ok, 'Empty base ref must fail closed');
 });
 
-test('returns ok:true and skipped:true when git is unavailable or ref is bad', async () => {
-  const result = await checkImmutability('sha-that-does-not-exist-000000000000000000000');
-  // Either skipped (no git repo) or the git call fails gracefully
-  assert.ok(result.ok, `Expected ok but got errors: ${result.errors?.join(', ')}`);
+test('FAILS CLOSED when base ref is whitespace only', async () => {
+  const result = await checkImmutability('   ');
+  assert.ok(!result.ok, 'Whitespace base ref must fail closed');
+});
+
+test('FAILS CLOSED when git repo is inaccessible or ref is invalid', async () => {
+  const result = await checkImmutability('nonexistent-ref-000000');
+  assert.ok(!result.ok, 'Invalid ref must fail closed');
+  assert.ok(result.errors.some(e => e.includes('Git error')));
 });
