@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-017",
+  "created_at": "2026-07-10T23:12:52.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "Foundation maintenance is complete. The collision guard is enforced, stale manual CI work is closed, and the private-Free branch-protection limitation is governed procedurally. TR-001 Resolve Relative Date is the next substantive target.",
+  "decisions": [],
+  "completed_work": [
+    "Completed the inaugural migration and Foundation reconciliation.",
+    "Added fail-closed same-authority active_state collision enforcement.",
+    "Closed the stale manual-CI enhancement without merge.",
+    "Recorded the private GitHub Free procedural-governance model in ENTRY-ECO-016."
+  ],
+  "active_state": {
+    "foundation_maintenance_status": "complete",
+    "next_substantive_target": "TR-001-Resolve-Relative-Date"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-015"
+  ],
+  "evidence": [],
+  "next_chat_starting_context": "Foundation maintenance is complete. Begin the TR-001 Resolve Relative Date vertical slice: contract, registry entry, deterministic execution, append-only execution ledger, invariant checks, replay, and internal conformance fixtures. Keep The Record separate from the execution ledger and preserve Dan's approval authority."
+}
