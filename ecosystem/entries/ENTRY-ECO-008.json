@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-008",
+  "created_at": "2026-07-10T18:42:01.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "The duplicate historical foundation-adoption draft has been disposed of by ENTRY-ECO-007. The selective migration now has three approved rulings or dispositions and three genuinely unresolved decisions.",
+  "decisions": [],
+  "completed_work": [
+    "Dan explicitly ruled that ENTRY-ECO-001 and Constitution v1.0.0 are sufficient foundation-adoption canon.",
+    "Removed the duplicate historical foundation entry from the migration queue while preserving its four conditions as implementation and review history."
+  ],
+  "active_state": {
+    "migration_items_remaining": 3,
+    "migration_rulings_approved": 3,
+    "standing_rulings_migration_status": "three-approved-three-open-decisions"
+  },
+  "open_items": [
+    "Resolve the ChatVaultAI Markdown Sidecar format through an explicit human decision.",
+    "Recover or define the benchmark identity fork, then record Dan's explicit ruling.",
+    "Recover or define TR-000 and rule on its registration.",
+    "Attach the original taxonomy-session artifact and exact spans when available.",
+    "Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-006"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:cdf1a3ae34bbe4a6ca53054e16dc47124e79726790787dd6686ee0e790a1f0dd",
+      "description": "User-supplied archive of six AI-authored draft migration entries; proposal material only and not approval evidence."
+    }
+  ],
+  "next_chat_starting_context": "Three migration decisions remain. First rule on ChatVaultAI Markdown Sidecar format. Then recover or define the benchmark identity fork and TR-000 registration before ruling. Do not promote Claude's open-item drafts as completed decisions."
+}
