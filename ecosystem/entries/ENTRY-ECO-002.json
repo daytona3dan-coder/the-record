@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-002",
+  "created_at": "2026-07-10T17:33:27.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "A migration audit found four candidate named rulings in continuity context, but no authoritative source for a six-ruling list. Three supplied ChatVault captures document The Record's foundation process and do not contain that list. Migration is blocked against invention until the governing source is supplied or Dan corrects the expected count.",
+  "decisions": [],
+  "completed_work": [
+    "Recovered RECORD-1 — Establish The Record: every completed chat produces a governed Record Entry and future chats begin from the latest approved Record State.",
+    "Recovered RECORD-2 — ChatVaultAI Is Built: ChatVaultAI Desktop is a built product and must not be treated as unbuilt.",
+    "Recovered RECORD-3 — Extension Status Must Remain Precise: Chrome Helper 2.3.32 is packaged and verified; store submission remains paused until the Export Both workflow is fixed.",
+    "Recovered RECORD-4 — C-47B Scope Is Limited: C-47B is limited to the helper usability fix.",
+    "Searched available continuity context for an authoritative six-item list and for RECORD-5 and RECORD-6; none was found.",
+    "Audited three supplied ChatVault captures covering foundation bootstrapping, control architecture, and independent branch review; none contains an authoritative six-ruling list.",
+    "Confirmed all three captures are marked captured_not_reviewed and once_snapshot_visible_only, so they are source artifacts rather than approved truth."
+  ],
+  "active_state": {
+    "standing_rulings_expected": 6,
+    "standing_rulings_migration_status": "blocked-source-required",
+    "standing_rulings_verified": 4
+  },
+  "open_items": [
+    "Locate the source containing RECORD-5 and RECORD-6, if those rulings exist.",
+    "If no such source exists, Dan must explicitly correct the expected ruling count from six to four through a new Approved Canon entry.",
+    "Do not promote RECORD-1 through RECORD-4 until their source artifacts and approval provenance are attached.",
+    "Do not treat the three foundation-process captures as approval evidence for the standing ecosystem rulings."
+  ],
+  "supersedes": [],
+  "evidence": [
+    {
+      "artifact": "sha256:64bb79893a32f43d3ded7fc11618076065bbb5fd8a6a62046289e1447a74988e",
+      "description": "ChatVault JSON capture the-record1; foundation bootstrap/build prompt; capture state captured_not_reviewed with once_snapshot_visible_only warning.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 0,
+          "end": 6
+        }
+      ]
+    },
+    {
+      "artifact": "sha256:2d57bee93f605af77b0e35ddc9275037cd89b0be0c10a3fe75fc329672f37467",
+      "description": "ChatVault JSON capture the-record2; control-architecture discussion and review handoff; capture state captured_not_reviewed with once_snapshot_visible_only warning.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 0,
+          "end": 5
+        }
+      ]
+    },
+    {
+      "artifact": "sha256:0eb8b45bde97294c8a03e0ce4c0fa6c715a944e60a732c73d36acd94b944289f",
+      "description": "ChatVault JSON capture the-record3; independent-review recovery and v2 branch instructions; capture state captured_not_reviewed with once_snapshot_visible_only warning.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 0,
+          "end": 7
+        }
+      ]
+    }
+  ],
+  "next_chat_starting_context": "The standing-rulings migration is blocked against invention. Four candidates are known only from continuity context: RECORD-1 Establish The Record; RECORD-2 ChatVaultAI Is Built; RECORD-3 Extension Status Must Remain Precise; RECORD-4 C-47B Scope Is Limited. The three supplied foundation-process captures do not establish a six-ruling list and are marked captured_not_reviewed. Obtain the governing source or Dan's explicit correction of the expected count before promoting any ruling."
+}
