@@ -81,6 +81,50 @@ test('approved_canon with empty approved_by_name fails', async () => {
   assert.ok(errors.length > 0, 'Empty approved_by_name should fail');
 });
 
+test('approved_canon with complete human approval (name and account) passes', async () => {
+  const validate = await createEntryValidator(ROOT);
+  const base = await loadFixture(VALID_DIR, 'valid-record-entry.json');
+  const data = {
+    ...base,
+    entry_id: 'ENTRY-TEST-AC-004',
+    authority_class: 'approved_canon',
+    approval: {
+      approved_by_type: 'human',
+      approved_by_name: 'Dan',
+      approved_by_account: 'daytona3dan-coder',
+      approved_at: '2026-07-10T00:00:00.000Z',
+    },
+  };
+  const errors = validateEntryData(data, validate);
+  assert.deepEqual(errors, [], `Expected no errors, got: ${JSON.stringify(errors)}`);
+});
+
+test('approved_canon missing approved_by_account fails (Constitution principle 5)', async () => {
+  const validate = await createEntryValidator(ROOT);
+  const data = await loadFixture(INVALID_DIR, 'missing-approval-account.json');
+  const errors = validateEntryData(data, validate);
+  assert.ok(errors.length > 0, 'Missing approved_by_account must fail');
+  assert.ok(errors.some(e => e.includes('approved_by_account')));
+});
+
+test('approved_canon with empty approved_by_account fails', async () => {
+  const validate = await createEntryValidator(ROOT);
+  const base = await loadFixture(VALID_DIR, 'valid-record-entry.json');
+  const data = {
+    ...base,
+    entry_id: 'ENTRY-TEST-AC-005',
+    authority_class: 'approved_canon',
+    approval: {
+      approved_by_type: 'human',
+      approved_by_name: 'Dan',
+      approved_by_account: '   ',
+      approved_at: '2026-07-10T00:00:00.000Z',
+    },
+  };
+  const errors = validateEntryData(data, validate);
+  assert.ok(errors.length > 0, 'Whitespace-only approved_by_account must fail');
+});
+
 test('span with end < start fails validation', async () => {
   const validate = await createEntryValidator(ROOT);
   const base = await loadFixture(VALID_DIR, 'valid-record-entry.json');

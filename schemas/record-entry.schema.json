@@ -136,7 +136,7 @@
     },
     "approval": {
       "type": "object",
-      "required": ["approved_by_type", "approved_by_name", "approved_at"],
+      "required": ["approved_by_type", "approved_by_name", "approved_by_account", "approved_at"],
       "properties": {
         "approved_by_type": {
           "type": "string",
@@ -147,7 +147,8 @@
           "minLength": 1
         },
         "approved_by_account": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "approved_at": {
           "type": "string",

@@ -39,7 +39,7 @@ The Record does not connect to, read from, or modify any product repository. Pro
 | `approved_canon` | Explicitly human-approved governing record |
 | `superseded` | Formerly active entry, preserved but excluded from current state |
 
-**Approved Canon** requires an `approval` object with `approved_by_type: "human"`. AI actors may not satisfy this requirement.
+**Approved Canon** requires an `approval` object with `approved_by_type: "human"`, a non-empty `approved_by_name`, and a non-empty `approved_by_account` identifying the individual human (Constitution principle 5). AI actors may not satisfy this requirement.
 
 ---
 
@@ -165,6 +165,10 @@ APPROVE is not an AI verdict. AI systems must never use the word APPROVE as a ve
 
 An AI verdict of RECOMMEND is a non-binding assessment. It does not constitute approval and does not authorize any merge action.
 
+### Inventory Verification
+
+File counts, changed-path counts, and content inventories reported by an AI builder or reviewer are claims, not evidence. Per Constitution principle 9, git evidence outranks AI confidence: any inventory claim must be verified against `git diff --stat`, the GitHub changed-files view, or a direct file-system count of the actual artifact before it is relied upon in a review or recorded in an entry. A discrepancy between a builder's reported inventory and git's reported inventory is resolved in git's favor and noted in the review.
+
 ---
 
 ## Required GitHub Branch Protection Settings
@@ -175,10 +179,10 @@ After the CI workflow exists and tests pass, configure the following branch prot
 
 | Setting | Value | Rationale |
 |---------|-------|-----------|
-| Require pull request reviews before merging | Enabled | No direct pushes to main |
-| Required number of approvals | 1 (Dan) | Constitution principle 3: nothing becomes canon automatically |
-| Dismiss stale pull request approvals | Enabled | Re-review required after changes |
-| Require review from code owners | Enabled (if CODEOWNERS configured) | Ensures Dan reviews governance changes |
+| Require a pull request before merging | Enabled | No direct pushes to main |
+| Required number of approving reviews | 0 in the current single-account setup | GitHub does not allow a pull-request author to approve their own pull request; Dan's deliberate merge is the human approval act |
+| Dismiss stale pull request approvals | Enable only after a separate authorized reviewer account exists | Re-review is meaningful only when author and reviewer are different accounts |
+| Require review from code owners | Disable in the current single-account setup | Requiring Dan to review a pull request authored by Dan would deadlock the merge |
 | Require status checks to pass before merging | Enabled | CI must pass |
 | Required status checks | `Validate Record` job | Ensures schemas, tests, supersession, and immutability checks pass |
 | Require branches to be up to date before merging | Enabled | Prevents stale-branch merge conflicts |
@@ -187,14 +191,18 @@ After the CI workflow exists and tests pass, configure the following branch prot
 | Allow force pushes | Disabled | Immutability guarantee |
 | Allow deletions | Disabled | Immutability guarantee |
 
-### CODEOWNERS (optional, recommended):
+### CODEOWNERS (future multi-account configuration):
 
 Create `.github/CODEOWNERS`:
 ```
 * @daytona3dan-coder
 ```
 
-This ensures Dan is automatically requested as a reviewer on every PR. Combined with "Require review from code owners", it prevents bypassing approval.
+Enable this only when pull requests are authored through a separate authorized human or service account. GitHub does not permit pull-request authors to approve their own pull requests. In the current single-account configuration, Dan's deliberate merge after successful CI and recorded independent review is the approval act.
+
+### Enforcement caveat — repository visibility:
+
+GitHub documents protected branches as available for public repositories on GitHub Free and for public or private repositories on GitHub Pro, Team, and Enterprise plans. Before relying on these settings for this private repository, verify that the account plan supports enforcement. Do not make the repository public automatically; visibility or plan changes belong to Dan.
 
 ### Why these settings matter:
 

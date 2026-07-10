@@ -1,2 +1,22 @@
-node_modules
+node_modules/
+
+# Local environment files
 .env
+.env.*
+!.env.example
+
+# Logs and test coverage
+*.log
+npm-debug.log*
+coverage/
+.nyc_output/
+
+# Tool and editor caches
+.cache/
+.eslintcache
+.vscode/
+.idea/
+
+# Operating-system files
+.DS_Store
+Thumbs.db

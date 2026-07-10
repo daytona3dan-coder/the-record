@@ -82,6 +82,11 @@ export function validateEntryData(data, ajvValidate) {
       if (!data.approval.approved_by_name || data.approval.approved_by_name.trim() === '') {
         errors.push('approved_canon approval must have a non-empty approved_by_name');
       }
+      // Constitution principle 5: approval identifies the individual human by
+      // name AND account, not a team name, brand, or AI persona.
+      if (!data.approval.approved_by_account || data.approval.approved_by_account.trim() === '') {
+        errors.push('approved_canon approval must have a non-empty approved_by_account (Constitution principle 5)');
+      }
       if (!data.approval.approved_at) {
         errors.push('approved_canon approval must have approved_at timestamp');
       }
