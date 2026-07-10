@@ -8,7 +8,7 @@
 
 **Constitution version:** 1.0.0
 **Generated from:** `CURRENT_STATE.json` (scope: ecosystem)
-**Generated at:** 2026-07-10T18:54:59.000Z
+**Generated at:** 2026-07-10T19:21:41.000Z
 
 ---
 
@@ -52,6 +52,18 @@ Dan ruled that ENTRY-ECO-001 and Constitution v1.0.0 already govern The Record P
 - Where the historical draft conflicts with current Git evidence or existing Approved Canon, including its old branch, commit, review, and awaiting-approval status, current Git evidence and existing Approved Canon control.
 - Branch-protection configuration remains a separate operational open item.
 
+### ENTRY-ECO-010
+
+Dan resolved the FieldMouth benchmark identity fork as an internal conformance suite first, with later public vendor-neutral promotion requiring an explicit decision and defined readiness conditions.
+
+**Decisions:**
+- The FieldMouth transformation benchmark begins as an internal conformance suite.
+- The internal suite may use ChatVaultAI-specific artifact structures and test implementation details while proving transformation-contract compliance, invariant enforcement, evidence addressing, deterministic replay, and grading behavior.
+- The evidence interface is designed so the suite can later become vendor-neutral without replacing its governing concepts.
+- The benchmark is not represented as a public standard or broadly adoptable public benchmark until the internal conformance suite works end to end, the evidence interface is stable and vendor-neutral, reproducible fixtures and grader rules exist, adoption and implementation documentation exists, and independent implementations can participate without requiring ChatVaultAI.
+- After those conditions are met, ChatVaultAI may serve as the reference implementation but is not a required dependency.
+- Public vendor-neutral benchmark status requires a later explicit promotion decision.
+
 
 ---
 
@@ -59,12 +71,15 @@ Dan ruled that ENTRY-ECO-001 and Constitution v1.0.0 already govern The Record P
 
 _Working Context informs but does not govern. It may be superseded without a new canon approval._
 
-- **ENTRY-ECO-009**: The ChatVaultAI Markdown Sidecar question has been resolved by product Approved Canon ENTRY-PRD-CVA-001. Two unresolved ecosystem migration decisions remain: benchmark identity fork and TR-000 registration.
+- **ENTRY-ECO-011**: The benchmark identity fork has been resolved by ENTRY-ECO-010. Five migration rulings or dispositions are approved; TR-000 registration is the sole unresolved item from the original six-item migration queue.
 
 ---
 
 ## Active State
 
+- **benchmark_current_identity**: internal-conformance-suite
+- **benchmark_public_status**: not-promoted
+- **benchmark_public_trajectory**: vendor-neutral-after-readiness-and-explicit-promotion
 - **constitution_version**: 1.0.0
 - **fieldmouth_com_role**: standard-registry-and-supporting-developer-interfaces
 - **fieldmouthai_com_role**: commercial-governed-runtime-and-reference-implementation
@@ -73,10 +88,10 @@ _Working Context informs but does not govern. It may be superseded without a new
 - **historical_duplicate_entry_disposition**: do-not-import-or-promote
 - **human_authority_identity**: actual-human-required
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **migration_items_remaining**: 2
-- **migration_rulings_approved**: 4
+- **migration_items_remaining**: 1
+- **migration_rulings_approved**: 5
 - **record_phase**: phase1-foundation
-- **standing_rulings_migration_status**: four-approved-two-open-decisions
+- **standing_rulings_migration_status**: five-approved-one-open-decision
 - **system_status**: operational
 
 ---
@@ -90,9 +105,11 @@ _Working Context informs but does not govern. It may be superseded without a new
 - Audit FieldMouth.com and FieldMouthAI.com documentation and site content for conflicts with the approved domain split.
 - Attach the June 29 builder-registry source artifact and exact spans when available.
 - Resolve long-term branch-protection enforcement for the private GitHub repository.
-- Recover or define the benchmark identity fork, then record Dan's explicit ruling.
+- Implement the internal conformance suite end to end.
+- Stabilize a vendor-neutral evidence interface.
+- Produce reproducible fixtures, grader rules, and adoption and implementation documentation.
+- Demonstrate independent participation without requiring ChatVaultAI before proposing public-benchmark promotion.
 - Recover or define TR-000 and rule on its registration.
-- Attach the original taxonomy-session artifact and exact spans when available.
 - Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning.
 
 ---
@@ -115,9 +132,13 @@ Approved Canon: FieldMouth.com hosts the standard, public registry, and supporti
 
 Approved Canon: ENTRY-ECO-001 and Constitution v1.0.0 govern The Record Phase 1 Foundation. Do not import Claude's duplicate historical draft. Preserve its four conditions as implementation history, let current Git and existing canon control conflicts, and keep branch protection as a separate operational item.
 
-### From ENTRY-ECO-009
+### From ENTRY-ECO-010
 
-Four migration items are now resolved, including ChatVaultAI Sidecar doctrine in ENTRY-PRD-CVA-001. Two decisions remain: recover or define the benchmark identity fork and TR-000 registration, then obtain Dan's explicit rulings. Do not promote Claude's open-item drafts as completed decisions.
+Approved Canon: the FieldMouth transformation benchmark is currently an internal conformance suite. Design toward a vendor-neutral evidence interface, but do not claim public benchmark status until all five readiness conditions are met and Dan explicitly promotes it. ChatVaultAI may later be the reference implementation but never a required dependency.
+
+### From ENTRY-ECO-011
+
+Five of the six migration items are resolved. TR-000 registration is the sole unresolved item. Recover or define TR-000 and obtain Dan's explicit registration ruling; do not promote Claude's empty-decision draft. Separately address active_state key-collision detection or namespacing guidance.
 
 
 ---
@@ -128,7 +149,8 @@ Four migration items are now resolved, including ChatVaultAI Sidecar doctrine in
 - ENTRY-ECO-003
 - ENTRY-ECO-005
 - ENTRY-ECO-007
-- ENTRY-ECO-009
+- ENTRY-ECO-010
+- ENTRY-ECO-011
 
 ---
 
