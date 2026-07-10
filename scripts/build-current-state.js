@@ -36,6 +36,41 @@ function deriveTimestamp(entries) {
   return max;
 }
 
+function assertNoSameAuthorityActiveStateCollisions(entries) {
+  const ownersByClassAndKey = new Map();
+
+  for (const entry of entries) {
+    if (!entry.active_state || typeof entry.active_state !== 'object') continue;
+    for (const key of Object.keys(entry.active_state).sort()) {
+      const collisionKey = `${entry.authority_class}\u0000${key}`;
+      const owners = ownersByClassAndKey.get(collisionKey) || [];
+      owners.push(entry.entry_id);
+      ownersByClassAndKey.set(collisionKey, owners);
+    }
+  }
+
+  const collisions = [];
+  for (const [collisionKey, owners] of ownersByClassAndKey) {
+    if (owners.length < 2) continue;
+    const [authorityClass, key] = collisionKey.split('\u0000');
+    collisions.push({ authorityClass, key, owners: owners.sort() });
+  }
+
+  collisions.sort((a, b) =>
+    a.authorityClass.localeCompare(b.authorityClass) || a.key.localeCompare(b.key)
+  );
+
+  if (collisions.length > 0) {
+    const details = collisions.map(({ authorityClass, key, owners }) =>
+      `active_state key "${key}" is claimed by multiple active ${authorityClass} entries: ${owners.join(', ')}`
+    );
+    throw new Error(
+      `Active-state collisions prevent building state:\n${details.join('\n')}\n` +
+      'Use namespaced keys or supersede the older same-authority entry.'
+    );
+  }
+}
+
 async function loadEntriesFromDir(dir) {
   const entries = [];
   try {
@@ -61,6 +96,10 @@ export function buildStateFromEntries(entries, scope) {
 
   const { supersededBy } = supersessionResult;
   const activeEntries = entries.filter(e => !supersededBy.has(e.entry_id));
+
+  // Same-authority collisions are ambiguous and must fail closed. Cross-authority
+  // reuse remains intentional: higher authority continues to override lower authority.
+  assertNoSameAuthorityActiveStateCollisions(activeEntries);
 
   // Separate by authority class
   const approvedCanon = activeEntries
