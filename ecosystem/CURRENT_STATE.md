@@ -1,19 +1,18 @@
 # Current State — Ecosystem
 
-Generated: 2026-07-10T21:03:25.000Z
+Generated: 2026-07-10T22:35:31.000Z
 Constitution: v1.0.0
 Scope: ecosystem
 
 ## Approved Canon
-- **ENTRY-ECO-001**: Dan approved The Record Phase 1 Foundation as the operating foundation for the MAXAI ecosystem, effective July 10, 2026, with vigor.
 - **ENTRY-ECO-003**: Dan adopted the Maxai human-authority identity rule as ecosystem Approved Canon, effective July 10, 2026.
 - **ENTRY-ECO-005**: Dan adopted the FieldMouth domain split as ecosystem Approved Canon, effective July 10, 2026, while preserving the June 29 builder-registry framing within the standard and registry role.
-- **ENTRY-ECO-007**: Dan ruled that ENTRY-ECO-001 and Constitution v1.0.0 already govern The Record Phase 1 Foundation adoption, so Claude's duplicate historical draft must not be promoted or imported.
 - **ENTRY-ECO-010**: Dan resolved the FieldMouth benchmark identity fork as an internal conformance suite first, with later public vendor-neutral promotion requiring an explicit decision and defined readiness conditions.
 - **ENTRY-ECO-012**: Dan reserved TR-000 as unassigned, established TR-001 as the beginning of the public FieldMouth Transformation Registry, and prohibited inferred or retroactive assignment of TR-000.
+- **ENTRY-ECO-014**: Dan reconciled the Phase 1 Foundation canon after completion of the inaugural migration, closing the obsolete migration instruction while preserving the Foundation and its governing conditions.
 
 ## Working Context
-- **ENTRY-ECO-013**: The six-item inaugural migration queue is complete. TR-000 registration was resolved by reserving TR-000 as unassigned and beginning the public Transformation Registry at TR-001 in ENTRY-ECO-012.
+- **ENTRY-ECO-015**: The Foundation and inaugural migration are reconciled by ENTRY-ECO-014. Obsolete migration instructions are closed; three Foundation operational items remain.
 
 ## Active State
 - **benchmark_current_identity**: internal-conformance-suite
@@ -23,10 +22,10 @@ Scope: ecosystem
 - **fieldmouth_com_role**: standard-registry-and-supporting-developer-interfaces
 - **fieldmouth_public_registry_start**: TR-001
 - **fieldmouthai_com_role**: commercial-governed-runtime-and-reference-implementation
-- **foundation_adoption_authority**: ENTRY-ECO-001-and-Constitution-v1.0.0
+- **foundation_reconciliation_status**: complete
 - **foundation_status**: approved
-- **historical_duplicate_entry_disposition**: do-not-import-or-promote
 - **human_authority_identity**: actual-human-required
+- **inaugural_migration_status**: complete
 - **maxai_role_naming**: permitted-with-human-authority-identity
 - **migration_items_remaining**: 0
 - **migration_rulings_approved**: 6
@@ -37,26 +36,22 @@ Scope: ecosystem
 - **tr001_status**: first-implementation-and-registration-target
 
 ## Open Items
-- Migrate the six standing ecosystem rulings through separately reviewed Record Entries.
-- Resolve long-term branch-protection enforcement for a private GitHub Free repository.
-- Decide whether to merge the draft manual-CI workflow enhancement.
 - Audit other MAXAI ledgers and approval records for authority fields that identify a brand, product, AI system, or automation instead of the actual human.
 - Audit FieldMouth.com and FieldMouthAI.com documentation and site content for conflicts with the approved domain split.
 - Attach the June 29 builder-registry source artifact and exact spans when available.
-- Resolve long-term branch-protection enforcement for the private GitHub repository.
 - Implement the internal conformance suite end to end.
 - Stabilize a vendor-neutral evidence interface.
 - Produce reproducible fixtures, grader rules, and adoption and implementation documentation.
 - Demonstrate independent participation without requiring ChatVaultAI before proposing public-benchmark promotion.
 - Implement and register TR-001 Resolve Relative Date end to end under the governing transformation-contract and benchmark canon.
-- Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning.
-- Continue implementation work from the open items carried by the active Approved Canon entries.
+- Resolve long-term branch-protection enforcement for the private GitHub repository.
+- Decide whether to merge or close the draft manual-CI workflow enhancement.
+- Correct the active-state and open-item collision hazard through namespacing or validator enforcement.
 
 ## Source Entry IDs
-- ENTRY-ECO-001
 - ENTRY-ECO-003
 - ENTRY-ECO-005
-- ENTRY-ECO-007
 - ENTRY-ECO-010
 - ENTRY-ECO-012
-- ENTRY-ECO-013
+- ENTRY-ECO-014
+- ENTRY-ECO-015

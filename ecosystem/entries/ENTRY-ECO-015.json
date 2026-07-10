@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-015",
+  "created_at": "2026-07-10T22:35:31.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "The Foundation and inaugural migration are reconciled by ENTRY-ECO-014. Obsolete migration instructions are closed; three Foundation operational items remain.",
+  "decisions": [],
+  "completed_work": [
+    "Reconciled the active Foundation canon after the inaugural migration completed.",
+    "Removed the obsolete migration instruction from active derivation through explicit supersession rather than historical editing.",
+    "Consolidated Foundation operational work into three non-duplicated items."
+  ],
+  "active_state": {
+    "foundation_reconciliation_status": "complete",
+    "migration_items_remaining": 0,
+    "migration_rulings_approved": 6,
+    "standing_rulings_migration_status": "complete"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-013"
+  ],
+  "evidence": [],
+  "next_chat_starting_context": "Foundation reconciliation is complete under ENTRY-ECO-014. The inaugural migration is closed. Use the active Approved Canon open items as the operational queue; do not reintroduce the completed six-item migration as unfinished work."
+}
