@@ -61,6 +61,12 @@ Evidence artifacts remain in their source systems (ChatVaultAI, GitHub, etc.). T
 
 `build-current-state.js` reads all entries in an `entries/` directory, applies the supersession graph to exclude superseded entries, separates Approved Canon from Working Context, and writes a stable, key-sorted `CURRENT_STATE.json` and a human-readable `CURRENT_STATE.md`. It uses no AI and reads no conversation history.
 
+### Active-State Key Safety
+
+Active entries in the same authority class must not claim the same `active_state` key. A same-authority collision is ambiguous and causes state generation to fail closed, even when both entries supply the same value. Resolve it by superseding the older entry or by using descriptive namespaced keys such as `benchmark_public_status` and `tr000_status` instead of a generic key such as `status`.
+
+Cross-authority reuse is intentional and remains supported: Approved Canon may override a lower-authority Working Context value. This is an authority rule, not filename or input-order precedence.
+
 ## Deterministic Next-Chat Generation
 
 `generate-next-chat.js` reads only a validated `CURRENT_STATE.json` and produces `NEXT_CHAT_START.md`. It identifies the applicable Constitution version, presents Approved Canon and Working Context separately, lists active state and open items, and records the source Record Entry IDs. It reads no entries directly and reads no chat history.
