@@ -8,7 +8,7 @@
 
 **Constitution version:** 1.0.0
 **Generated from:** `CURRENT_STATE.json` (scope: ecosystem)
-**Generated at:** 2026-07-10T22:35:31.000Z
+**Generated at:** 2026-07-10T23:12:52.000Z
 
 ---
 
@@ -56,15 +56,16 @@ Dan reserved TR-000 as unassigned, established TR-001 as the beginning of the pu
 - Any future use of TR-000 requires a new explicit human-authored Approved Canon ruling defining its purpose, authority, compatibility, and effect on the existing registry. Existing TR identifiers must not be silently renumbered.
 - Claude's AI-authored TR-000 draft records only that the question existed and must not be promoted as a completed decision.
 
-### ENTRY-ECO-014
+### ENTRY-ECO-016
 
-Dan reconciled the Phase 1 Foundation canon after completion of the inaugural migration, closing the obsolete migration instruction while preserving the Foundation and its governing conditions.
+Dan adopted the private GitHub Free operating model for The Record, explicitly distinguishing procedural governance from unavailable technical branch protection.
 
 **Decisions:**
-- The Record Phase 1 Foundation remains approved and operational under Constitution v1.0.0.
-- The inaugural six-item migration is complete. The prior instruction to migrate the six standing ecosystem rulings is closed and must no longer appear as an active open item or next-chat instruction.
-- This ruling supersedes ENTRY-ECO-001 and ENTRY-ECO-007 for active-state derivation while preserving both entries unchanged as historical records.
-- The governing Foundation conditions remain: CI-enforced validation with negative fixtures; Bolt and AI systems propose through branches and pull requests while only an identified human approves and merges; evidence references use SHA-256 artifact identifiers with optional exact spans; the Constitution preserves migration-not-abandonment and continuity-not-execution-ledger boundaries; and AI review is advisory while Dan retains approval and merge authority.
+- The Record remains a private repository on GitHub Free.
+- GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.
+- Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.
+- The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.
+- If repository plan or visibility changes later, technical protection of main must be configured and verified.
 
 
 ---
@@ -73,7 +74,7 @@ Dan reconciled the Phase 1 Foundation canon after completion of the inaugural mi
 
 _Working Context informs but does not govern. It may be superseded without a new canon approval._
 
-- **ENTRY-ECO-015**: The Foundation and inaugural migration are reconciled by ENTRY-ECO-014. Obsolete migration instructions are closed; three Foundation operational items remain.
+- **ENTRY-ECO-017**: Foundation maintenance is complete. The collision guard is enforced, stale manual CI work is closed, and the private-Free branch-protection limitation is governed procedurally. TR-001 Resolve Relative Date is the next substantive target.
 
 ---
 
@@ -82,20 +83,18 @@ _Working Context informs but does not govern. It may be superseded without a new
 - **benchmark_current_identity**: internal-conformance-suite
 - **benchmark_public_status**: not-promoted
 - **benchmark_public_trajectory**: vendor-neutral-after-readiness-and-explicit-promotion
-- **constitution_version**: 1.0.0
+- **branch_protection_enforcement**: procedural-not-technical
 - **fieldmouth_com_role**: standard-registry-and-supporting-developer-interfaces
 - **fieldmouth_public_registry_start**: TR-001
 - **fieldmouthai_com_role**: commercial-governed-runtime-and-reference-implementation
-- **foundation_reconciliation_status**: complete
-- **foundation_status**: approved
+- **foundation_maintenance_status**: complete
+- **github_repository_plan**: free
+- **github_repository_visibility**: private
 - **human_authority_identity**: actual-human-required
-- **inaugural_migration_status**: complete
+- **manual_ci_enhancement_status**: closed-without-merge
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **migration_items_remaining**: 0
-- **migration_rulings_approved**: 6
-- **record_phase**: phase1-foundation
-- **standing_rulings_migration_status**: complete
-- **system_status**: operational
+- **next_substantive_target**: TR-001-Resolve-Relative-Date
+- **state_collision_guard**: enforced-fail-closed
 - **tr000_assignment**: reserved-and-unassigned
 - **tr001_status**: first-implementation-and-registration-target
 
@@ -111,9 +110,6 @@ _Working Context informs but does not govern. It may be superseded without a new
 - Produce reproducible fixtures, grader rules, and adoption and implementation documentation.
 - Demonstrate independent participation without requiring ChatVaultAI before proposing public-benchmark promotion.
 - Implement and register TR-001 Resolve Relative Date end to end under the governing transformation-contract and benchmark canon.
-- Resolve long-term branch-protection enforcement for the private GitHub repository.
-- Decide whether to merge or close the draft manual-CI workflow enhancement.
-- Correct the active-state and open-item collision hazard through namespacing or validator enforcement.
 
 ---
 
@@ -135,13 +131,13 @@ Approved Canon: the FieldMouth transformation benchmark is currently an internal
 
 Approved Canon: TR-000 is reserved and unassigned. The FieldMouth public Transformation Registry begins with TR-001, which remains the first end-to-end implementation and registration target. Do not infer, retroactively assign, or silently renumber TR-000; any future use requires new explicit human-authored Approved Canon.
 
-### From ENTRY-ECO-014
+### From ENTRY-ECO-016
 
-The Record Phase 1 Foundation is approved and operational under Constitution v1.0.0, and the inaugural six-item migration is complete. AI and Bolt propose through branches and pull requests; only an identified human approves and merges; Dan retains authority. Continue with the three Foundation operational items: branch protection, disposition of the draft manual-CI enhancement, and collision-safe state derivation.
+The Record remains private on GitHub Free. Branch protection is procedural, not technically enforced: use pull requests, require green Record CI, preserve advisory AI review, and reserve approval and merge for Dan. Direct and force pushes and deletion of main are prohibited by governance. Foundation maintenance is complete; begin TR-001 Resolve Relative Date.
 
-### From ENTRY-ECO-015
+### From ENTRY-ECO-017
 
-Foundation reconciliation is complete under ENTRY-ECO-014. The inaugural migration is closed. Use the active Approved Canon open items as the operational queue; do not reintroduce the completed six-item migration as unfinished work.
+Foundation maintenance is complete. Begin the TR-001 Resolve Relative Date vertical slice: contract, registry entry, deterministic execution, append-only execution ledger, invariant checks, replay, and internal conformance fixtures. Keep The Record separate from the execution ledger and preserve Dan's approval authority.
 
 
 ---
@@ -152,8 +148,8 @@ Foundation reconciliation is complete under ENTRY-ECO-014. The inaugural migrati
 - ENTRY-ECO-005
 - ENTRY-ECO-010
 - ENTRY-ECO-012
-- ENTRY-ECO-014
-- ENTRY-ECO-015
+- ENTRY-ECO-016
+- ENTRY-ECO-017
 
 ---
 
