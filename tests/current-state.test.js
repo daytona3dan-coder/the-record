@@ -83,6 +83,71 @@ test('authority separation: approved_canon active_state wins over working_contex
   assert.equal(state.active_state.status, 'draft');
 });
 
+test('fails closed on working_context active_state key collision', () => {
+  const first = makeEntry({
+    entry_id: 'ENTRY-WC-001',
+    authority_class: 'working_context',
+    active_state: { status: 'draft' },
+  });
+  const second = makeEntry({
+    entry_id: 'ENTRY-WC-002',
+    authority_class: 'working_context',
+    active_state: { status: 'ready' },
+  });
+
+  assert.throws(
+    () => buildStateFromEntries([second, first], 'ecosystem'),
+    error => {
+      assert.match(error.message, /Active-state collisions prevent building state/);
+      assert.match(error.message, /active_state key "status"/);
+      assert.match(error.message, /ENTRY-WC-001, ENTRY-WC-002/);
+      return true;
+    }
+  );
+});
+
+test('fails closed on approved_canon active_state key collision', () => {
+  const approval = {
+    approved_by_type: 'human',
+    approved_by_name: 'Dan',
+    approved_at: '2026-07-10T00:00:00.000Z',
+  };
+  const first = makeEntry({
+    entry_id: 'ENTRY-AC-001',
+    authority_class: 'approved_canon',
+    active_state: { phase: 'one' },
+    approval,
+  });
+  const second = makeEntry({
+    entry_id: 'ENTRY-AC-002',
+    authority_class: 'approved_canon',
+    active_state: { phase: 'two' },
+    approval,
+  });
+
+  assert.throws(
+    () => buildStateFromEntries([first, second], 'ecosystem'),
+    /multiple active approved_canon entries/
+  );
+});
+
+test('ignores active_state key reuse when the older entry is superseded', () => {
+  const older = makeEntry({
+    entry_id: 'ENTRY-WC-OLD',
+    authority_class: 'working_context',
+    active_state: { status: 'old' },
+  });
+  const newer = makeEntry({
+    entry_id: 'ENTRY-WC-NEW',
+    authority_class: 'working_context',
+    active_state: { status: 'new' },
+    supersedes: ['ENTRY-WC-OLD'],
+  });
+
+  const state = buildStateFromEntries([older, newer], 'ecosystem');
+  assert.equal(state.active_state.status, 'new');
+});
+
 test('open_items are aggregated from all active entries', () => {
   const e1 = makeEntry({ entry_id: 'ENTRY-OI-001', open_items: ['Item A', 'Item B'] });
   const e2 = makeEntry({ entry_id: 'ENTRY-OI-002', open_items: ['Item C'] });
