@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-011",
+  "created_at": "2026-07-10T19:21:41.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "The benchmark identity fork has been resolved by ENTRY-ECO-010. Five migration rulings or dispositions are approved; TR-000 registration is the sole unresolved item from the original six-item migration queue.",
+  "decisions": [],
+  "completed_work": [
+    "Recovered the benchmark fork from the July 10 source capture.",
+    "Dan explicitly adopted internal conformance suite first and public vendor-neutral benchmark later through explicit promotion."
+  ],
+  "active_state": {
+    "migration_items_remaining": 1,
+    "migration_rulings_approved": 5,
+    "standing_rulings_migration_status": "five-approved-one-open-decision"
+  },
+  "open_items": [
+    "Recover or define TR-000 and rule on its registration.",
+    "Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-009"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:43b7ea445450f9d5ec29e51e444be0aa668e53ab4d4b3596facfec8472b573cc",
+      "description": "ChatVault JSON capture containing the recovered benchmark identity fork and staged recommendation in messages 9-10.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 9,
+          "end": 10
+        }
+      ]
+    }
+  ],
+  "next_chat_starting_context": "Five of the six migration items are resolved. TR-000 registration is the sole unresolved item. Recover or define TR-000 and obtain Dan's explicit registration ruling; do not promote Claude's empty-decision draft. Separately address active_state key-collision detection or namespacing guidance."
+}
