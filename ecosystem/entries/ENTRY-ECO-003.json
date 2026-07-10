@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-003",
+  "created_at": "2026-07-10T17:53:14.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan adopted the Maxai human-authority identity rule as ecosystem Approved Canon, effective July 10, 2026.",
+  "decisions": [
+    "Maxai may name the role and interface of human review; the ledger's authority field always records the actual human.",
+    "Across MAXAI governance, brand names, product names, AI systems, and automation may describe roles or propose actions, but they cannot replace the identity of the human who approved an authoritative act."
+  ],
+  "completed_work": [
+    "Dan explicitly adopted this ruling in writing as his human-authored Approved Canon record.",
+    "The Record Constitution principle 5 and the approved_canon schema requirements already enforce actual-human approval identity within The Record."
+  ],
+  "active_state": {
+    "human_authority_identity": "actual-human-required",
+    "maxai_role_naming": "permitted-with-human-authority-identity"
+  },
+  "open_items": [
+    "Audit other MAXAI ledgers and approval records for authority fields that identify a brand, product, AI system, or automation instead of the actual human."
+  ],
+  "supersedes": [],
+  "evidence": [],
+  "next_chat_starting_context": "Approved Canon: Maxai may name the role and interface of human review, but every ledger and approval authority field records the actual human. Dan Demarest, account daytona3dan-coder, adopted this rule effective July 10, 2026.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-10T17:53:14.000Z"
+  }
+}
