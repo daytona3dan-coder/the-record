@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-006",
+  "created_at": "2026-07-10T18:31:23.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "The FieldMouth domain split has been explicitly adopted in ENTRY-ECO-005. The selective migration now has two approved rulings and four remaining historical or unresolved items.",
+  "decisions": [],
+  "completed_work": [
+    "Dan explicitly adopted the FieldMouth domain split as human-authored Approved Canon in ENTRY-ECO-005.",
+    "Reconciled the June 29 FieldMouth.com builder-registry framing within the standard and registry role rather than treating it as conflicting or abandoned."
+  ],
+  "active_state": {
+    "migration_items_remaining": 4,
+    "migration_rulings_approved": 2,
+    "standing_rulings_migration_status": "two-approved-four-unresolved-or-requiring-necessity-decision"
+  },
+  "open_items": [
+    "Determine whether The Record's four-condition adoption needs a separate historical migration entry or is sufficiently governed by ENTRY-ECO-001 and Constitution v1.0.0.",
+    "Resolve the Sidecar format, benchmark identity fork, and TR-000 registration questions through future human decisions; do not migrate them as completed rulings.",
+    "Attach the original taxonomy-session artifact and exact spans before promoting historical claims.",
+    "Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-004"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:cdf1a3ae34bbe4a6ca53054e16dc47124e79726790787dd6686ee0e790a1f0dd",
+      "description": "User-supplied archive of six AI-authored draft migration entries; proposal material only and not approval evidence."
+    }
+  ],
+  "next_chat_starting_context": "ENTRY-ECO-003 governs human authority identity and ENTRY-ECO-005 governs the FieldMouth domain split. Four migration items remain: decide whether a separate four-condition Record history entry is necessary, then resolve Sidecar format, benchmark identity fork, and TR-000 registration. Require Dan's explicit ruling for each."
+}
