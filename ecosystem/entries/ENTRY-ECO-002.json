@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-002",
+  "created_at": "2026-07-10T17:33:27.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "The phrase 'six standing ecosystem rulings' conflates three taxonomy-session items described as made or proposed with three decisions that remained owed. The supplied foundation-process captures do not establish ratification of those items. Selective migration requires explicit human adoption and durable provenance; proceeding with implementation is not treated as approval.",
+  "decisions": [],
+  "completed_work": [
+    "Recovered the taxonomy-session six-item structure from a user-supplied Claude reconstruction: three items described as made or proposed and three explicitly unresolved decisions.",
+    "Made/proposed item 1 — Maxai authority sentence: 'Maxai may name the role and interface of human review; the ledger's authority field always records the actual human.'",
+    "Made/proposed item 2 — Domain split: fieldmouth.com hosts the standard; fieldmouthai.com hosts the product. The source reconstruction itself says this was a recommendation to an open question and was not verbally ratified.",
+    "Made/proposed item 3 — The Record adoption with four conditions: CI-enforced validation and negative fixtures; Bolt proposes through PR and only a human merges; evidence uses sha256 artifacts plus spans; Constitution preserves migration-not-abandonment and continuity-not-ledger boundaries.",
+    "Owed decision 1 — Sidecar: embed the envelope in a fenced block in Markdown exports or ship a sidecar JSON file.",
+    "Owed decision 2 — Benchmark identity fork from the TR-001 workstream.",
+    "Owed decision 3 — Register TR-000 in the registry.",
+    "Distinguished implementation evidence from approval evidence: implementation and proceeding do not constitute a human canon act.",
+    "Audited three supplied ChatVault captures covering foundation bootstrapping, control architecture, and independent branch review; none contains an authoritative six-ruling list.",
+    "Confirmed all three captures are marked captured_not_reviewed and once_snapshot_visible_only, so they are source artifacts rather than approved truth."
+  ],
+  "active_state": {
+    "made_or_proposed_items": 3,
+    "open_decisions": 3,
+    "standing_rulings_claim_status": "conflated",
+    "standing_rulings_migration_status": "requires-explicit-human-adoption-and-provenance"
+  },
+  "open_items": [
+    "Dan must decide whether to adopt the Maxai authority sentence as a separate Approved Canon entry or rely on Constitution principle 5 as the governing canon.",
+    "Dan must explicitly adopt, reject, or revise the fieldmouth.com and fieldmouthai.com domain split; no approval may be inferred from proceeding.",
+    "Determine whether The Record's four-condition adoption needs a separate historical migration entry or is sufficiently governed by ENTRY-ECO-001 and Constitution v1.0.0.",
+    "Resolve the Sidecar, benchmark identity fork, and TR-000 registration questions through future human decisions; do not migrate them as completed rulings.",
+    "Attach the original taxonomy-session artifact and exact spans before promoting historical claims.",
+    "Do not treat the three foundation-process captures as approval evidence for the taxonomy-session items."
+  ],
+  "supersedes": [],
+  "evidence": [
+    {
+      "artifact": "sha256:64bb79893a32f43d3ded7fc11618076065bbb5fd8a6a62046289e1447a74988e",
+      "description": "ChatVault JSON capture the-record1; foundation bootstrap/build prompt; capture state captured_not_reviewed with once_snapshot_visible_only warning.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 0,
+          "end": 6
+        }
+      ]
+    },
+    {
+      "artifact": "sha256:2d57bee93f605af77b0e35ddc9275037cd89b0be0c10a3fe75fc329672f37467",
+      "description": "ChatVault JSON capture the-record2; control-architecture discussion and review handoff; capture state captured_not_reviewed with once_snapshot_visible_only warning.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 0,
+          "end": 5
+        }
+      ]
+    },
+    {
+      "artifact": "sha256:0eb8b45bde97294c8a03e0ce4c0fa6c715a944e60a732c73d36acd94b944289f",
+      "description": "ChatVault JSON capture the-record3; independent-review recovery and v2 branch instructions; capture state captured_not_reviewed with once_snapshot_visible_only warning.",
+      "spans": [
+        {
+          "unit": "message",
+          "start": 0,
+          "end": 7
+        }
+      ]
+    }
+  ],
+  "next_chat_starting_context": "Do not migrate a six-ruling block. The recovered taxonomy contains three made/proposed items (Maxai human-authority sentence, FieldMouth domain split, and The Record adoption with four conditions) plus three unresolved decisions (Sidecar format, benchmark identity fork, and TR-000 registration). The supplied foundation captures are source artifacts, not approval evidence. Require Dan's explicit adoption for canon and preserve the three owed items as open questions until he rules."
+}
