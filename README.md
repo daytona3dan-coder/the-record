@@ -144,6 +144,29 @@ Bolt is a proposer, not an approver. Bolt may author Record Entries with authori
 
 ---
 
+## Review Vocabulary
+
+AI reviewers (Bolt, Claude, or other AI systems) and human reviewers use distinct vocabularies:
+
+### AI Reviewer Responses
+
+| Response | Meaning |
+|----------|---------|
+| **RECOMMEND** | AI finds no issues. Recommends human approval. |
+| **RECOMMEND WITH ITEMS** | AI finds non-blocking observations. Recommends approval after human review of listed items. |
+| **BLOCK** | AI identifies a defect, inconsistency, or Constitution violation. Requests correction before further review. |
+
+### Human Authority (Dan only)
+
+| Action | Meaning |
+|--------|---------|
+| **APPROVE** | Dan explicitly authorizes merge to main. Only Dan may issue this. |
+| **MERGE** | Dan executes the merge. Only Dan may do this. |
+
+**AI reviewers cannot return APPROVE.** The word "APPROVE" and merge authorization belong exclusively to Dan. An AI system that returns RECOMMEND is expressing a non-binding assessment, not granting authority.
+
+---
+
 ## Required GitHub Branch Protection Settings
 
 After the CI workflow exists and tests pass, configure the following branch protection rules on `main` in GitHub repository settings. These must be configured by a repository administrator (Dan).
