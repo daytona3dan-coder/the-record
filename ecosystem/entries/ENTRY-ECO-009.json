@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-009",
+  "created_at": "2026-07-10T18:54:59.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "The ChatVaultAI Markdown Sidecar question has been resolved by product Approved Canon ENTRY-PRD-CVA-001. Two unresolved ecosystem migration decisions remain: benchmark identity fork and TR-000 registration.",
+  "decisions": [],
+  "completed_work": [
+    "Dan explicitly adopted the ChatVaultAI paired JSON Sidecar design as human-authored product Approved Canon in ENTRY-PRD-CVA-001.",
+    "Preserved product scope for the Sidecar ruling rather than placing product implementation doctrine in ecosystem canon."
+  ],
+  "active_state": {
+    "migration_items_remaining": 2,
+    "migration_rulings_approved": 4,
+    "standing_rulings_migration_status": "four-approved-two-open-decisions"
+  },
+  "open_items": [
+    "Recover or define the benchmark identity fork, then record Dan's explicit ruling.",
+    "Recover or define TR-000 and rule on its registration.",
+    "Attach the original taxonomy-session artifact and exact spans when available.",
+    "Address the active_state key-collision modeling hazard through a documented namespacing convention or validator warning."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-008"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:cdf1a3ae34bbe4a6ca53054e16dc47124e79726790787dd6686ee0e790a1f0dd",
+      "description": "User-supplied archive of six AI-authored draft migration entries; proposal material only and not approval evidence."
+    }
+  ],
+  "next_chat_starting_context": "Four migration items are now resolved, including ChatVaultAI Sidecar doctrine in ENTRY-PRD-CVA-001. Two decisions remain: recover or define the benchmark identity fork and TR-000 registration, then obtain Dan's explicit rulings. Do not promote Claude's open-item drafts as completed decisions."
+}

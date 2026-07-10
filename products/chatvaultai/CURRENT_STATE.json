@@ -1,12 +1,42 @@
 {
-  "active_state": {},
-  "approved_canon": [],
+  "active_state": {
+    "markdown_capture_role": "derived-human-readable-working-context",
+    "markdown_envelope_embedding": "prohibited",
+    "paired_export_naming": "shared-capture-identifier-and-stem",
+    "structured_capture_role": "canonical-hash-verifiable-sidecar"
+  },
+  "approved_canon": [
+    {
+      "decisions": [
+        "ChatVaultAI Markdown exports use a paired JSON sidecar rather than embedding the evidence envelope inside the Markdown file.",
+        "A single capture event produces <capture-stem>.md and <capture-stem>.chatvault.json using one shared capture identifier and filename stem.",
+        "The Markdown file is derived, human-readable Working Context and is not a self-verifying source-proof object.",
+        "The .chatvault.json sidecar is the canonical structured, hash-verifiable capture artifact; verification applies to that JSON artifact and its governed envelope.",
+        "A Markdown file without a corresponding valid sidecar remains unverifiable or pre-v1 and must never be retroactively stamped as verified.",
+        "The envelope is not embedded in a Markdown fenced block, avoiding edit drift, duplicated serialization rules, and decorative verification claims.",
+        "Existing captures are not silently rewritten; the shared-stem requirement governs new or deliberately regenerated paired exports."
+      ],
+      "entry_id": "ENTRY-PRD-CVA-001",
+      "summary": "Dan adopted paired JSON sidecars, rather than embedded Markdown envelopes, as the governing ChatVaultAI Markdown export design effective July 10, 2026."
+    }
+  ],
   "constitution_version": "1.0.0",
-  "generated_at": "1970-01-01T00:00:00.000Z",
-  "next_chat_contexts": [],
-  "open_items": [],
+  "generated_at": "2026-07-10T18:54:58.000Z",
+  "next_chat_contexts": [
+    {
+      "context": "Approved ChatVaultAI canon: paired exports use one shared capture identifier and stem for <capture-stem>.md and <capture-stem>.chatvault.json. Markdown is derived Working Context, JSON is the canonical hash-verifiable artifact, envelopes are not embedded in Markdown, missing sidecars remain unverifiable, and existing captures are not silently rewritten.",
+      "entry_id": "ENTRY-PRD-CVA-001"
+    }
+  ],
+  "open_items": [
+    "Implement the shared capture identifier and filename stem across new ChatVaultAI paired exports.",
+    "Add tests proving paired naming, missing-sidecar handling, invalid-sidecar handling, and the prohibition on retroactive verification stamping.",
+    "Document deliberate regeneration behavior without silently rewriting existing captures."
+  ],
   "schema_version": "1.0.0",
   "scope": "product",
-  "source_entry_ids": [],
+  "source_entry_ids": [
+    "ENTRY-PRD-CVA-001"
+  ],
   "working_context": []
 }
