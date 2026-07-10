@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-PRD-CVA-001",
+  "created_at": "2026-07-10T18:54:58.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "product",
+  "product_id": "chatvaultai",
+  "authority_class": "approved_canon",
+  "summary": "Dan adopted paired JSON sidecars, rather than embedded Markdown envelopes, as the governing ChatVaultAI Markdown export design effective July 10, 2026.",
+  "decisions": [
+    "ChatVaultAI Markdown exports use a paired JSON sidecar rather than embedding the evidence envelope inside the Markdown file.",
+    "A single capture event produces <capture-stem>.md and <capture-stem>.chatvault.json using one shared capture identifier and filename stem.",
+    "The Markdown file is derived, human-readable Working Context and is not a self-verifying source-proof object.",
+    "The .chatvault.json sidecar is the canonical structured, hash-verifiable capture artifact; verification applies to that JSON artifact and its governed envelope.",
+    "A Markdown file without a corresponding valid sidecar remains unverifiable or pre-v1 and must never be retroactively stamped as verified.",
+    "The envelope is not embedded in a Markdown fenced block, avoiding edit drift, duplicated serialization rules, and decorative verification claims.",
+    "Existing captures are not silently rewritten; the shared-stem requirement governs new or deliberately regenerated paired exports."
+  ],
+  "completed_work": [
+    "Dan explicitly adopted the complete Sidecar ruling in writing as his human-authored Approved Canon record.",
+    "The ruling preserves the established boundary between derived human-readable Markdown and canonical structured capture evidence."
+  ],
+  "active_state": {
+    "markdown_capture_role": "derived-human-readable-working-context",
+    "markdown_envelope_embedding": "prohibited",
+    "paired_export_naming": "shared-capture-identifier-and-stem",
+    "structured_capture_role": "canonical-hash-verifiable-sidecar"
+  },
+  "open_items": [
+    "Implement the shared capture identifier and filename stem across new ChatVaultAI paired exports.",
+    "Add tests proving paired naming, missing-sidecar handling, invalid-sidecar handling, and the prohibition on retroactive verification stamping.",
+    "Document deliberate regeneration behavior without silently rewriting existing captures."
+  ],
+  "supersedes": [],
+  "evidence": [],
+  "next_chat_starting_context": "Approved ChatVaultAI canon: paired exports use one shared capture identifier and stem for <capture-stem>.md and <capture-stem>.chatvault.json. Markdown is derived Working Context, JSON is the canonical hash-verifiable artifact, envelopes are not embedded in Markdown, missing sidecars remain unverifiable, and existing captures are not silently rewritten.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-10T18:54:58.000Z"
+  }
+}
