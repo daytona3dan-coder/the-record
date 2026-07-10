@@ -70,7 +70,12 @@ test('CURRENT_STATE.json is byte-identical under different wall-clock times (emp
 test('CURRENT_STATE.json is byte-identical under different wall-clock times (with entries)', () => {
   const entries = [
     makeEntry({ entry_id: 'ENTRY-DET-001', created_at: '2026-07-10T00:00:00.000Z' }),
-    makeEntry({ entry_id: 'ENTRY-DET-002', created_at: '2026-07-10T06:00:00.000Z', summary: 'Second entry.' }),
+    makeEntry({
+      entry_id: 'ENTRY-DET-002',
+      created_at: '2026-07-10T06:00:00.000Z',
+      summary: 'Second entry.',
+      active_state: { second_entry_status: 'active' },
+    }),
   ];
 
   const t1 = new Date('2020-01-01T00:00:00Z').getTime();
@@ -85,7 +90,11 @@ test('CURRENT_STATE.json is byte-identical under different wall-clock times (wit
 test('CURRENT_STATE.json generated_at is derived from entries, not wall-clock', () => {
   const entries = [
     makeEntry({ entry_id: 'ENTRY-TS-001', created_at: '2026-06-15T10:00:00.000Z' }),
-    makeEntry({ entry_id: 'ENTRY-TS-002', created_at: '2026-07-20T14:30:00.000Z' }),
+    makeEntry({
+      entry_id: 'ENTRY-TS-002',
+      created_at: '2026-07-20T14:30:00.000Z',
+      active_state: { timestamp_test_status: 'active' },
+    }),
   ];
 
   const fakeNow = new Date('2099-01-01T00:00:00Z').getTime();
@@ -112,7 +121,11 @@ test('CURRENT_STATE.md is byte-identical under different wall-clock times', () =
 test('NEXT_CHAT_START.md is byte-identical under different wall-clock times', () => {
   const entries = [
     makeEntry({ entry_id: 'ENTRY-NC-001' }),
-    makeEntry({ entry_id: 'ENTRY-NC-002', summary: 'Another entry.' }),
+    makeEntry({
+      entry_id: 'ENTRY-NC-002',
+      summary: 'Another entry.',
+      active_state: { next_chat_second_status: 'active' },
+    }),
   ];
 
   const t1 = new Date('2010-03-15T08:00:00Z').getTime();
