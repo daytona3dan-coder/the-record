@@ -15,7 +15,7 @@
     "human_authority_identity": "actual-human-required",
     "manual_ci_enhancement_status": "closed-without-merge",
     "maxai_role_naming": "permitted-with-human-authority-identity",
-    "next_substantive_target": "TR-001-Resolve-Relative-Date",
+    "next_substantive_target": "define-and-ratify-approved-oracle-host-profile",
     "state_collision_guard": "enforced-fail-closed",
     "tr000_assignment": "permanently-reserved-unavailable",
     "tr001_javascript_status": "non-authoritative-conformance-testing-aid",
@@ -56,17 +56,6 @@
     },
     {
       "decisions": [
-        "The Record remains a private repository on GitHub Free.",
-        "GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.",
-        "Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.",
-        "The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.",
-        "If repository plan or visibility changes later, technical protection of main must be configured and verified."
-      ],
-      "entry_id": "ENTRY-ECO-016",
-      "summary": "Dan adopted the private GitHub Free operating model for The Record, explicitly distinguishing procedural governance from unavailable technical branch protection."
-    },
-    {
-      "decisions": [
         "TR-000 is permanently reserved and will never be assigned.",
         "TR-000 is intentionally unavailable and carries no transformation, execution, evidentiary, or governance semantics.",
         "The FieldMouth Transformation Registry begins at TR-001. No TR entry advances past Draft unless this permanent reservation is present in Approved Canon."
@@ -103,10 +92,23 @@
       ],
       "entry_id": "ENTRY-ECO-021",
       "summary": "Dan required every envelope hash to have a preimage contained in or deterministically derivable from the envelope and directed removal of visible_text_sha256 as the immediate remedy."
+    },
+    {
+      "decisions": [
+        "The Record remains a private repository on GitHub Free.",
+        "GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.",
+        "Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.",
+        "The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.",
+        "If repository plan or visibility changes later, technical protection of main must be configured and verified.",
+        "Definition and ratification of the approved oracle host profile is the next substantive target.",
+        "No JavaScript intrinsic-hardening work or Rust/WASM oracle implementation begins before the host profile is approved."
+      ],
+      "entry_id": "ENTRY-ECO-022",
+      "summary": "Dan preserved The Record's private GitHub Free governance while replacing the stale TR-001 implementation-start instruction with the approved oracle-host-profile gate."
     }
   ],
   "constitution_version": "1.0.0",
-  "generated_at": "2026-07-11T15:20:45.000Z",
+  "generated_at": "2026-07-11T15:47:10.000Z",
   "next_chat_contexts": [
     {
       "context": "Approved Canon: Maxai may name the role and interface of human review, but every ledger and approval authority field records the actual human. Dan Demarest, account daytona3dan-coder, adopted this rule effective July 10, 2026.",
@@ -119,14 +121,6 @@
     {
       "context": "Approved Canon: the FieldMouth transformation benchmark is currently an internal conformance suite. Design toward a vendor-neutral evidence interface, but do not claim public benchmark status until all five readiness conditions are met and Dan explicitly promotes it. ChatVaultAI may later be the reference implementation but never a required dependency.",
       "entry_id": "ENTRY-ECO-010"
-    },
-    {
-      "context": "The Record remains private on GitHub Free. Branch protection is procedural, not technically enforced: use pull requests, require green Record CI, preserve advisory AI review, and reserve approval and merge for Dan. Direct and force pushes and deletion of main are prohibited by governance. Foundation maintenance is complete; begin TR-001 Resolve Relative Date.",
-      "entry_id": "ENTRY-ECO-016"
-    },
-    {
-      "context": "Foundation maintenance is complete. Begin the TR-001 Resolve Relative Date vertical slice: contract, registry entry, deterministic execution, append-only execution ledger, invariant checks, replay, and internal conformance fixtures. Keep The Record separate from the execution ledger and preserve Dan's approval authority.",
-      "entry_id": "ENTRY-ECO-017"
     },
     {
       "context": "Approved Canon: TR-000 is permanently reserved and unavailable. It has no transformation, execution, evidentiary, or governance semantics. The FieldMouth Transformation Registry begins at TR-001.",
@@ -143,6 +137,14 @@
     {
       "context": "Approved Canon: every envelope hash must be independently verifiable from included content or a named, versioned deterministic transformation with fixed vectors. Remove visible_text_sha256 in the next envelope revision; CANON-1 is unaffected.",
       "entry_id": "ENTRY-ECO-021"
+    },
+    {
+      "context": "Approved Canon: The Record remains private on GitHub Free with procedural branch governance. The next substantive target is definition and ratification of the approved oracle host profile. Do not resume JavaScript intrinsic hardening or begin Rust/WASM oracle implementation before that profile is approved.",
+      "entry_id": "ENTRY-ECO-022"
+    },
+    {
+      "context": "Foundation maintenance is complete. Next, define the approved oracle host profile: permitted imports, trusted cryptographic and runtime services, deterministic input/output rules, failure behavior, and host-version identity. Do not resume JavaScript hardening or begin Rust/WASM oracle implementation before Dan ratifies the profile.",
+      "entry_id": "ENTRY-ECO-023"
     }
   ],
   "open_items": [
@@ -156,7 +158,9 @@
     "Update fieldmouth-standard PR #1 documentation to reflect this approved classification without resuming intrinsic-hardening work.",
     "Define and ratify the approved oracle host profile, including the import allowlist and determinism requirements.",
     "Remove visible_text_sha256 in the next envelope revision.",
-    "If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field."
+    "If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field.",
+    "Define and ratify the approved oracle host profile, including its import allowlist and determinism requirements.",
+    "Draft the approved oracle host profile for Dan's review and ratification."
   ],
   "schema_version": "1.0.0",
   "scope": "ecosystem",
@@ -164,17 +168,17 @@
     "ENTRY-ECO-003",
     "ENTRY-ECO-005",
     "ENTRY-ECO-010",
-    "ENTRY-ECO-016",
-    "ENTRY-ECO-017",
     "ENTRY-ECO-018",
     "ENTRY-ECO-019",
     "ENTRY-ECO-020",
-    "ENTRY-ECO-021"
+    "ENTRY-ECO-021",
+    "ENTRY-ECO-022",
+    "ENTRY-ECO-023"
   ],
   "working_context": [
     {
-      "entry_id": "ENTRY-ECO-017",
-      "summary": "Foundation maintenance is complete. The collision guard is enforced, stale manual CI work is closed, and the private-Free branch-protection limitation is governed procedurally. TR-001 Resolve Relative Date is the next substantive target."
+      "entry_id": "ENTRY-ECO-023",
+      "summary": "Foundation maintenance remains complete; the active implementation sequence is paused at approved-oracle-host-profile definition and ratification."
     }
   ]
 }
