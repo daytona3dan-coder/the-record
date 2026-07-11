@@ -18,9 +18,7 @@
     "foundation_maintenance_status": "complete",
     "next_substantive_target": "define-and-ratify-approved-oracle-host-profile"
   },
-  "open_items": [
-    "Draft the approved oracle host profile for Dan's review and ratification."
-  ],
+  "open_items": [],
   "supersedes": [
     "ENTRY-ECO-017"
   ],
