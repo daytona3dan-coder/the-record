@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-022",
+  "created_at": "2026-07-11T15:47:10.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan preserved The Record's private GitHub Free governance while replacing the stale TR-001 implementation-start instruction with the approved oracle-host-profile gate.",
+  "decisions": [
+    "The Record remains a private repository on GitHub Free.",
+    "GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.",
+    "Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.",
+    "The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.",
+    "If repository plan or visibility changes later, technical protection of main must be configured and verified.",
+    "Definition and ratification of the approved oracle host profile is the next substantive target.",
+    "No JavaScript intrinsic-hardening work or Rust/WASM oracle implementation begins before the host profile is approved."
+  ],
+  "completed_work": [
+    "Preserved the approved private GitHub Free operating model from ENTRY-ECO-016.",
+    "Reconciled its stale next-chat instruction with the July 11 oracle-isolation and implementation-gate canon.",
+    "Dan Demarest explicitly ratified this append-only reconciliation on July 11, 2026."
+  ],
+  "active_state": {
+    "branch_protection_enforcement": "procedural-not-technical",
+    "foundation_maintenance_status": "complete",
+    "github_repository_plan": "free",
+    "github_repository_visibility": "private",
+    "manual_ci_enhancement_status": "closed-without-merge",
+    "next_substantive_target": "define-and-ratify-approved-oracle-host-profile",
+    "state_collision_guard": "enforced-fail-closed"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-016"
+  ],
+  "evidence": [],
+  "next_chat_starting_context": "Approved Canon: The Record remains private on GitHub Free with procedural branch governance. The next substantive target is definition and ratification of the approved oracle host profile. Do not resume JavaScript intrinsic hardening or begin Rust/WASM oracle implementation before that profile is approved.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-11T15:47:10.000Z"
+  }
+}

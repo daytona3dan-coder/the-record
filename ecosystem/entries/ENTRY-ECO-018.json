@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-07-11T15:20:45.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "completed_work": [
+    "Dan Demarest explicitly ratified this ruling on July 11, 2026."
+  ],
+  "evidence": [],
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-11T15:20:45.000Z"
+  },
+  "entry_id": "ENTRY-ECO-018",
+  "summary": "Dan permanently reserved TR-000 as unavailable and without transformation, execution, evidentiary, or governance semantics.",
+  "decisions": [
+    "TR-000 is permanently reserved and will never be assigned.",
+    "TR-000 is intentionally unavailable and carries no transformation, execution, evidentiary, or governance semantics.",
+    "The FieldMouth Transformation Registry begins at TR-001. No TR entry advances past Draft unless this permanent reservation is present in Approved Canon."
+  ],
+  "active_state": {
+    "fieldmouth_public_registry_start": "TR-001",
+    "tr000_assignment": "permanently-reserved-unavailable"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-012"
+  ],
+  "next_chat_starting_context": "Approved Canon: TR-000 is permanently reserved and unavailable. It has no transformation, execution, evidentiary, or governance semantics. The FieldMouth Transformation Registry begins at TR-001."
+}

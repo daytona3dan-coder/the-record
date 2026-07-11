@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-07-11T15:20:45.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "completed_work": [
+    "Dan Demarest explicitly ratified this ruling on July 11, 2026."
+  ],
+  "evidence": [],
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-11T15:20:45.000Z"
+  },
+  "entry_id": "ENTRY-ECO-021",
+  "summary": "Dan required every envelope hash to have a preimage contained in or deterministically derivable from the envelope and directed removal of visible_text_sha256 as the immediate remedy.",
+  "decisions": [
+    "An envelope must not present a hash whose preimage is neither contained in the envelope nor derivable from an included source field through a named, versioned, deterministic transformation with fixed test vectors.",
+    "The transformation identifier and version must be recorded beside any derived hash.",
+    "Text normalization is a separate transformation class from CANON-1 JSON canonicalization.",
+    "The immediate remedy is to remove visible_text_sha256. A later registered transformation may restore the capability if justified."
+  ],
+  "active_state": {
+    "envelope_hash_preimage_rule": "contained-or-versioned-deterministically-derivable",
+    "visible_text_sha256_status": "remove-next-envelope-revision"
+  },
+  "open_items": [
+    "Remove visible_text_sha256 in the next envelope revision.",
+    "If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field."
+  ],
+  "supersedes": [],
+  "next_chat_starting_context": "Approved Canon: every envelope hash must be independently verifiable from included content or a named, versioned deterministic transformation with fixed vectors. Remove visible_text_sha256 in the next envelope revision; CANON-1 is unaffected."
+}

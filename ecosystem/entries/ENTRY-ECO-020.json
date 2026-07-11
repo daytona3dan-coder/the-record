@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-07-11T15:20:45.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "completed_work": [
+    "Dan Demarest explicitly ratified this ruling on July 11, 2026."
+  ],
+  "evidence": [],
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-11T15:20:45.000Z"
+  },
+  "entry_id": "ENTRY-ECO-020",
+  "summary": "Dan required evidence-producing Transformation Registry oracles to operate within a controlled isolation boundary and selected Rust/WASM under an approved host profile as the canonical implementation posture.",
+  "decisions": [
+    "Evidence-producing Transformation Registry oracles must execute within a controlled isolation boundary admitting only versioned deterministic inputs and trusted cryptographic and runtime services.",
+    "The canonical implementation posture is Rust compiled to WASM and executed under an approved host profile.",
+    "The isolation boundary is defined by what may cross it, not by implementation language alone. Same-realm JavaScript is not an approved evidence-producing boundary.",
+    "No Rust/WASM TR oracle implementation begins until the approved host profile is defined."
+  ],
+  "active_state": {
+    "tr_oracle_canonical_implementation": "rust-wasm-approved-host-profile",
+    "tr_oracle_isolation_requirement": "controlled-boundary",
+    "tr_oracle_implementation_gate": "host-profile-required-before-start"
+  },
+  "open_items": [
+    "Define and ratify the approved oracle host profile, including the import allowlist and determinism requirements."
+  ],
+  "supersedes": [],
+  "next_chat_starting_context": "Approved Canon: evidence-producing TR oracles require a controlled isolation boundary. The canonical posture is Rust/WASM under an approved host profile. Do not begin the Rust/WASM oracle until that host profile is defined and ratified."
+}

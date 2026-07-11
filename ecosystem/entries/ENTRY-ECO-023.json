@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-023",
+  "created_at": "2026-07-11T15:47:10.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "Foundation maintenance remains complete; the active implementation sequence is paused at approved-oracle-host-profile definition and ratification.",
+  "decisions": [],
+  "completed_work": [
+    "Superseded the stale instruction to begin the TR-001 Resolve Relative Date implementation.",
+    "Aligned operational working context with the ratified oracle-isolation and host-profile gate."
+  ],
+  "active_state": {
+    "foundation_maintenance_status": "complete",
+    "next_substantive_target": "define-and-ratify-approved-oracle-host-profile"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-017"
+  ],
+  "evidence": [],
+  "next_chat_starting_context": "Foundation maintenance is complete. Next, define the approved oracle host profile: permitted imports, trusted cryptographic and runtime services, deterministic input/output rules, failure behavior, and host-version identity. Do not resume JavaScript hardening or begin Rust/WASM oracle implementation before Dan ratifies the profile."
+}
