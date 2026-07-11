@@ -8,7 +8,7 @@
 
 **Constitution version:** 1.0.0
 **Generated from:** `CURRENT_STATE.json` (scope: ecosystem)
-**Generated at:** 2026-07-11T15:20:45.000Z
+**Generated at:** 2026-07-11T15:47:10.000Z
 
 ---
 
@@ -44,17 +44,6 @@ Dan resolved the FieldMouth benchmark identity fork as an internal conformance s
 - The benchmark is not represented as a public standard or broadly adoptable public benchmark until the internal conformance suite works end to end, the evidence interface is stable and vendor-neutral, reproducible fixtures and grader rules exist, adoption and implementation documentation exists, and independent implementations can participate without requiring ChatVaultAI.
 - After those conditions are met, ChatVaultAI may serve as the reference implementation but is not a required dependency.
 - Public vendor-neutral benchmark status requires a later explicit promotion decision.
-
-### ENTRY-ECO-016
-
-Dan adopted the private GitHub Free operating model for The Record, explicitly distinguishing procedural governance from unavailable technical branch protection.
-
-**Decisions:**
-- The Record remains a private repository on GitHub Free.
-- GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.
-- Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.
-- The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.
-- If repository plan or visibility changes later, technical protection of main must be configured and verified.
 
 ### ENTRY-ECO-018
 
@@ -95,6 +84,19 @@ Dan required every envelope hash to have a preimage contained in or deterministi
 - Text normalization is a separate transformation class from CANON-1 JSON canonicalization.
 - The immediate remedy is to remove visible_text_sha256. A later registered transformation may restore the capability if justified.
 
+### ENTRY-ECO-022
+
+Dan preserved The Record's private GitHub Free governance while replacing the stale TR-001 implementation-start instruction with the approved oracle-host-profile gate.
+
+**Decisions:**
+- The Record remains a private repository on GitHub Free.
+- GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.
+- Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.
+- The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.
+- If repository plan or visibility changes later, technical protection of main must be configured and verified.
+- Definition and ratification of the approved oracle host profile is the next substantive target.
+- No JavaScript intrinsic-hardening work or Rust/WASM oracle implementation begins before the host profile is approved.
+
 
 ---
 
@@ -102,7 +104,7 @@ Dan required every envelope hash to have a preimage contained in or deterministi
 
 _Working Context informs but does not govern. It may be superseded without a new canon approval._
 
-- **ENTRY-ECO-017**: Foundation maintenance is complete. The collision guard is enforced, stale manual CI work is closed, and the private-Free branch-protection limitation is governed procedurally. TR-001 Resolve Relative Date is the next substantive target.
+- **ENTRY-ECO-023**: Foundation maintenance remains complete; the active implementation sequence is paused at approved-oracle-host-profile definition and ratification.
 
 ---
 
@@ -123,7 +125,7 @@ _Working Context informs but does not govern. It may be superseded without a new
 - **human_authority_identity**: actual-human-required
 - **manual_ci_enhancement_status**: closed-without-merge
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **next_substantive_target**: TR-001-Resolve-Relative-Date
+- **next_substantive_target**: define-and-ratify-approved-oracle-host-profile
 - **state_collision_guard**: enforced-fail-closed
 - **tr000_assignment**: permanently-reserved-unavailable
 - **tr001_javascript_status**: non-authoritative-conformance-testing-aid
@@ -147,6 +149,8 @@ _Working Context informs but does not govern. It may be superseded without a new
 - Define and ratify the approved oracle host profile, including the import allowlist and determinism requirements.
 - Remove visible_text_sha256 in the next envelope revision.
 - If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field.
+- Define and ratify the approved oracle host profile, including its import allowlist and determinism requirements.
+- Draft the approved oracle host profile for Dan's review and ratification.
 
 ---
 
@@ -164,14 +168,6 @@ Approved Canon: FieldMouth.com hosts the standard, public registry, and supporti
 
 Approved Canon: the FieldMouth transformation benchmark is currently an internal conformance suite. Design toward a vendor-neutral evidence interface, but do not claim public benchmark status until all five readiness conditions are met and Dan explicitly promotes it. ChatVaultAI may later be the reference implementation but never a required dependency.
 
-### From ENTRY-ECO-016
-
-The Record remains private on GitHub Free. Branch protection is procedural, not technically enforced: use pull requests, require green Record CI, preserve advisory AI review, and reserve approval and merge for Dan. Direct and force pushes and deletion of main are prohibited by governance. Foundation maintenance is complete; begin TR-001 Resolve Relative Date.
-
-### From ENTRY-ECO-017
-
-Foundation maintenance is complete. Begin the TR-001 Resolve Relative Date vertical slice: contract, registry entry, deterministic execution, append-only execution ledger, invariant checks, replay, and internal conformance fixtures. Keep The Record separate from the execution ledger and preserve Dan's approval authority.
-
 ### From ENTRY-ECO-018
 
 Approved Canon: TR-000 is permanently reserved and unavailable. It has no transformation, execution, evidentiary, or governance semantics. The FieldMouth Transformation Registry begins at TR-001.
@@ -188,6 +184,14 @@ Approved Canon: evidence-producing TR oracles require a controlled isolation bou
 
 Approved Canon: every envelope hash must be independently verifiable from included content or a named, versioned deterministic transformation with fixed vectors. Remove visible_text_sha256 in the next envelope revision; CANON-1 is unaffected.
 
+### From ENTRY-ECO-022
+
+Approved Canon: The Record remains private on GitHub Free with procedural branch governance. The next substantive target is definition and ratification of the approved oracle host profile. Do not resume JavaScript intrinsic hardening or begin Rust/WASM oracle implementation before that profile is approved.
+
+### From ENTRY-ECO-023
+
+Foundation maintenance is complete. Next, define the approved oracle host profile: permitted imports, trusted cryptographic and runtime services, deterministic input/output rules, failure behavior, and host-version identity. Do not resume JavaScript hardening or begin Rust/WASM oracle implementation before Dan ratifies the profile.
+
 
 ---
 
@@ -196,12 +200,12 @@ Approved Canon: every envelope hash must be independently verifiable from includ
 - ENTRY-ECO-003
 - ENTRY-ECO-005
 - ENTRY-ECO-010
-- ENTRY-ECO-016
-- ENTRY-ECO-017
 - ENTRY-ECO-018
 - ENTRY-ECO-019
 - ENTRY-ECO-020
 - ENTRY-ECO-021
+- ENTRY-ECO-022
+- ENTRY-ECO-023
 
 ---
 
