@@ -8,7 +8,7 @@
 
 **Constitution version:** 1.0.0
 **Generated from:** `CURRENT_STATE.json` (scope: ecosystem)
-**Generated at:** 2026-07-11T18:44:02.000Z
+**Generated at:** 2026-07-11T23:32:19.000Z
 
 ---
 
@@ -74,16 +74,17 @@ Dan required every envelope hash to have a preimage contained in or deterministi
 - Text normalization is a separate transformation class from CANON-1 JSON canonicalization.
 - The immediate remedy is to remove visible_text_sha256. A later registered transformation may restore the capability if justified.
 
-### ENTRY-ECO-024
+### ENTRY-ECO-026
 
-Dan ratified TR-ORACLE-HOST-1 draft.5 as the governing architectural profile for evidence-producing Transformation Registry oracles while expressly deferring seven implementation details and authorizing no implementation.
+Dan ratified TR-ORACLE-ABI-1 draft.5 as the governing ABI specification for Transformation Registry transformation and grading modules while preserving the ratified host architecture, deferring six later gates, and authorizing no implementation.
 
 **Decisions:**
 - Evidence-producing Transformation Registry oracles must execute within a controlled isolation boundary admitting only versioned deterministic inputs and trusted cryptographic and runtime services.
 - The canonical implementation posture remains Rust compiled to WebAssembly under an approved host profile; same-realm JavaScript is not an approved evidence-producing boundary.
-- TR-ORACLE-HOST-1 version 1.0.0-draft.5, SHA-256 55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408, is the governing architectural host profile.
-- The seven Section 17 details are expressly deferred: exact ABI signatures; engine selection and version policy; execution-budget mechanism; attestation and evidence-package formats; reproducible-build release threshold; trust-anchor and key-custody mechanisms; and approved-verifier implementation and distribution.
-- Deferral does not waive any requirement. No Rust/WASM implementation, reference-implementation status, or canonical-evidence production is authorized until the applicable later gates are separately resolved, reviewed, and approved.
+- TR-ORACLE-HOST-1 version 1.0.0-draft.5, SHA-256 55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408, remains the governing architectural host profile.
+- TR-ORACLE-ABI-1 version 1.0.0-draft.5, SHA-256 270f4be97676d21f3279c9e6bfc7aa8e22de684349259dc267a1598cfd092ae2, is the governing ABI specification for Transformation Registry transformation and grading modules.
+- The six later gates remain mandatory: engine selection and version policy; deterministic execution-budget policy; host-attestation and complete evidence-package schemas, including the exact core-receipt schema; reproducible-build release threshold; trust-anchor and key-custody mechanisms; and approved-verifier implementation and distribution.
+- Deferral does not waive any requirement. No Rust/WASM implementation, reference-implementation status, deployment, or canonical-evidence production is authorized until the applicable later gates are separately resolved, reviewed, and approved.
 - fieldmouth-standard PR #1 remains Draft and BLOCKED. Its JavaScript implementation remains a non-authoritative development and conformance-testing aid only.
 - The Record remains a private repository on GitHub Free.
 - GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.
@@ -98,7 +99,7 @@ Dan ratified TR-ORACLE-HOST-1 draft.5 as the governing architectural profile for
 
 _Working Context informs but does not govern. It may be superseded without a new canon approval._
 
-- **ENTRY-ECO-025**: TR-ORACLE-HOST-1 is ratified as governing architecture; implementation remains unauthorized and the next active gate is exact transformation and grading ABI specification and review.
+- **ENTRY-ECO-027**: TR-ORACLE-ABI-1 is ratified as the governing transformation and grading ABI; implementation remains unauthorized and the next active gate is WebAssembly engine selection and version-policy specification and independent review.
 
 ---
 
@@ -119,16 +120,20 @@ _Working Context informs but does not govern. It may be superseded without a new
 - **human_authority_identity**: actual-human-required
 - **manual_ci_enhancement_status**: closed-without-merge
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **next_substantive_target**: specify-and-review-tr-oracle-abi-v1
+- **next_substantive_target**: specify-and-review-wasm-engine-version-policy
 - **state_collision_guard**: enforced-fail-closed
 - **tr000_assignment**: permanently-reserved-unavailable
 - **tr001_javascript_status**: non-authoritative-conformance-testing-aid
+- **tr_oracle_abi_identifier**: TR-ORACLE-ABI-1
+- **tr_oracle_abi_sha256**: sha256:270f4be97676d21f3279c9e6bfc7aa8e22de684349259dc267a1598cfd092ae2
+- **tr_oracle_abi_status**: ratified-governing-specification
+- **tr_oracle_abi_version**: 1.0.0-draft.5
 - **tr_oracle_canonical_implementation**: rust-wasm-approved-host-profile
 - **tr_oracle_host_profile_identifier**: TR-ORACLE-HOST-1
 - **tr_oracle_host_profile_sha256**: sha256:55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408
 - **tr_oracle_host_profile_status**: ratified-governing-architecture
 - **tr_oracle_host_profile_version**: 1.0.0-draft.5
-- **tr_oracle_implementation_gate**: seven-deferred-details-required-before-implementation
+- **tr_oracle_implementation_gate**: six-later-gates-required-before-implementation
 - **tr_oracle_isolation_requirement**: controlled-boundary
 - **visible_text_sha256_status**: remove-next-envelope-revision
 
@@ -146,10 +151,9 @@ _Working Context informs but does not govern. It may be superseded without a new
 - Update fieldmouth-standard PR #1 documentation to reflect this approved classification without resuming intrinsic-hardening work.
 - Remove visible_text_sha256 in the next envelope revision.
 - If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field.
-- Specify and independently review exact transformation and grading ABI signatures.
 - Select and review the WebAssembly engine and version policy.
 - Define and review the deterministic execution-budget mechanism and value.
-- Define and review host-attestation and complete evidence-package formats.
+- Define and review host-attestation and complete evidence-package formats, including the exact core-receipt schema.
 - Define and review the reproducible-build release threshold.
 - Define and review concrete trust-anchor and key-custody mechanisms.
 - Define and review the approved-verifier implementation and distribution.
@@ -182,13 +186,13 @@ Approved Canon: fieldmouth-standard PR #1 remains Draft and BLOCKED. Its JavaScr
 
 Approved Canon: every envelope hash must be independently verifiable from included content or a named, versioned deterministic transformation with fixed vectors. Remove visible_text_sha256 in the next envelope revision; CANON-1 is unaffected.
 
-### From ENTRY-ECO-024
+### From ENTRY-ECO-026
 
-Approved Canon: TR-ORACLE-HOST-1 version 1.0.0-draft.5 is ratified by exact SHA-256 as the governing oracle architecture. Seven implementation details remain mandatory and deferred. Next specify and independently review the transformation and grading ABI. Do not implement Rust/WASM, grant reference status, or produce canonical evidence.
+Approved Canon: TR-ORACLE-HOST-1 and TR-ORACLE-ABI-1 version 1.0.0-draft.5 are ratified by exact SHA-256 as the governing oracle architecture and ABI. Six later gates remain mandatory. Next specify and independently review the WebAssembly engine and version policy only. Do not implement Rust/WASM, grant reference status, deploy an oracle, or produce canonical evidence.
 
-### From ENTRY-ECO-025
+### From ENTRY-ECO-027
 
-TR-ORACLE-HOST-1 is ratified. Begin specification and independent review of the exact transformation and separate grading ABI only. Implementation, reference-implementation status, and canonical-evidence production remain unauthorized until later gates are resolved and approved.
+TR-ORACLE-HOST-1 and TR-ORACLE-ABI-1 are ratified. Begin specification and independent review of the WebAssembly engine selection and version policy only. Rust/WASM implementation, reference-implementation status, deployment, and canonical-evidence production remain unauthorized until all applicable later gates are resolved and approved.
 
 
 ---
@@ -201,8 +205,8 @@ TR-ORACLE-HOST-1 is ratified. Begin specification and independent review of the 
 - ENTRY-ECO-018
 - ENTRY-ECO-019
 - ENTRY-ECO-021
-- ENTRY-ECO-024
-- ENTRY-ECO-025
+- ENTRY-ECO-026
+- ENTRY-ECO-027
 
 ---
 
