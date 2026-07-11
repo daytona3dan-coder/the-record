@@ -17,11 +17,11 @@
     "maxai_role_naming": "permitted-with-human-authority-identity",
     "next_substantive_target": "TR-001-Resolve-Relative-Date",
     "state_collision_guard": "enforced-fail-closed",
+    "tr000_assignment": "permanently-reserved-unavailable",
+    "tr001_javascript_status": "non-authoritative-conformance-testing-aid",
     "tr_oracle_canonical_implementation": "rust-wasm-approved-host-profile",
     "tr_oracle_implementation_gate": "host-profile-required-before-start",
     "tr_oracle_isolation_requirement": "controlled-boundary",
-    "tr000_assignment": "permanently-reserved-unavailable",
-    "tr001_javascript_status": "non-authoritative-conformance-testing-aid",
     "visible_text_sha256_status": "remove-next-envelope-revision"
   },
   "approved_canon": [
