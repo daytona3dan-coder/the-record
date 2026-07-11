@@ -54,8 +54,6 @@ Scope: ecosystem
 - Define and ratify the approved oracle host profile, including the import allowlist and determinism requirements.
 - Remove visible_text_sha256 in the next envelope revision.
 - If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field.
-- Define and ratify the approved oracle host profile, including its import allowlist and determinism requirements.
-- Draft the approved oracle host profile for Dan's review and ratification.
 
 ## Source Entry IDs
 - ENTRY-ECO-003
