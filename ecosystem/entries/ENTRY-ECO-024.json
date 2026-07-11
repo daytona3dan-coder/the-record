@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-024",
+  "created_at": "2026-07-11T18:44:02.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan ratified TR-ORACLE-HOST-1 draft.5 as the governing architectural profile for evidence-producing Transformation Registry oracles while expressly deferring seven implementation details and authorizing no implementation.",
+  "decisions": [
+    "Evidence-producing Transformation Registry oracles must execute within a controlled isolation boundary admitting only versioned deterministic inputs and trusted cryptographic and runtime services.",
+    "The canonical implementation posture remains Rust compiled to WebAssembly under an approved host profile; same-realm JavaScript is not an approved evidence-producing boundary.",
+    "TR-ORACLE-HOST-1 version 1.0.0-draft.5, SHA-256 55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408, is the governing architectural host profile.",
+    "The seven Section 17 details are expressly deferred: exact ABI signatures; engine selection and version policy; execution-budget mechanism; attestation and evidence-package formats; reproducible-build release threshold; trust-anchor and key-custody mechanisms; and approved-verifier implementation and distribution.",
+    "Deferral does not waive any requirement. No Rust/WASM implementation, reference-implementation status, or canonical-evidence production is authorized until the applicable later gates are separately resolved, reviewed, and approved.",
+    "fieldmouth-standard PR #1 remains Draft and BLOCKED. Its JavaScript implementation remains a non-authoritative development and conformance-testing aid only.",
+    "The Record remains a private repository on GitHub Free.",
+    "GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.",
+    "Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.",
+    "The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.",
+    "If repository plan or visibility changes later, technical protection of main must be configured and verified."
+  ],
+  "completed_work": [
+    "Completed multiple adversarial architecture-review cycles through a final RECOMMEND on the exact draft.5 artifact.",
+    "Recorded the ratified profile by exact identifier, version, size-independent SHA-256 identity, and human authority.",
+    "Preserved the oracle-isolation doctrine and private GitHub Free operating governance while removing their stale pre-ratification next-step state.",
+    "Dan Demarest explicitly ratified the profile and deferrals on July 11, 2026."
+  ],
+  "active_state": {
+    "branch_protection_enforcement": "procedural-not-technical",
+    "foundation_maintenance_status": "complete",
+    "github_repository_plan": "free",
+    "github_repository_visibility": "private",
+    "manual_ci_enhancement_status": "closed-without-merge",
+    "next_substantive_target": "specify-and-review-tr-oracle-abi-v1",
+    "state_collision_guard": "enforced-fail-closed",
+    "tr_oracle_canonical_implementation": "rust-wasm-approved-host-profile",
+    "tr_oracle_host_profile_identifier": "TR-ORACLE-HOST-1",
+    "tr_oracle_host_profile_sha256": "sha256:55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408",
+    "tr_oracle_host_profile_status": "ratified-governing-architecture",
+    "tr_oracle_host_profile_version": "1.0.0-draft.5",
+    "tr_oracle_implementation_gate": "seven-deferred-details-required-before-implementation",
+    "tr_oracle_isolation_requirement": "controlled-boundary"
+  },
+  "open_items": [
+    "Specify and independently review exact transformation and grading ABI signatures.",
+    "Select and review the WebAssembly engine and version policy.",
+    "Define and review the deterministic execution-budget mechanism and value.",
+    "Define and review host-attestation and complete evidence-package formats.",
+    "Define and review the reproducible-build release threshold.",
+    "Define and review concrete trust-anchor and key-custody mechanisms.",
+    "Define and review the approved-verifier implementation and distribution."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-020",
+    "ENTRY-ECO-022"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408",
+      "description": "Exact ratified TR_ORACLE_HOST_PROFILE_V1.md version 1.0.0-draft.5; 36,072 bytes; final adversarial verdict RECOMMEND."
+    }
+  ],
+  "next_chat_starting_context": "Approved Canon: TR-ORACLE-HOST-1 version 1.0.0-draft.5 is ratified by exact SHA-256 as the governing oracle architecture. Seven implementation details remain mandatory and deferred. Next specify and independently review the transformation and grading ABI. Do not implement Rust/WASM, grant reference status, or produce canonical evidence.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-11T18:44:02.000Z"
+  }
+}

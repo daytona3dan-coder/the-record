@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-025",
+  "created_at": "2026-07-11T18:44:02.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "TR-ORACLE-HOST-1 is ratified as governing architecture; implementation remains unauthorized and the next active gate is exact transformation and grading ABI specification and review.",
+  "decisions": [],
+  "completed_work": [
+    "Completed Host Profile v1 drafting, adversarial review, correction, fingerprinting, and Dan's ratification.",
+    "Closed the pre-ratification host-profile-definition working phase."
+  ],
+  "active_state": {
+    "foundation_maintenance_status": "complete",
+    "next_substantive_target": "specify-and-review-tr-oracle-abi-v1"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-023"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408",
+      "description": "Ratified TR-ORACLE-HOST-1 version 1.0.0-draft.5 source artifact."
+    }
+  ],
+  "next_chat_starting_context": "TR-ORACLE-HOST-1 is ratified. Begin specification and independent review of the exact transformation and separate grading ABI only. Implementation, reference-implementation status, and canonical-evidence production remain unauthorized until later gates are resolved and approved."
+}
