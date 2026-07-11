@@ -1,6 +1,6 @@
 # Current State — Ecosystem
 
-Generated: 2026-07-11T15:20:45.000Z
+Generated: 2026-07-11T15:47:10.000Z
 Constitution: v1.0.0
 Scope: ecosystem
 
@@ -8,14 +8,14 @@ Scope: ecosystem
 - **ENTRY-ECO-003**: Dan adopted the Maxai human-authority identity rule as ecosystem Approved Canon, effective July 10, 2026.
 - **ENTRY-ECO-005**: Dan adopted the FieldMouth domain split as ecosystem Approved Canon, effective July 10, 2026, while preserving the June 29 builder-registry framing within the standard and registry role.
 - **ENTRY-ECO-010**: Dan resolved the FieldMouth benchmark identity fork as an internal conformance suite first, with later public vendor-neutral promotion requiring an explicit decision and defined readiness conditions.
-- **ENTRY-ECO-016**: Dan adopted the private GitHub Free operating model for The Record, explicitly distinguishing procedural governance from unavailable technical branch protection.
 - **ENTRY-ECO-018**: Dan permanently reserved TR-000 as unavailable and without transformation, execution, evidentiary, or governance semantics.
 - **ENTRY-ECO-019**: Dan reclassified the JavaScript implementation in fieldmouth-standard PR #1 as a non-authoritative development and conformance-testing aid.
 - **ENTRY-ECO-020**: Dan required evidence-producing Transformation Registry oracles to operate within a controlled isolation boundary and selected Rust/WASM under an approved host profile as the canonical implementation posture.
 - **ENTRY-ECO-021**: Dan required every envelope hash to have a preimage contained in or deterministically derivable from the envelope and directed removal of visible_text_sha256 as the immediate remedy.
+- **ENTRY-ECO-022**: Dan preserved The Record's private GitHub Free governance while replacing the stale TR-001 implementation-start instruction with the approved oracle-host-profile gate.
 
 ## Working Context
-- **ENTRY-ECO-017**: Foundation maintenance is complete. The collision guard is enforced, stale manual CI work is closed, and the private-Free branch-protection limitation is governed procedurally. TR-001 Resolve Relative Date is the next substantive target.
+- **ENTRY-ECO-023**: Foundation maintenance remains complete; the active implementation sequence is paused at approved-oracle-host-profile definition and ratification.
 
 ## Active State
 - **benchmark_current_identity**: internal-conformance-suite
@@ -33,7 +33,7 @@ Scope: ecosystem
 - **human_authority_identity**: actual-human-required
 - **manual_ci_enhancement_status**: closed-without-merge
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **next_substantive_target**: TR-001-Resolve-Relative-Date
+- **next_substantive_target**: define-and-ratify-approved-oracle-host-profile
 - **state_collision_guard**: enforced-fail-closed
 - **tr000_assignment**: permanently-reserved-unavailable
 - **tr001_javascript_status**: non-authoritative-conformance-testing-aid
@@ -54,14 +54,16 @@ Scope: ecosystem
 - Define and ratify the approved oracle host profile, including the import allowlist and determinism requirements.
 - Remove visible_text_sha256 in the next envelope revision.
 - If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field.
+- Define and ratify the approved oracle host profile, including its import allowlist and determinism requirements.
+- Draft the approved oracle host profile for Dan's review and ratification.
 
 ## Source Entry IDs
 - ENTRY-ECO-003
 - ENTRY-ECO-005
 - ENTRY-ECO-010
-- ENTRY-ECO-016
-- ENTRY-ECO-017
 - ENTRY-ECO-018
 - ENTRY-ECO-019
 - ENTRY-ECO-020
 - ENTRY-ECO-021
+- ENTRY-ECO-022
+- ENTRY-ECO-023
