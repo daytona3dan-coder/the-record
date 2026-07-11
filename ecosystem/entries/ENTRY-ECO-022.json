@@ -33,9 +33,7 @@
     "next_substantive_target": "define-and-ratify-approved-oracle-host-profile",
     "state_collision_guard": "enforced-fail-closed"
   },
-  "open_items": [
-    "Define and ratify the approved oracle host profile, including its import allowlist and determinism requirements."
-  ],
+  "open_items": [],
   "supersedes": [
     "ENTRY-ECO-016"
   ],
