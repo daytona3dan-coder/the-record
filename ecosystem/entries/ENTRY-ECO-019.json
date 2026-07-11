@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-07-11T15:20:45.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "completed_work": [
+    "Dan Demarest explicitly ratified this ruling on July 11, 2026."
+  ],
+  "evidence": [],
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-11T15:20:45.000Z"
+  },
+  "entry_id": "ENTRY-ECO-019",
+  "summary": "Dan reclassified the JavaScript implementation in fieldmouth-standard PR #1 as a non-authoritative development and conformance-testing aid.",
+  "decisions": [
+    "The JavaScript implementation in fieldmouth-standard PR #1 is a non-authoritative development and conformance-testing aid only.",
+    "It is not the FieldMouthAI reference implementation, not a Transformation Registry oracle, and produces no canonical evidence.",
+    "Any receipt emitted by the JavaScript implementation is illustrative and carries no evidentiary or governance weight.",
+    "PR #1 remains Draft and BLOCKED. Repeated same-realm JavaScript intrinsic hardening is terminated."
+  ],
+  "active_state": {
+    "fieldmouth_standard_pr1_status": "draft-blocked",
+    "tr001_javascript_status": "non-authoritative-conformance-testing-aid"
+  },
+  "open_items": [
+    "Update fieldmouth-standard PR #1 documentation to reflect this approved classification without resuming intrinsic-hardening work."
+  ],
+  "supersedes": [],
+  "next_chat_starting_context": "Approved Canon: fieldmouth-standard PR #1 remains Draft and BLOCKED. Its JavaScript implementation is only a non-authoritative development and conformance-testing aid; it is not an oracle or reference implementation and produces no canonical evidence."
+}
