@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-027",
+  "created_at": "2026-07-11T23:32:19.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "TR-ORACLE-ABI-1 is ratified as the governing transformation and grading ABI; implementation remains unauthorized and the next active gate is WebAssembly engine selection and version-policy specification and independent review.",
+  "decisions": [],
+  "completed_work": [
+    "Completed ABI v1 specification, five adversarial review and correction cycles, exact fingerprinting, final RECOMMEND, and Dan's ratification.",
+    "Closed the pre-ratification ABI-definition working phase without beginning implementation."
+  ],
+  "active_state": {
+    "foundation_maintenance_status": "complete",
+    "next_substantive_target": "specify-and-review-wasm-engine-version-policy"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-025"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:270f4be97676d21f3279c9e6bfc7aa8e22de684349259dc267a1598cfd092ae2",
+      "description": "Ratified TR-ORACLE-ABI-1 version 1.0.0-draft.5 source artifact."
+    }
+  ],
+  "next_chat_starting_context": "TR-ORACLE-HOST-1 and TR-ORACLE-ABI-1 are ratified. Begin specification and independent review of the WebAssembly engine selection and version policy only. Rust/WASM implementation, reference-implementation status, deployment, and canonical-evidence production remain unauthorized until all applicable later gates are resolved and approved."
+}

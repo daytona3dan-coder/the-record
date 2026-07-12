@@ -1,6 +1,6 @@
 # Current State — Ecosystem
 
-Generated: 2026-07-11T18:44:02.000Z
+Generated: 2026-07-11T23:32:19.000Z
 Constitution: v1.0.0
 Scope: ecosystem
 
@@ -11,10 +11,10 @@ Scope: ecosystem
 - **ENTRY-ECO-018**: Dan permanently reserved TR-000 as unavailable and without transformation, execution, evidentiary, or governance semantics.
 - **ENTRY-ECO-019**: Dan reclassified the JavaScript implementation in fieldmouth-standard PR #1 as a non-authoritative development and conformance-testing aid.
 - **ENTRY-ECO-021**: Dan required every envelope hash to have a preimage contained in or deterministically derivable from the envelope and directed removal of visible_text_sha256 as the immediate remedy.
-- **ENTRY-ECO-024**: Dan ratified TR-ORACLE-HOST-1 draft.5 as the governing architectural profile for evidence-producing Transformation Registry oracles while expressly deferring seven implementation details and authorizing no implementation.
+- **ENTRY-ECO-026**: Dan ratified TR-ORACLE-ABI-1 draft.5 as the governing ABI specification for Transformation Registry transformation and grading modules while preserving the ratified host architecture, deferring six later gates, and authorizing no implementation.
 
 ## Working Context
-- **ENTRY-ECO-025**: TR-ORACLE-HOST-1 is ratified as governing architecture; implementation remains unauthorized and the next active gate is exact transformation and grading ABI specification and review.
+- **ENTRY-ECO-027**: TR-ORACLE-ABI-1 is ratified as the governing transformation and grading ABI; implementation remains unauthorized and the next active gate is WebAssembly engine selection and version-policy specification and independent review.
 
 ## Active State
 - **benchmark_current_identity**: internal-conformance-suite
@@ -32,16 +32,20 @@ Scope: ecosystem
 - **human_authority_identity**: actual-human-required
 - **manual_ci_enhancement_status**: closed-without-merge
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **next_substantive_target**: specify-and-review-tr-oracle-abi-v1
+- **next_substantive_target**: specify-and-review-wasm-engine-version-policy
 - **state_collision_guard**: enforced-fail-closed
 - **tr000_assignment**: permanently-reserved-unavailable
 - **tr001_javascript_status**: non-authoritative-conformance-testing-aid
+- **tr_oracle_abi_identifier**: TR-ORACLE-ABI-1
+- **tr_oracle_abi_sha256**: sha256:270f4be97676d21f3279c9e6bfc7aa8e22de684349259dc267a1598cfd092ae2
+- **tr_oracle_abi_status**: ratified-governing-specification
+- **tr_oracle_abi_version**: 1.0.0-draft.5
 - **tr_oracle_canonical_implementation**: rust-wasm-approved-host-profile
 - **tr_oracle_host_profile_identifier**: TR-ORACLE-HOST-1
 - **tr_oracle_host_profile_sha256**: sha256:55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408
 - **tr_oracle_host_profile_status**: ratified-governing-architecture
 - **tr_oracle_host_profile_version**: 1.0.0-draft.5
-- **tr_oracle_implementation_gate**: seven-deferred-details-required-before-implementation
+- **tr_oracle_implementation_gate**: six-later-gates-required-before-implementation
 - **tr_oracle_isolation_requirement**: controlled-boundary
 - **visible_text_sha256_status**: remove-next-envelope-revision
 
@@ -56,10 +60,9 @@ Scope: ecosystem
 - Update fieldmouth-standard PR #1 documentation to reflect this approved classification without resuming intrinsic-hardening work.
 - Remove visible_text_sha256 in the next envelope revision.
 - If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field.
-- Specify and independently review exact transformation and grading ABI signatures.
 - Select and review the WebAssembly engine and version policy.
 - Define and review the deterministic execution-budget mechanism and value.
-- Define and review host-attestation and complete evidence-package formats.
+- Define and review host-attestation and complete evidence-package formats, including the exact core-receipt schema.
 - Define and review the reproducible-build release threshold.
 - Define and review concrete trust-anchor and key-custody mechanisms.
 - Define and review the approved-verifier implementation and distribution.
@@ -71,5 +74,5 @@ Scope: ecosystem
 - ENTRY-ECO-018
 - ENTRY-ECO-019
 - ENTRY-ECO-021
-- ENTRY-ECO-024
-- ENTRY-ECO-025
+- ENTRY-ECO-026
+- ENTRY-ECO-027
