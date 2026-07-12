@@ -12,10 +12,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout exact event commit
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
+
+      - name: Verify exact checkout identity
+        shell: bash
+        run: |
+          expected="${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}"
+          actual="$(git rev-parse HEAD)"
+          echo "Expected commit: $expected"
+          echo "Checked-out commit: $actual"
+          if [ "$actual" != "$expected" ]; then
+            echo "ERROR: Record CI did not check out the exact event commit."
+            exit 1
+          fi
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-029",
+  "created_at": "2026-07-12T14:34:00.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "TR-ORACLE-ENGINE-1 is ratified as the governing WebAssembly engine-selection and version policy; implementation remains unauthorized and the next active gate is deterministic execution-budget policy specification and independent review.",
+  "decisions": [],
+  "completed_work": [
+    "Completed engine-policy specification, adversarial review and correction cycles, exact fingerprinting, final RECOMMEND, and Dan's ratification.",
+    "Closed the pre-ratification engine-selection and version-policy working phase without beginning implementation."
+  ],
+  "active_state": {
+    "foundation_maintenance_status": "complete",
+    "next_substantive_target": "specify-and-review-deterministic-execution-budget-policy"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-027"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740",
+      "description": "Ratified TR-ORACLE-ENGINE-1 version 1.0.0-draft.5 source artifact."
+    }
+  ],
+  "next_chat_starting_context": "TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, and TR-ORACLE-ENGINE-1 are ratified. Begin specification and independent review of the deterministic execution-budget policy only. Rust/WASM implementation, approved-verifier implementation, reference-implementation status, deployment, and canonical-evidence production remain unauthorized until all applicable later gates are resolved and approved."
+}
