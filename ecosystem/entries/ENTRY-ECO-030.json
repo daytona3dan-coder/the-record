@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-030",
+  "created_at": "2026-07-12T21:52:14.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan ratified TR-ORACLE-BUDGET-1 draft.4 as the governing deterministic execution-budget mechanism-and-value policy while preserving the ratified host, ABI, and engine policy, leaving four later gates mandatory, and authorizing no implementation.",
+  "decisions": [
+    "Evidence-producing Transformation Registry oracles must execute within a controlled isolation boundary admitting only versioned deterministic inputs and trusted cryptographic and runtime services.",
+    "The canonical implementation posture remains Rust compiled to WebAssembly under an approved host profile; same-realm JavaScript is not an approved evidence-producing boundary.",
+    "TR-ORACLE-HOST-1 version 1.0.0-draft.5, SHA-256 55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408, remains the governing architectural host profile.",
+    "TR-ORACLE-ABI-1 version 1.0.0-draft.5, SHA-256 270f4be97676d21f3279c9e6bfc7aa8e22de684349259dc267a1598cfd092ae2, remains the governing ABI specification for Transformation Registry transformation and grading modules.",
+    "TR-ORACLE-ENGINE-1 version 1.0.0-draft.5, SHA-256 71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740, remains the governing WebAssembly engine-selection and version policy for Transformation Registry transformation and grading modules.",
+    "The governing engine policy continues to select the official Rust embedding of Wasmtime 36.0.12 by exact version, upstream tag v36.0.12, upstream release commit 6c0a7fc9c387f34dddcf94ef41d7b3b0f9d18cb0, restricted Cargo feature identity, explicit non-budget configuration, finished-byte validation, approved API-path restrictions, and fail-closed update rules.",
+    "TR-ORACLE-BUDGET-1 version 1.0.0-draft.4, SHA-256 d940e1e528890597758ffa34f15e20ef1744009c02b42b77c36babb37fb2e732, is the governing deterministic execution-budget mechanism-and-value policy for Transformation Registry transformation and grading modules.",
+    "The governing budget policy uses Wasmtime 36.0.12 fuel as the sole canonical guest-execution meter, sets a 10,000,000-unit spendable budget for both transformation and grading lifecycles, requires a one-unit non-spendable guard sentinel, and therefore loads exactly 10,000,001 fuel units into each fresh single-use Store.",
+    "The complete role-specific ABI lifecycle executes under one budget. Fuel is observed after every guest-call boundary; accepted execution requires valid terminal accounting with the guard intact; depleted-guard accounting is lower-bound only; and outcome precedence fails closed across operational_abort, policy_violation, classification_failure, budget_exhausted, budget_overrun, execution_trap, abi_unknown_status, recognized ABI outcomes, and post-execution validation failure.",
+    "Ratification closes only the deterministic execution-budget mechanism-and-value gate.",
+    "The four later gates remain mandatory: host-attestation and complete evidence-package schemas, including the exact core-receipt schema; reproducible-build release threshold; trust-anchor and key-custody mechanisms; and approved-verifier implementation and distribution.",
+    "Deferral does not waive any requirement. No Rust/WASM implementation, reference-implementation status, approved-verifier implementation, deployment, or canonical-evidence production is authorized until the applicable later gates are separately resolved, reviewed, and approved.",
+    "fieldmouth-standard PR #1 remains Draft and BLOCKED. Its JavaScript implementation remains a non-authoritative development and conformance-testing aid only.",
+    "Ratification of the exact budget-policy artifact does not merge fieldmouth-standard PR #1, PR #2, or PR #3. Dan Demarest retains all implementation, approval, ratification, and merge authority.",
+    "The Record remains a private repository on GitHub Free.",
+    "GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.",
+    "Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.",
+    "The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.",
+    "If repository plan or visibility changes later, technical protection of main must be configured and verified."
+  ],
+  "completed_work": [
+    "Completed iterative adversarial deterministic execution-budget drafting and review through a final RECOMMEND on the exact draft.4 artifact.",
+    "Recorded the ratified budget policy by exact identifier, version, SHA-256 identity, 41,725-byte UTF-8/LF format, Git blob, source branch head, and human authority.",
+    "Preserved the ratified Host Profile, governing ABI, governing Engine Policy, controlled-isolation posture, and private GitHub Free operating governance while closing the deterministic execution-budget mechanism-and-value gate.",
+    "Dan Demarest explicitly directed ratification of the exact independently reviewed budget-policy artifact and retained all implementation, approval, ratification, and merge authority on July 12, 2026."
+  ],
+  "active_state": {
+    "branch_protection_enforcement": "procedural-not-technical",
+    "foundation_maintenance_status": "complete",
+    "github_repository_plan": "free",
+    "github_repository_visibility": "private",
+    "manual_ci_enhancement_status": "closed-without-merge",
+    "next_substantive_target": "specify-and-review-host-attestation-and-complete-evidence-package-schemas",
+    "state_collision_guard": "enforced-fail-closed",
+    "tr_oracle_abi_identifier": "TR-ORACLE-ABI-1",
+    "tr_oracle_abi_sha256": "sha256:270f4be97676d21f3279c9e6bfc7aa8e22de684349259dc267a1598cfd092ae2",
+    "tr_oracle_abi_status": "ratified-governing-specification",
+    "tr_oracle_abi_version": "1.0.0-draft.5",
+    "tr_oracle_budget_guard_fuel": "1",
+    "tr_oracle_budget_loaded_fuel": "10000001",
+    "tr_oracle_budget_policy_identifier": "TR-ORACLE-BUDGET-1",
+    "tr_oracle_budget_policy_sha256": "sha256:d940e1e528890597758ffa34f15e20ef1744009c02b42b77c36babb37fb2e732",
+    "tr_oracle_budget_policy_status": "ratified-governing-policy",
+    "tr_oracle_budget_policy_version": "1.0.0-draft.4",
+    "tr_oracle_budget_spendable_fuel": "10000000",
+    "tr_oracle_canonical_implementation": "rust-wasm-approved-host-profile",
+    "tr_oracle_engine_identifier": "wasmtime",
+    "tr_oracle_engine_policy_identifier": "TR-ORACLE-ENGINE-1",
+    "tr_oracle_engine_policy_sha256": "sha256:71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740",
+    "tr_oracle_engine_policy_status": "ratified-governing-policy",
+    "tr_oracle_engine_policy_version": "1.0.0-draft.5",
+    "tr_oracle_engine_version": "36.0.12",
+    "tr_oracle_host_profile_identifier": "TR-ORACLE-HOST-1",
+    "tr_oracle_host_profile_sha256": "sha256:55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408",
+    "tr_oracle_host_profile_status": "ratified-governing-architecture",
+    "tr_oracle_host_profile_version": "1.0.0-draft.5",
+    "tr_oracle_implementation_gate": "four-later-gates-required-before-implementation",
+    "tr_oracle_isolation_requirement": "controlled-boundary"
+  },
+  "open_items": [
+    "Define and review host-attestation and complete evidence-package formats, including the exact core-receipt schema.",
+    "Define and review the reproducible-build release threshold.",
+    "Define and review concrete trust-anchor and key-custody mechanisms.",
+    "Define and review the approved-verifier implementation and distribution."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-028"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:d940e1e528890597758ffa34f15e20ef1744009c02b42b77c36babb37fb2e732",
+      "description": "Exact ratified TR_ORACLE_BUDGET_POLICY_V1.md version 1.0.0-draft.4; 41,725 UTF-8 bytes with LF line endings; Git blob 434a8ca306709124c7b0b958741a7df74c4bbd16; fieldmouth-standard PR #3 head 43d0d7b6a01580f53ff531c5fadf7a8e2e9dde91; final independent verdict RECOMMEND."
+    }
+  ],
+  "next_chat_starting_context": "Approved Canon: TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, TR-ORACLE-ENGINE-1, and TR-ORACLE-BUDGET-1 are ratified by exact SHA-256 as the governing oracle architecture, ABI, WebAssembly engine policy, and deterministic execution-budget policy. Four later gates remain mandatory. Next specify and independently review host-attestation and complete evidence-package schemas, including the exact core-receipt schema, only. Do not implement Rust/WASM, grant reference or verifier status, deploy an oracle, produce canonical evidence, or merge fieldmouth-standard PR #1, PR #2, or PR #3.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-12T21:52:14.000Z"
+  }
+}
