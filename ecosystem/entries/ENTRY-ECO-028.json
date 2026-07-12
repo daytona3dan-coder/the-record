@@ -30,7 +30,7 @@
   ],
   "completed_work": [
     "Completed iterative adversarial engine-policy drafting and review through a final RECOMMEND on the exact draft.5 artifact.",
-    "Recorded the ratified engine policy by exact identifier, version, SHA-256 identity, byte size, Git blob, source branch head, and human authority.",
+    "Recorded the ratified engine policy by exact identifier, version, SHA-256 identity, 31,621-byte UTF-8/LF format, Git blob, source branch head, and human authority.",
     "Preserved the ratified Host Profile, governing ABI, and private GitHub Free operating governance while closing the engine-selection and version-policy gate.",
     "Dan Demarest explicitly ratified the engine and version-policy architecture and retained all implementation, approval, ratification, and merge authority on July 12, 2026."
   ],
@@ -73,7 +73,7 @@
   "evidence": [
     {
       "artifact": "sha256:71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740",
-      "description": "Exact ratified TR_ORACLE_ENGINE_POLICY_V1.md version 1.0.0-draft.5; 31,621 bytes; Git blob 744627cb9fef340c4d8278448ddd9b75f3ffb733; fieldmouth-standard PR #2 head 775869690c7755937dc86c920558064fc68ec587; final independent verdict RECOMMEND."
+      "description": "Exact ratified TR_ORACLE_ENGINE_POLICY_V1.md version 1.0.0-draft.5; 31,621 UTF-8 bytes with LF line endings; Git blob 744627cb9fef340c4d8278448ddd9b75f3ffb733; fieldmouth-standard PR #2 head 775869690c7755937dc86c920558064fc68ec587; final independent verdict RECOMMEND."
     }
   ],
   "next_chat_starting_context": "Approved Canon: TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, and TR-ORACLE-ENGINE-1 version 1.0.0-draft.5 are ratified by exact SHA-256 as the governing oracle architecture, ABI, and WebAssembly engine policy. Five later gates remain mandatory. Next specify and independently review the deterministic execution-budget policy only. Do not implement Rust/WASM, grant reference or verifier status, deploy an oracle, or produce canonical evidence.",
