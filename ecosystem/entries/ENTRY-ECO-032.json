@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-032",
+  "created_at": "2026-07-13T00:23:38.000Z",
+  "created_by": {
+    "actor_type": "human",
+    "name": "Dan Demarest",
+    "account": "daytona3dan-coder"
+  },
+  "scope": "ecosystem",
+  "authority_class": "approved_canon",
+  "summary": "Dan ratified TR-ORACLE-EVIDENCE-1 draft.2 and its exact schema inventory as the governing host-attestation and complete evidence-package policy, including the exact core-receipt schema, while preserving the ratified host, ABI, engine, and budget policies, leaving three later gates mandatory, and authorizing no implementation.",
+  "decisions": [
+    "Evidence-producing Transformation Registry oracles must execute within a controlled isolation boundary admitting only versioned deterministic inputs and trusted cryptographic and runtime services.",
+    "The canonical implementation posture remains Rust compiled to WebAssembly under an approved host profile; same-realm JavaScript is not an approved evidence-producing boundary.",
+    "TR-ORACLE-HOST-1 version 1.0.0-draft.5, SHA-256 55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408, remains the governing architectural host profile.",
+    "TR-ORACLE-ABI-1 version 1.0.0-draft.5, SHA-256 270f4be97676d21f3279c9e6bfc7aa8e22de684349259dc267a1598cfd092ae2, remains the governing ABI specification for Transformation Registry transformation and grading modules.",
+    "TR-ORACLE-ENGINE-1 version 1.0.0-draft.5, SHA-256 71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740, remains the governing WebAssembly engine-selection and version policy.",
+    "TR-ORACLE-BUDGET-1 version 1.0.0-draft.4, SHA-256 d940e1e528890597758ffa34f15e20ef1744009c02b42b77c36babb37fb2e732, remains the governing deterministic execution-budget mechanism-and-value policy.",
+    "TR-ORACLE-EVIDENCE-1 version 1.0.0-draft.2, SHA-256 f38a6386ad97badb48a9deda41dd53ba6210923ff7c8adaf1ef18470484b92b0, 14,633 UTF-8 bytes with LF line endings, Git blob b6c948f4cec8334d75350d92b460f8d4e5857c62, is the governing host-attestation and complete evidence-package policy for Transformation Registry transformation and grading modules.",
+    "TR-ORACLE-EVIDENCE-SCHEMA-MANIFEST-1 version 1.0.0-draft.2, SHA-256 8a4018d9b917afcb4999cdaa4c33357a4fe689c5164bd44bff0cb20729889f7a, 2,155 UTF-8 bytes with one trailing LF, Git blob f1a90892b4a4ad1a37d2e2a699dcae6bd525c33d, is the governing evidence-schema inventory.",
+    "The governing schema inventory includes TR-ORACLE-CORE-RECEIPT-1 version 1.0.0-draft.1, SHA-256 f5d8eb161b3a63d1467bd9ce7aef381ffbff9846586ac17b3537e6723c30bfb9.",
+    "The governing schema inventory includes TR-ORACLE-GOVERNED-REJECTION-1 version 1.0.0-draft.1, SHA-256 b72fba08db9db3fca407d814ef5ee96ad1d18ea92431750cd3f14b28d7bfec56.",
+    "The governing schema inventory includes TR-ORACLE-GRADING-RESULT-1 version 1.0.0-draft.1, SHA-256 214167e9d3e6b2ce5e4d60a02d3cb935a447d663be2b8d0ba7ee0f7b04a30449.",
+    "The governing schema inventory includes TR-ORACLE-SUPERVISOR-TRANSACTION-1 version 1.0.0-draft.2, SHA-256 9b1edf1dd9059a904ba9cc1f9c511822f3bb28e983d26b132d45841eefc9ea5e.",
+    "The governing schema inventory includes TR-ORACLE-HOST-ATTESTATION-1 version 1.0.0-draft.2, SHA-256 ec124cd2f897e3fad4b37914d3903a92ee43b7c49ccde322142648c1aef83550.",
+    "The governing schema inventory includes TR-ORACLE-DEPLOYMENT-MANIFEST-1 version 1.0.0-draft.2, SHA-256 2667b3f4ac1c351b0ed06aaef64edda30033a2dcc4eb1aef003fbd77a3436ced.",
+    "The governing schema inventory includes TR-ORACLE-EVIDENCE-PACKAGE-1 version 1.0.0-draft.2, SHA-256 a828852be79e3f1508e0aa2d751fefa09f3f75093d9daf73c1c794e9542df933.",
+    "The evidence policy governs exact JCS result and evidence bytes, digest preimages, content-addressed package layout, embedded replay-critical policy and artifact preimages, supervisor event and fuel accounting, runtime host attestation, signed deployment manifests, cross-artifact equality, verification order, and deterministic replay.",
+    "The exact core receipt remains a transformation-module-produced object and does not acquire host, engine, build, trust, signer, deployment, timestamp, or nonce claims.",
+    "The evidence policy binds trust-policy, signature-policy, and trust-anchor identifiers, versions, and digests without selecting signature algorithms, keys, custody, quorum, delegation, rotation, expiry, revocation, compromise recovery, or verifier distribution.",
+    "Ratification closes only the host-attestation and complete evidence-package schema gate, including the exact core-receipt schema.",
+    "The three later gates remain mandatory: reproducible-build release threshold; trust-anchor and key-custody mechanisms; and approved-verifier implementation and distribution.",
+    "Deferral does not waive any requirement. No Rust/WASM implementation, reference-implementation status, approved-verifier implementation, deployment, or canonical-evidence production is authorized until the applicable later gates are separately resolved, reviewed, and approved.",
+    "fieldmouth-standard PR #1 remains Draft and BLOCKED. Its JavaScript implementation remains a non-authoritative development and conformance-testing aid only.",
+    "Ratification of the exact evidence-policy and schema artifacts does not merge fieldmouth-standard PR #1, PR #2, PR #3, or PR #5. Dan Demarest retains all implementation, approval, ratification, and merge authority.",
+    "The Record remains a private repository on GitHub Free.",
+    "GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.",
+    "Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.",
+    "The repository will not be made public or moved to a paid GitHub plan solely to obtain branch protection.",
+    "If repository plan or visibility changes later, technical protection of main must be configured and verified."
+  ],
+  "completed_work": [
+    "Completed iterative adversarial host-attestation and evidence-package drafting and review through a final RECOMMEND on the exact Draft.2 policy, schema manifest, and seven-schema inventory.",
+    "Recorded the ratified evidence policy and schema inventory by exact identifier, version, SHA-256 identity, byte format, Git blob, reviewed source branch head, and human authority.",
+    "Preserved the ratified Host Profile, governing ABI, governing Engine Policy, governing Budget Policy, controlled-isolation posture, Rust/WASM posture, and private GitHub Free operating governance while closing only the host-attestation and complete evidence-package schema gate.",
+    "Dan Demarest explicitly directed ratification of the exact independently reviewed evidence-policy and schema artifacts and retained all implementation, approval, ratification, and merge authority on July 12, 2026."
+  ],
+  "active_state": {
+    "branch_protection_enforcement": "procedural-not-technical",
+    "foundation_maintenance_status": "complete",
+    "github_repository_plan": "free",
+    "github_repository_visibility": "private",
+    "manual_ci_enhancement_status": "closed-without-merge",
+    "next_substantive_target": "specify-and-review-reproducible-build-release-threshold",
+    "state_collision_guard": "enforced-fail-closed",
+    "tr_oracle_abi_identifier": "TR-ORACLE-ABI-1",
+    "tr_oracle_abi_sha256": "sha256:270f4be97676d21f3279c9e6bfc7aa8e22de684349259dc267a1598cfd092ae2",
+    "tr_oracle_abi_status": "ratified-governing-specification",
+    "tr_oracle_abi_version": "1.0.0-draft.5",
+    "tr_oracle_budget_guard_fuel": "1",
+    "tr_oracle_budget_loaded_fuel": "10000001",
+    "tr_oracle_budget_policy_identifier": "TR-ORACLE-BUDGET-1",
+    "tr_oracle_budget_policy_sha256": "sha256:d940e1e528890597758ffa34f15e20ef1744009c02b42b77c36babb37fb2e732",
+    "tr_oracle_budget_policy_status": "ratified-governing-policy",
+    "tr_oracle_budget_policy_version": "1.0.0-draft.4",
+    "tr_oracle_budget_spendable_fuel": "10000000",
+    "tr_oracle_canonical_implementation": "rust-wasm-approved-host-profile",
+    "tr_oracle_core_receipt_schema_identifier": "TR-ORACLE-CORE-RECEIPT-1",
+    "tr_oracle_core_receipt_schema_sha256": "sha256:f5d8eb161b3a63d1467bd9ce7aef381ffbff9846586ac17b3537e6723c30bfb9",
+    "tr_oracle_core_receipt_schema_status": "ratified-governing-schema",
+    "tr_oracle_core_receipt_schema_version": "1.0.0-draft.1",
+    "tr_oracle_engine_identifier": "wasmtime",
+    "tr_oracle_engine_policy_identifier": "TR-ORACLE-ENGINE-1",
+    "tr_oracle_engine_policy_sha256": "sha256:71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740",
+    "tr_oracle_engine_policy_status": "ratified-governing-policy",
+    "tr_oracle_engine_policy_version": "1.0.0-draft.5",
+    "tr_oracle_engine_version": "36.0.12",
+    "tr_oracle_evidence_policy_identifier": "TR-ORACLE-EVIDENCE-1",
+    "tr_oracle_evidence_policy_sha256": "sha256:f38a6386ad97badb48a9deda41dd53ba6210923ff7c8adaf1ef18470484b92b0",
+    "tr_oracle_evidence_policy_status": "ratified-governing-policy",
+    "tr_oracle_evidence_policy_version": "1.0.0-draft.2",
+    "tr_oracle_evidence_schema_manifest_identifier": "TR-ORACLE-EVIDENCE-SCHEMA-MANIFEST-1",
+    "tr_oracle_evidence_schema_manifest_sha256": "sha256:8a4018d9b917afcb4999cdaa4c33357a4fe689c5164bd44bff0cb20729889f7a",
+    "tr_oracle_evidence_schema_manifest_status": "ratified-governing-schema-inventory",
+    "tr_oracle_evidence_schema_manifest_version": "1.0.0-draft.2",
+    "tr_oracle_host_profile_identifier": "TR-ORACLE-HOST-1",
+    "tr_oracle_host_profile_sha256": "sha256:55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408",
+    "tr_oracle_host_profile_status": "ratified-governing-architecture",
+    "tr_oracle_host_profile_version": "1.0.0-draft.5",
+    "tr_oracle_implementation_gate": "three-later-gates-required-before-implementation",
+    "tr_oracle_isolation_requirement": "controlled-boundary"
+  },
+  "open_items": [
+    "Define and review the reproducible-build release threshold.",
+    "Define and review concrete trust-anchor and key-custody mechanisms.",
+    "Define and review the approved-verifier implementation and distribution."
+  ],
+  "supersedes": [
+    "ENTRY-ECO-030"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:f38a6386ad97badb48a9deda41dd53ba6210923ff7c8adaf1ef18470484b92b0",
+      "description": "Exact ratified TR_ORACLE_EVIDENCE_POLICY_V1.md version 1.0.0-draft.2; 14,633 UTF-8 bytes with LF line endings; Git blob b6c948f4cec8334d75350d92b460f8d4e5857c62; fieldmouth-standard PR #5 head 19ad4934a669c76d8ea50e2b7ce7890ae6524130; final independent verdict RECOMMEND."
+    },
+    {
+      "artifact": "sha256:8a4018d9b917afcb4999cdaa4c33357a4fe689c5164bd44bff0cb20729889f7a",
+      "description": "Exact ratified TR-ORACLE-EVIDENCE-SCHEMA-MANIFEST-1 version 1.0.0-draft.2; 2,155 UTF-8 bytes with one trailing LF; Git blob f1a90892b4a4ad1a37d2e2a699dcae6bd525c33d; binds the exact core-receipt, governed-rejection, grading-result, supervisor-transaction, host-attestation, deployment-manifest, and evidence-package schemas approved by Dan Demarest."
+    }
+  ],
+  "next_chat_starting_context": "Approved Canon: TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, TR-ORACLE-ENGINE-1, TR-ORACLE-BUDGET-1, and TR-ORACLE-EVIDENCE-1 with its exact schema inventory are ratified by exact SHA-256 as the governing oracle architecture, ABI, WebAssembly engine policy, deterministic execution-budget policy, and host-attestation/evidence-package policy. Three later gates remain mandatory. Next specify and independently review the reproducible-build release threshold only. Do not implement Rust/WASM, grant reference or verifier status, deploy an oracle, produce canonical evidence, or merge fieldmouth-standard PR #1, PR #2, PR #3, or PR #5.",
+  "approval": {
+    "approved_by_type": "human",
+    "approved_by_name": "Dan Demarest",
+    "approved_by_account": "daytona3dan-coder",
+    "approved_at": "2026-07-13T00:23:38.000Z"
+  }
+}
