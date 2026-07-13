@@ -1,6 +1,6 @@
 # Current State — Ecosystem
 
-Generated: 2026-07-12T21:52:14.000Z
+Generated: 2026-07-13T00:23:38.000Z
 Constitution: v1.0.0
 Scope: ecosystem
 
@@ -11,10 +11,10 @@ Scope: ecosystem
 - **ENTRY-ECO-018**: Dan permanently reserved TR-000 as unavailable and without transformation, execution, evidentiary, or governance semantics.
 - **ENTRY-ECO-019**: Dan reclassified the JavaScript implementation in fieldmouth-standard PR #1 as a non-authoritative development and conformance-testing aid.
 - **ENTRY-ECO-021**: Dan required every envelope hash to have a preimage contained in or deterministically derivable from the envelope and directed removal of visible_text_sha256 as the immediate remedy.
-- **ENTRY-ECO-030**: Dan ratified TR-ORACLE-BUDGET-1 draft.4 as the governing deterministic execution-budget mechanism-and-value policy while preserving the ratified host, ABI, and engine policy, leaving four later gates mandatory, and authorizing no implementation.
+- **ENTRY-ECO-032**: Dan ratified TR-ORACLE-EVIDENCE-1 draft.2 and its exact schema inventory as the governing host-attestation and complete evidence-package policy, including the exact core-receipt schema, while preserving the ratified host, ABI, engine, and budget policies, leaving three later gates mandatory, and authorizing no implementation.
 
 ## Working Context
-- **ENTRY-ECO-031**: TR-ORACLE-BUDGET-1 is ratified as the governing deterministic execution-budget mechanism-and-value policy; implementation remains unauthorized and the next active gate is host-attestation and complete evidence-package schema specification and independent review.
+- **ENTRY-ECO-033**: TR-ORACLE-EVIDENCE-1 and its exact schema inventory are ratified as the governing host-attestation and complete evidence-package policy; implementation remains unauthorized and the next active gate is reproducible-build release-threshold specification and independent review.
 
 ## Active State
 - **benchmark_current_identity**: internal-conformance-suite
@@ -32,7 +32,7 @@ Scope: ecosystem
 - **human_authority_identity**: actual-human-required
 - **manual_ci_enhancement_status**: closed-without-merge
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **next_substantive_target**: specify-and-review-host-attestation-and-complete-evidence-package-schemas
+- **next_substantive_target**: specify-and-review-reproducible-build-release-threshold
 - **state_collision_guard**: enforced-fail-closed
 - **tr000_assignment**: permanently-reserved-unavailable
 - **tr001_javascript_status**: non-authoritative-conformance-testing-aid
@@ -48,17 +48,29 @@ Scope: ecosystem
 - **tr_oracle_budget_policy_version**: 1.0.0-draft.4
 - **tr_oracle_budget_spendable_fuel**: 10000000
 - **tr_oracle_canonical_implementation**: rust-wasm-approved-host-profile
+- **tr_oracle_core_receipt_schema_identifier**: TR-ORACLE-CORE-RECEIPT-1
+- **tr_oracle_core_receipt_schema_sha256**: sha256:f5d8eb161b3a63d1467bd9ce7aef381ffbff9846586ac17b3537e6723c30bfb9
+- **tr_oracle_core_receipt_schema_status**: ratified-governing-schema
+- **tr_oracle_core_receipt_schema_version**: 1.0.0-draft.1
 - **tr_oracle_engine_identifier**: wasmtime
 - **tr_oracle_engine_policy_identifier**: TR-ORACLE-ENGINE-1
 - **tr_oracle_engine_policy_sha256**: sha256:71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740
 - **tr_oracle_engine_policy_status**: ratified-governing-policy
 - **tr_oracle_engine_policy_version**: 1.0.0-draft.5
 - **tr_oracle_engine_version**: 36.0.12
+- **tr_oracle_evidence_policy_identifier**: TR-ORACLE-EVIDENCE-1
+- **tr_oracle_evidence_policy_sha256**: sha256:f38a6386ad97badb48a9deda41dd53ba6210923ff7c8adaf1ef18470484b92b0
+- **tr_oracle_evidence_policy_status**: ratified-governing-policy
+- **tr_oracle_evidence_policy_version**: 1.0.0-draft.2
+- **tr_oracle_evidence_schema_manifest_identifier**: TR-ORACLE-EVIDENCE-SCHEMA-MANIFEST-1
+- **tr_oracle_evidence_schema_manifest_sha256**: sha256:8a4018d9b917afcb4999cdaa4c33357a4fe689c5164bd44bff0cb20729889f7a
+- **tr_oracle_evidence_schema_manifest_status**: ratified-governing-schema-inventory
+- **tr_oracle_evidence_schema_manifest_version**: 1.0.0-draft.2
 - **tr_oracle_host_profile_identifier**: TR-ORACLE-HOST-1
 - **tr_oracle_host_profile_sha256**: sha256:55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408
 - **tr_oracle_host_profile_status**: ratified-governing-architecture
 - **tr_oracle_host_profile_version**: 1.0.0-draft.5
-- **tr_oracle_implementation_gate**: four-later-gates-required-before-implementation
+- **tr_oracle_implementation_gate**: three-later-gates-required-before-implementation
 - **tr_oracle_isolation_requirement**: controlled-boundary
 - **visible_text_sha256_status**: remove-next-envelope-revision
 
@@ -73,7 +85,6 @@ Scope: ecosystem
 - Update fieldmouth-standard PR #1 documentation to reflect this approved classification without resuming intrinsic-hardening work.
 - Remove visible_text_sha256 in the next envelope revision.
 - If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field.
-- Define and review host-attestation and complete evidence-package formats, including the exact core-receipt schema.
 - Define and review the reproducible-build release threshold.
 - Define and review concrete trust-anchor and key-custody mechanisms.
 - Define and review the approved-verifier implementation and distribution.
@@ -85,5 +96,5 @@ Scope: ecosystem
 - ENTRY-ECO-018
 - ENTRY-ECO-019
 - ENTRY-ECO-021
-- ENTRY-ECO-030
-- ENTRY-ECO-031
+- ENTRY-ECO-032
+- ENTRY-ECO-033
