@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "entry_id": "ENTRY-ECO-033",
+  "created_at": "2026-07-13T00:23:38.000Z",
+  "created_by": {
+    "actor_type": "ai",
+    "name": "ChatGPT"
+  },
+  "scope": "ecosystem",
+  "authority_class": "working_context",
+  "summary": "TR-ORACLE-EVIDENCE-1 and its exact schema inventory are ratified as the governing host-attestation and complete evidence-package policy; implementation remains unauthorized and the next active gate is reproducible-build release-threshold specification and independent review.",
+  "decisions": [],
+  "completed_work": [
+    "Completed host-attestation and evidence-package policy and schema specification, adversarial review and correction cycles, exact fingerprinting, final RECOMMEND, and Dan's ratification.",
+    "Closed the pre-ratification host-attestation and evidence-package working phase without beginning implementation."
+  ],
+  "active_state": {
+    "foundation_maintenance_status": "complete",
+    "next_substantive_target": "specify-and-review-reproducible-build-release-threshold"
+  },
+  "open_items": [],
+  "supersedes": [
+    "ENTRY-ECO-031"
+  ],
+  "evidence": [
+    {
+      "artifact": "sha256:f38a6386ad97badb48a9deda41dd53ba6210923ff7c8adaf1ef18470484b92b0",
+      "description": "Ratified TR-ORACLE-EVIDENCE-1 version 1.0.0-draft.2 source artifact."
+    },
+    {
+      "artifact": "sha256:8a4018d9b917afcb4999cdaa4c33357a4fe689c5164bd44bff0cb20729889f7a",
+      "description": "Ratified TR-ORACLE-EVIDENCE-SCHEMA-MANIFEST-1 version 1.0.0-draft.2 source artifact."
+    }
+  ],
+  "next_chat_starting_context": "TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, TR-ORACLE-ENGINE-1, TR-ORACLE-BUDGET-1, and TR-ORACLE-EVIDENCE-1 with its exact schema inventory are ratified. Begin specification and independent review of the reproducible-build release threshold only. Rust/WASM implementation, approved-verifier implementation, reference-implementation status, deployment, canonical-evidence production, and merge of fieldmouth-standard PR #1, PR #2, PR #3, or PR #5 remain unauthorized until all applicable later gates are resolved and approved."
+}

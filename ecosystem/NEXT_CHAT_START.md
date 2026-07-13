@@ -8,7 +8,7 @@
 
 **Constitution version:** 1.0.0
 **Generated from:** `CURRENT_STATE.json` (scope: ecosystem)
-**Generated at:** 2026-07-12T21:52:14.000Z
+**Generated at:** 2026-07-13T00:23:38.000Z
 
 ---
 
@@ -74,25 +74,34 @@ Dan required every envelope hash to have a preimage contained in or deterministi
 - Text normalization is a separate transformation class from CANON-1 JSON canonicalization.
 - The immediate remedy is to remove visible_text_sha256. A later registered transformation may restore the capability if justified.
 
-### ENTRY-ECO-030
+### ENTRY-ECO-032
 
-Dan ratified TR-ORACLE-BUDGET-1 draft.4 as the governing deterministic execution-budget mechanism-and-value policy while preserving the ratified host, ABI, and engine policy, leaving four later gates mandatory, and authorizing no implementation.
+Dan ratified TR-ORACLE-EVIDENCE-1 draft.2 and its exact schema inventory as the governing host-attestation and complete evidence-package policy, including the exact core-receipt schema, while preserving the ratified host, ABI, engine, and budget policies, leaving three later gates mandatory, and authorizing no implementation.
 
 **Decisions:**
 - Evidence-producing Transformation Registry oracles must execute within a controlled isolation boundary admitting only versioned deterministic inputs and trusted cryptographic and runtime services.
 - The canonical implementation posture remains Rust compiled to WebAssembly under an approved host profile; same-realm JavaScript is not an approved evidence-producing boundary.
 - TR-ORACLE-HOST-1 version 1.0.0-draft.5, SHA-256 55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408, remains the governing architectural host profile.
 - TR-ORACLE-ABI-1 version 1.0.0-draft.5, SHA-256 270f4be97676d21f3279c9e6bfc7aa8e22de684349259dc267a1598cfd092ae2, remains the governing ABI specification for Transformation Registry transformation and grading modules.
-- TR-ORACLE-ENGINE-1 version 1.0.0-draft.5, SHA-256 71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740, remains the governing WebAssembly engine-selection and version policy for Transformation Registry transformation and grading modules.
-- The governing engine policy continues to select the official Rust embedding of Wasmtime 36.0.12 by exact version, upstream tag v36.0.12, upstream release commit 6c0a7fc9c387f34dddcf94ef41d7b3b0f9d18cb0, restricted Cargo feature identity, explicit non-budget configuration, finished-byte validation, approved API-path restrictions, and fail-closed update rules.
-- TR-ORACLE-BUDGET-1 version 1.0.0-draft.4, SHA-256 d940e1e528890597758ffa34f15e20ef1744009c02b42b77c36babb37fb2e732, is the governing deterministic execution-budget mechanism-and-value policy for Transformation Registry transformation and grading modules.
-- The governing budget policy uses Wasmtime 36.0.12 fuel as the sole canonical guest-execution meter, sets a 10,000,000-unit spendable budget for both transformation and grading lifecycles, requires a one-unit non-spendable guard sentinel, and therefore loads exactly 10,000,001 fuel units into each fresh single-use Store.
-- The complete role-specific ABI lifecycle executes under one budget. Fuel is observed after every guest-call boundary; accepted execution requires valid terminal accounting with the guard intact; depleted-guard accounting is lower-bound only; and outcome precedence fails closed across operational_abort, policy_violation, classification_failure, budget_exhausted, budget_overrun, execution_trap, abi_unknown_status, recognized ABI outcomes, and post-execution validation failure.
-- Ratification closes only the deterministic execution-budget mechanism-and-value gate.
-- The four later gates remain mandatory: host-attestation and complete evidence-package schemas, including the exact core-receipt schema; reproducible-build release threshold; trust-anchor and key-custody mechanisms; and approved-verifier implementation and distribution.
+- TR-ORACLE-ENGINE-1 version 1.0.0-draft.5, SHA-256 71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740, remains the governing WebAssembly engine-selection and version policy.
+- TR-ORACLE-BUDGET-1 version 1.0.0-draft.4, SHA-256 d940e1e528890597758ffa34f15e20ef1744009c02b42b77c36babb37fb2e732, remains the governing deterministic execution-budget mechanism-and-value policy.
+- TR-ORACLE-EVIDENCE-1 version 1.0.0-draft.2, SHA-256 f38a6386ad97badb48a9deda41dd53ba6210923ff7c8adaf1ef18470484b92b0, 14,633 UTF-8 bytes with LF line endings, Git blob b6c948f4cec8334d75350d92b460f8d4e5857c62, is the governing host-attestation and complete evidence-package policy for Transformation Registry transformation and grading modules.
+- TR-ORACLE-EVIDENCE-SCHEMA-MANIFEST-1 version 1.0.0-draft.2, SHA-256 8a4018d9b917afcb4999cdaa4c33357a4fe689c5164bd44bff0cb20729889f7a, 2,155 UTF-8 bytes with one trailing LF, Git blob f1a90892b4a4ad1a37d2e2a699dcae6bd525c33d, is the governing evidence-schema inventory.
+- The governing schema inventory includes TR-ORACLE-CORE-RECEIPT-1 version 1.0.0-draft.1, SHA-256 f5d8eb161b3a63d1467bd9ce7aef381ffbff9846586ac17b3537e6723c30bfb9.
+- The governing schema inventory includes TR-ORACLE-GOVERNED-REJECTION-1 version 1.0.0-draft.1, SHA-256 b72fba08db9db3fca407d814ef5ee96ad1d18ea92431750cd3f14b28d7bfec56.
+- The governing schema inventory includes TR-ORACLE-GRADING-RESULT-1 version 1.0.0-draft.1, SHA-256 214167e9d3e6b2ce5e4d60a02d3cb935a447d663be2b8d0ba7ee0f7b04a30449.
+- The governing schema inventory includes TR-ORACLE-SUPERVISOR-TRANSACTION-1 version 1.0.0-draft.2, SHA-256 9b1edf1dd9059a904ba9cc1f9c511822f3bb28e983d26b132d45841eefc9ea5e.
+- The governing schema inventory includes TR-ORACLE-HOST-ATTESTATION-1 version 1.0.0-draft.2, SHA-256 ec124cd2f897e3fad4b37914d3903a92ee43b7c49ccde322142648c1aef83550.
+- The governing schema inventory includes TR-ORACLE-DEPLOYMENT-MANIFEST-1 version 1.0.0-draft.2, SHA-256 2667b3f4ac1c351b0ed06aaef64edda30033a2dcc4eb1aef003fbd77a3436ced.
+- The governing schema inventory includes TR-ORACLE-EVIDENCE-PACKAGE-1 version 1.0.0-draft.2, SHA-256 a828852be79e3f1508e0aa2d751fefa09f3f75093d9daf73c1c794e9542df933.
+- The evidence policy governs exact JCS result and evidence bytes, digest preimages, content-addressed package layout, embedded replay-critical policy and artifact preimages, supervisor event and fuel accounting, runtime host attestation, signed deployment manifests, cross-artifact equality, verification order, and deterministic replay.
+- The exact core receipt remains a transformation-module-produced object and does not acquire host, engine, build, trust, signer, deployment, timestamp, or nonce claims.
+- The evidence policy binds trust-policy, signature-policy, and trust-anchor identifiers, versions, and digests without selecting signature algorithms, keys, custody, quorum, delegation, rotation, expiry, revocation, compromise recovery, or verifier distribution.
+- Ratification closes only the host-attestation and complete evidence-package schema gate, including the exact core-receipt schema.
+- The three later gates remain mandatory: reproducible-build release threshold; trust-anchor and key-custody mechanisms; and approved-verifier implementation and distribution.
 - Deferral does not waive any requirement. No Rust/WASM implementation, reference-implementation status, approved-verifier implementation, deployment, or canonical-evidence production is authorized until the applicable later gates are separately resolved, reviewed, and approved.
 - fieldmouth-standard PR #1 remains Draft and BLOCKED. Its JavaScript implementation remains a non-authoritative development and conformance-testing aid only.
-- Ratification of the exact budget-policy artifact does not merge fieldmouth-standard PR #1, PR #2, or PR #3. Dan Demarest retains all implementation, approval, ratification, and merge authority.
+- Ratification of the exact evidence-policy and schema artifacts does not merge fieldmouth-standard PR #1, PR #2, PR #3, or PR #5. Dan Demarest retains all implementation, approval, ratification, and merge authority.
 - The Record remains a private repository on GitHub Free.
 - GitHub does not enforce protected branches or repository rulesets for private repositories on the Free plan. The Record must not claim that branch protection is technically enforced.
 - Until repository plan or visibility changes, all intended changes are proposed through branches and pull requests; Record CI must pass before merge; AI review remains advisory; Dan performs the human approval and merge act; direct pushes, force pushes, and deletion of main are prohibited by governance even though GitHub Free cannot technically block them; and Git evidence is checked after each merge.
@@ -106,7 +115,7 @@ Dan ratified TR-ORACLE-BUDGET-1 draft.4 as the governing deterministic execution
 
 _Working Context informs but does not govern. It may be superseded without a new canon approval._
 
-- **ENTRY-ECO-031**: TR-ORACLE-BUDGET-1 is ratified as the governing deterministic execution-budget mechanism-and-value policy; implementation remains unauthorized and the next active gate is host-attestation and complete evidence-package schema specification and independent review.
+- **ENTRY-ECO-033**: TR-ORACLE-EVIDENCE-1 and its exact schema inventory are ratified as the governing host-attestation and complete evidence-package policy; implementation remains unauthorized and the next active gate is reproducible-build release-threshold specification and independent review.
 
 ---
 
@@ -127,7 +136,7 @@ _Working Context informs but does not govern. It may be superseded without a new
 - **human_authority_identity**: actual-human-required
 - **manual_ci_enhancement_status**: closed-without-merge
 - **maxai_role_naming**: permitted-with-human-authority-identity
-- **next_substantive_target**: specify-and-review-host-attestation-and-complete-evidence-package-schemas
+- **next_substantive_target**: specify-and-review-reproducible-build-release-threshold
 - **state_collision_guard**: enforced-fail-closed
 - **tr000_assignment**: permanently-reserved-unavailable
 - **tr001_javascript_status**: non-authoritative-conformance-testing-aid
@@ -143,17 +152,29 @@ _Working Context informs but does not govern. It may be superseded without a new
 - **tr_oracle_budget_policy_version**: 1.0.0-draft.4
 - **tr_oracle_budget_spendable_fuel**: 10000000
 - **tr_oracle_canonical_implementation**: rust-wasm-approved-host-profile
+- **tr_oracle_core_receipt_schema_identifier**: TR-ORACLE-CORE-RECEIPT-1
+- **tr_oracle_core_receipt_schema_sha256**: sha256:f5d8eb161b3a63d1467bd9ce7aef381ffbff9846586ac17b3537e6723c30bfb9
+- **tr_oracle_core_receipt_schema_status**: ratified-governing-schema
+- **tr_oracle_core_receipt_schema_version**: 1.0.0-draft.1
 - **tr_oracle_engine_identifier**: wasmtime
 - **tr_oracle_engine_policy_identifier**: TR-ORACLE-ENGINE-1
 - **tr_oracle_engine_policy_sha256**: sha256:71166d5bd7ffacc2bb267d51fe7e7cea65ed51a8eb2c135be22ee5ff68a7a740
 - **tr_oracle_engine_policy_status**: ratified-governing-policy
 - **tr_oracle_engine_policy_version**: 1.0.0-draft.5
 - **tr_oracle_engine_version**: 36.0.12
+- **tr_oracle_evidence_policy_identifier**: TR-ORACLE-EVIDENCE-1
+- **tr_oracle_evidence_policy_sha256**: sha256:f38a6386ad97badb48a9deda41dd53ba6210923ff7c8adaf1ef18470484b92b0
+- **tr_oracle_evidence_policy_status**: ratified-governing-policy
+- **tr_oracle_evidence_policy_version**: 1.0.0-draft.2
+- **tr_oracle_evidence_schema_manifest_identifier**: TR-ORACLE-EVIDENCE-SCHEMA-MANIFEST-1
+- **tr_oracle_evidence_schema_manifest_sha256**: sha256:8a4018d9b917afcb4999cdaa4c33357a4fe689c5164bd44bff0cb20729889f7a
+- **tr_oracle_evidence_schema_manifest_status**: ratified-governing-schema-inventory
+- **tr_oracle_evidence_schema_manifest_version**: 1.0.0-draft.2
 - **tr_oracle_host_profile_identifier**: TR-ORACLE-HOST-1
 - **tr_oracle_host_profile_sha256**: sha256:55b79d0c023e10e5457a4fc85ae44c2a0bedc34981152d6596bed02868406408
 - **tr_oracle_host_profile_status**: ratified-governing-architecture
 - **tr_oracle_host_profile_version**: 1.0.0-draft.5
-- **tr_oracle_implementation_gate**: four-later-gates-required-before-implementation
+- **tr_oracle_implementation_gate**: three-later-gates-required-before-implementation
 - **tr_oracle_isolation_requirement**: controlled-boundary
 - **visible_text_sha256_status**: remove-next-envelope-revision
 
@@ -171,7 +192,6 @@ _Working Context informs but does not govern. It may be superseded without a new
 - Update fieldmouth-standard PR #1 documentation to reflect this approved classification without resuming intrinsic-hardening work.
 - Remove visible_text_sha256 in the next envelope revision.
 - If normalized visible-text hashing is later justified, define and register the versioned deterministic transformation and fixed vectors before restoring the field.
-- Define and review host-attestation and complete evidence-package formats, including the exact core-receipt schema.
 - Define and review the reproducible-build release threshold.
 - Define and review concrete trust-anchor and key-custody mechanisms.
 - Define and review the approved-verifier implementation and distribution.
@@ -204,13 +224,13 @@ Approved Canon: fieldmouth-standard PR #1 remains Draft and BLOCKED. Its JavaScr
 
 Approved Canon: every envelope hash must be independently verifiable from included content or a named, versioned deterministic transformation with fixed vectors. Remove visible_text_sha256 in the next envelope revision; CANON-1 is unaffected.
 
-### From ENTRY-ECO-030
+### From ENTRY-ECO-032
 
-Approved Canon: TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, TR-ORACLE-ENGINE-1, and TR-ORACLE-BUDGET-1 are ratified by exact SHA-256 as the governing oracle architecture, ABI, WebAssembly engine policy, and deterministic execution-budget policy. Four later gates remain mandatory. Next specify and independently review host-attestation and complete evidence-package schemas, including the exact core-receipt schema, only. Do not implement Rust/WASM, grant reference or verifier status, deploy an oracle, produce canonical evidence, or merge fieldmouth-standard PR #1, PR #2, or PR #3.
+Approved Canon: TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, TR-ORACLE-ENGINE-1, TR-ORACLE-BUDGET-1, and TR-ORACLE-EVIDENCE-1 with its exact schema inventory are ratified by exact SHA-256 as the governing oracle architecture, ABI, WebAssembly engine policy, deterministic execution-budget policy, and host-attestation/evidence-package policy. Three later gates remain mandatory. Next specify and independently review the reproducible-build release threshold only. Do not implement Rust/WASM, grant reference or verifier status, deploy an oracle, produce canonical evidence, or merge fieldmouth-standard PR #1, PR #2, PR #3, or PR #5.
 
-### From ENTRY-ECO-031
+### From ENTRY-ECO-033
 
-TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, TR-ORACLE-ENGINE-1, and TR-ORACLE-BUDGET-1 are ratified. Begin specification and independent review of host-attestation and complete evidence-package schemas, including the exact core-receipt schema, only. Rust/WASM implementation, approved-verifier implementation, reference-implementation status, deployment, canonical-evidence production, and merge of fieldmouth-standard PR #1, PR #2, or PR #3 remain unauthorized until all applicable later gates are resolved and approved.
+TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, TR-ORACLE-ENGINE-1, TR-ORACLE-BUDGET-1, and TR-ORACLE-EVIDENCE-1 with its exact schema inventory are ratified. Begin specification and independent review of the reproducible-build release threshold only. Rust/WASM implementation, approved-verifier implementation, reference-implementation status, deployment, canonical-evidence production, and merge of fieldmouth-standard PR #1, PR #2, PR #3, or PR #5 remain unauthorized until all applicable later gates are resolved and approved.
 
 
 ---
@@ -223,8 +243,8 @@ TR-ORACLE-HOST-1, TR-ORACLE-ABI-1, TR-ORACLE-ENGINE-1, and TR-ORACLE-BUDGET-1 ar
 - ENTRY-ECO-018
 - ENTRY-ECO-019
 - ENTRY-ECO-021
-- ENTRY-ECO-030
-- ENTRY-ECO-031
+- ENTRY-ECO-032
+- ENTRY-ECO-033
 
 ---
 
