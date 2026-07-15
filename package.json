@@ -15,6 +15,8 @@
     "check:immutability": "node scripts/check-entry-immutability.js",
     "build:state": "node scripts/build-current-state.js",
     "generate:next-chat": "node scripts/generate-next-chat.js",
+    "bootstrap:agent": "node scripts/agent-bootstrap.js",
+    "check:agent-bootstrap": "node scripts/agent-bootstrap.js --product chatvaultai --check",
     "record:create-product": "node scripts/create-product-record.js"
   },
   "dependencies": {
