@@ -50,6 +50,7 @@ export async function createProductRecord(productId, displayName, options = {}) 
     generated_at: EMPTY_EPOCH,
     next_chat_contexts: [],
     open_items: [],
+    product_id: productId,
     schema_version: '1.0.0',
     scope: 'product',
     source_entry_ids: [],
