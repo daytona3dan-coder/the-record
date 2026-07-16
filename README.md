@@ -73,7 +73,7 @@ Cross-authority reuse is intentional and remains supported: Approved Canon may o
 
 ## Deterministic Agent Bootstrap
 
-`agent-bootstrap.js` turns the validated repository state into a fail-closed session preflight. It always loads ecosystem context and optionally loads one or more explicitly named products. Before emitting a ready packet, it validates each state and profile, regenerates each `NEXT_CHAT_START.md` in memory, rejects any byte-level drift, and binds every loaded source by SHA-256.
+`agent-bootstrap.js` turns the validated repository state into a fail-closed session preflight. It always loads ecosystem context and optionally loads one or more explicitly named products. Before emitting a ready packet, it validates each state and profile, requires the requested directory, profile, and current state to agree on product identity, regenerates each `NEXT_CHAT_START.md` in memory, rejects any byte-level drift, and binds every loaded source by SHA-256.
 
 The complete stdout packet is designed to be prepended to an AI task before the first substantive model turn. Root `AGENTS.md` makes this preflight mandatory for repository-aware agents. A host that does not execute repository instructions must integrate the command explicitly; The Record alone cannot force an unrelated AI client to ingest a file. See `docs/AGENT_BOOTSTRAP.md` for the host contract and boundaries.
 
