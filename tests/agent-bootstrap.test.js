@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -11,6 +11,20 @@ import {
 } from '../scripts/agent-bootstrap.js';
 
 const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
+
+async function createProductFixture() {
+  const tempRoot = await mkdtemp(join(tmpdir(), 'the-record-bootstrap-product-'));
+  await mkdir(join(tempRoot, 'products'), { recursive: true });
+  await Promise.all([
+    cp(join(ROOT, 'schemas'), join(tempRoot, 'schemas'), { recursive: true }),
+    cp(join(ROOT, 'ecosystem'), join(tempRoot, 'ecosystem'), { recursive: true }),
+    cp(join(ROOT, 'products', 'chatvaultai'), join(tempRoot, 'products', 'chatvaultai'), {
+      recursive: true,
+    }),
+    cp(join(ROOT, 'CONSTITUTION.md'), join(tempRoot, 'CONSTITUTION.md')),
+  ]);
+  return tempRoot;
+}
 
 test('builds a ready packet from validated ecosystem and product state', async () => {
   const result = await buildAgentBootstrap({ root: ROOT, productIds: ['chatvaultai'] });
@@ -73,4 +87,54 @@ test('refuses a requested product scope that is absent', async () => {
     buildAgentBootstrap({ root: ROOT, productIds: ['not-recorded'] }),
     /Required bootstrap source products\/not-recorded\/PRODUCT_PROFILE.json could not be read/
   );
+});
+
+test('refuses a product profile whose identity does not match its directory', async () => {
+  const tempRoot = await createProductFixture();
+  try {
+    const profilePath = join(tempRoot, 'products', 'chatvaultai', 'PRODUCT_PROFILE.json');
+    const profile = JSON.parse(await readFile(profilePath, 'utf8'));
+    profile.product_id = 'another-product';
+    await writeFile(profilePath, `${JSON.stringify(profile, null, 2)}\n`, 'utf8');
+
+    await assert.rejects(
+      buildAgentBootstrap({ root: tempRoot, productIds: ['chatvaultai'] }),
+      /PRODUCT_PROFILE\.json product_id "another-product" does not match requested product id "chatvaultai"/
+    );
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test('refuses product state copied under a different product identity', async () => {
+  const tempRoot = await createProductFixture();
+  try {
+    const statePath = join(tempRoot, 'products', 'chatvaultai', 'CURRENT_STATE.json');
+    const state = JSON.parse(await readFile(statePath, 'utf8'));
+    state.product_id = 'another-product';
+    await writeFile(statePath, `${JSON.stringify(state, null, 2)}\n`, 'utf8');
+
+    await assert.rejects(
+      buildAgentBootstrap({ root: tempRoot, productIds: ['chatvaultai'] }),
+      /CURRENT_STATE\.json product_id "another-product" does not match requested product id "chatvaultai"/
+    );
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test('refuses stale or manually altered product context', async () => {
+  const tempRoot = await createProductFixture();
+  try {
+    const contextPath = join(tempRoot, 'products', 'chatvaultai', 'NEXT_CHAT_START.md');
+    const context = await readFile(contextPath, 'utf8');
+    await writeFile(contextPath, `${context}\nmanual product drift\n`, 'utf8');
+
+    await assert.rejects(
+      buildAgentBootstrap({ root: tempRoot, productIds: ['chatvaultai'] }),
+      /bootstrap refused because generated context is stale or manually altered/
+    );
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
 });
