@@ -103,6 +103,16 @@ async function loadProductScope(root, productId) {
   const currentState = parseJson(currentStateRaw, currentStatePath);
   assertValid(profileValidator, profile, profilePath);
   assertValid(stateValidator, currentState, currentStatePath);
+  if (profile.product_id !== productId) {
+    throw new Error(
+      `${profilePath} product_id "${profile.product_id}" does not match requested product id "${productId}".`
+    );
+  }
+  if (currentState.product_id !== productId) {
+    throw new Error(
+      `${currentStatePath} product_id "${currentState.product_id}" does not match requested product id "${productId}".`
+    );
+  }
 
   const regenerated = generateNextChatFromState(currentState, productId);
   if (nextChatRaw !== regenerated) {
