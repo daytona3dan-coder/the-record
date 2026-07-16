@@ -34,7 +34,8 @@ Bootstrap refuses to emit a ready packet when:
 - the Constitution, a profile, current state, or next-chat file is missing;
 - a JSON source cannot be parsed or fails its governing schema;
 - a product identifier is unsafe or ambiguous;
-- a requested product is not registered; or
+- a requested product is not registered;
+- a requested product's directory, profile product ID, and current-state product ID do not agree; or
 - committed next-chat content differs by even one byte from deterministic regeneration of its current state.
 
 The receipt contains no wall-clock timestamp or random value. Identical repository bytes and scope selection produce identical output.
