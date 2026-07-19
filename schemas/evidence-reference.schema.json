@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-record/schemas/evidence-reference.schema.json",
+  "title": "Local Evidence Reference",
+  "description": "A deterministic repository reference to an exact evidence object held in Dan's external local content-addressed store.",
+  "type": "object",
+  "required": [
+    "artifact",
+    "byte_size",
+    "label",
+    "object_path",
+    "schema_version",
+    "source_type"
+  ],
+  "properties": {
+    "artifact": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "byte_size": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_path": {
+      "type": "string",
+      "pattern": "^objects/sha256/[0-9a-f]{64}$"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "source_type": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    }
+  },
+  "additionalProperties": false
+}
