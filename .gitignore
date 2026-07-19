@@ -17,6 +17,10 @@ coverage/
 .vscode/
 .idea/
 
+# Raw evidence objects never belong in this governance repository
+.record-evidence/
+evidence/objects/
+
 # Operating-system files
 .DS_Store
 Thumbs.db
