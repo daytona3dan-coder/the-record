@@ -48,6 +48,9 @@ jobs:
       - name: Check supersession integrity
         run: npm run check:supersession
 
+      - name: Check local evidence references
+        run: npm run check:evidence-references
+
       - name: Verify deterministic agent bootstrap
         run: npm run check:agent-bootstrap
 
