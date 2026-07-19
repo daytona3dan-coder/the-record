@@ -17,7 +17,10 @@
     "generate:next-chat": "node scripts/generate-next-chat.js",
     "bootstrap:agent": "node scripts/agent-bootstrap.js",
     "check:agent-bootstrap": "node scripts/agent-bootstrap.js --product chatvaultai --check",
-    "record:create-product": "node scripts/create-product-record.js"
+    "record:create-product": "node scripts/create-product-record.js",
+    "record:intake": "node scripts/evidence-store.js intake",
+    "record:verify-evidence": "node scripts/evidence-store.js verify",
+    "check:evidence-references": "node scripts/evidence-store.js check-references"
   },
   "dependencies": {
     "ajv": "^8.17.1",
