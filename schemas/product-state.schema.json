@@ -8,6 +8,7 @@
     "schema_version",
     "generated_at",
     "scope",
+    "product_id",
     "constitution_version",
     "approved_canon",
     "working_context",
@@ -20,6 +21,7 @@
     "schema_version": { "type": "string" },
     "generated_at": { "type": "string", "format": "date-time" },
     "scope": { "type": "string", "const": "product" },
+    "product_id": { "type": "string", "minLength": 1 },
     "constitution_version": { "type": "string" },
     "approved_canon": {
       "type": "array",

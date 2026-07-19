@@ -186,6 +186,11 @@ export async function validateRecord(options = {}) {
             errors.push(`Product ${productId} profile: ${e.instancePath || '(root)'} ${e.message}`);
           }
         }
+        if (profile.product_id !== productId) {
+          errors.push(
+            `Product ${productId} profile: product_id "${profile.product_id}" does not match directory product id "${productId}"`
+          );
+        }
       } catch (e) {
         errors.push(`Product ${productId} profile parse error: ${e.message}`);
       }
@@ -203,6 +208,11 @@ export async function validateRecord(options = {}) {
           for (const e of productStateValidator.errors) {
             errors.push(`Product ${productId} CURRENT_STATE.json: ${e.instancePath || '(root)'} ${e.message}`);
           }
+        }
+        if (cs.product_id !== productId) {
+          errors.push(
+            `Product ${productId} CURRENT_STATE.json: product_id "${cs.product_id}" does not match directory product id "${productId}"`
+          );
         }
       } catch (e) {
         errors.push(`Product ${productId} CURRENT_STATE.json parse error: ${e.message}`);

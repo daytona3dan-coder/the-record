@@ -71,6 +71,12 @@ Cross-authority reuse is intentional and remains supported: Approved Canon may o
 
 `generate-next-chat.js` reads only a validated `CURRENT_STATE.json` and produces `NEXT_CHAT_START.md`. It identifies the applicable Constitution version, presents Approved Canon and Working Context separately, lists active state and open items, and records the source Record Entry IDs. It reads no entries directly and reads no chat history.
 
+## Deterministic Agent Bootstrap
+
+`agent-bootstrap.js` turns the validated repository state into a fail-closed session preflight. It always loads ecosystem context and optionally loads one or more explicitly named products. Before emitting a ready packet, it validates each state and profile, requires the requested directory, profile, and current state to agree on product identity, regenerates each `NEXT_CHAT_START.md` in memory, rejects any byte-level drift, and binds every loaded source by SHA-256.
+
+The complete stdout packet is designed to be prepended to an AI task before the first substantive model turn. Root `AGENTS.md` makes this preflight mandatory for repository-aware agents. A host that does not execute repository instructions must integrate the command explicitly; The Record alone cannot force an unrelated AI client to ingest a file. See `docs/AGENT_BOOTSTRAP.md` for the host contract and boundaries.
+
 ---
 
 ## Local Commands
@@ -103,6 +109,15 @@ npm run generate:next-chat
 # Generate next-chat context (product, validates CURRENT_STATE.json first)
 npm run generate:next-chat -- --product chatvaultai
 
+# Emit a complete verified context packet for an agent session
+npm run --silent bootstrap:agent -- --product chatvaultai
+
+# Emit only the machine-readable bootstrap receipt
+npm run --silent bootstrap:agent -- --product chatvaultai --json
+
+# Fail-closed bootstrap integrity check used by CI
+npm run check:agent-bootstrap
+
 # Create a new product record
 npm run record:create-product -- <product_id> "<Display Name>"
 ```
@@ -117,8 +132,9 @@ CI runs on pull requests and pushes to `main` (see `.github/workflows/record-ci.
 2. `npm test` — run the full test suite
 3. `npm run validate:record` — validate all schemas, entries, and state files
 4. `npm run check:supersession` — validate supersession graph integrity
-5. Rebuild all derived files (`CURRENT_STATE.json`, `CURRENT_STATE.md`, `NEXT_CHAT_START.md`)
-6. Detect generated-file drift — fail if committed derived files are stale or manually altered
+5. `npm run check:agent-bootstrap` — verify validated state can produce an exact, ready agent packet
+6. Rebuild all derived files (`CURRENT_STATE.json`, `CURRENT_STATE.md`, `NEXT_CHAT_START.md`)
+7. Detect generated-file drift — fail if committed derived files are stale or manually altered
 
 On pull requests, CI additionally runs the fail-closed immutability check against the PR base commit. This fails the build if any merged entry file was modified, deleted, or renamed. **Missing or invalid base references also fail** (fail-closed design).
 

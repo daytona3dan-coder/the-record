@@ -246,7 +246,10 @@ export async function buildCurrentState(options = {}) {
     validEntries.push(data);
   }
 
-  const state = buildStateFromEntries(validEntries, scope);
+  const baseState = buildStateFromEntries(validEntries, scope);
+  const state = sortObject(
+    scope === 'product' ? { ...baseState, product_id: productId } : baseState
+  );
 
   const jsonOutput = JSON.stringify(state, null, 2) + '\n';
   const mdOutput = renderCurrentStateMd(state, label);

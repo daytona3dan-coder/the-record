@@ -33,6 +33,7 @@
     "Add tests proving paired naming, missing-sidecar handling, invalid-sidecar handling, and the prohibition on retroactive verification stamping.",
     "Document deliberate regeneration behavior without silently rewriting existing captures."
   ],
+  "product_id": "chatvaultai",
   "schema_version": "1.0.0",
   "scope": "product",
   "source_entry_ids": [

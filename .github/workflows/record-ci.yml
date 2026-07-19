@@ -48,6 +48,9 @@ jobs:
       - name: Check supersession integrity
         run: npm run check:supersession
 
+      - name: Verify deterministic agent bootstrap
+        run: npm run check:agent-bootstrap
+
       # Fail-closed immutability check on pull requests
       - name: Check entry immutability (PR only)
         if: github.event_name == 'pull_request'
