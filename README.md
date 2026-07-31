@@ -228,6 +228,10 @@ The Record is a working public implementation at package version `0.1.0` and sch
 
 ## License
 
+<a href="https://opensource.org/license/Apache-2.0"><img src="https://i0.wp.com/opensource.org/wp-content/uploads/2006/09/OSIApproved.png?quality=80&resize=640%2C853&ssl=1" alt="OSI Approved License Logo®" width="96"></a>
+
 Copyright 2026 Dan Demarest.
 
-Licensed under the [Apache License 2.0](LICENSE), an [OSI Approved License](https://opensource.org/licenses/Apache-2.0).
+Licensed under the [Apache License 2.0](LICENSE). This software is licensed under an Open Source Initiative Approved License®.
+
+The OSI logo trademark is the trademark of Open Source Initiative. OSI and Open Source Initiative are trademarks of Open Source Initiative. The Record Method is not affiliated with or endorsed by OSI.
