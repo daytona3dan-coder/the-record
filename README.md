@@ -1,6 +1,7 @@
 # The Record
 
-[![Record CI](https://github.com/daytona3dan-coder/the-record/actions/workflows/record-ci.yml/badge.svg?branch=main)](https://github.com/daytona3dan-coder/the-record/actions/workflows/record-ci.yml)
+[![Record CI](https://github.com/daytona3dan-coder/the-record-method/actions/workflows/record-ci.yml/badge.svg?branch=main)](https://github.com/daytona3dan-coder/the-record-method/actions/workflows/record-ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
 **The Record is a repository-backed continuity and governance system for human-directed work with AI.**
 
@@ -82,8 +83,8 @@ Requirements:
 - npm
 
 ```sh
-git clone https://github.com/daytona3dan-coder/the-record.git
-cd the-record
+git clone https://github.com/daytona3dan-coder/the-record-method.git
+cd the-record-method
 npm ci
 npm test
 npm run validate:record
@@ -227,6 +228,10 @@ The Record is a working public implementation at package version `0.1.0` and sch
 
 ## License
 
+<a href="https://opensource.org/license/Apache-2.0"><img src="https://i0.wp.com/opensource.org/wp-content/uploads/2006/09/OSIApproved.png?quality=80&resize=640%2C853&ssl=1" alt="OSI Approved License Logo®" width="96"></a>
+
 Copyright 2026 Dan Demarest.
 
-Licensed under the [Apache License 2.0](LICENSE).
+Licensed under the [Apache License 2.0](LICENSE). This software is licensed under an Open Source Initiative Approved License®.
+
+The OSI logo trademark is the trademark of Open Source Initiative. OSI and Open Source Initiative are trademarks of Open Source Initiative. The Record Method is not affiliated with or endorsed by OSI.
