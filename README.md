@@ -50,6 +50,17 @@ flowchart TD
 
 No language model participates in validation, supersession, state generation, or digest computation.
 
+## Interfaces and Public Representation
+
+The Record repository is the governed, deterministic core. It is intentionally usable without a website, but it is not intended to remain invisible:
+
+- **ChatVaultAI Desktop** already provides an integrated **Record Method + Keep** dashboard for local evidence intake, human project assignment, candidate work, and handoff context.
+- **TheRecordMethod.com** explains and distributes the method.
+- **RecordMethodKeep.com** represents the cataloging and retrieval layer; it does not replace The Record as the source of authority.
+- **The Record Console** is the planned broader dashboard over governed files and registries.
+
+These interfaces may present, navigate, and help prepare proposed work over The Record. They do not acquire authority to approve canon, rewrite merged entries, or bypass validation.
+
 ## Verified Public Status
 
 The repository was independently exercised from a credential-free public clone on **2026-07-30** at:
@@ -185,7 +196,7 @@ npm run record:create-product -- <product_id> "<Display Name>"
 
 The Record is not:
 
-- a website or user interface;
+- the public website or dashboard itself; it is the governed core those interfaces operate over;
 - a database or query engine;
 - a raw transcript or vault store;
 - an execution ledger or replay log;
@@ -212,4 +223,10 @@ Existing decisions and state from another repository or document enter The Recor
 
 ## Project Maturity
 
-The Record is a working public implementation at package version `0.1.0` and schema version `1.0.0`. Its deterministic core is tested and publicly reproducible. Public contribution policy, licensing terms, and a packaged command-line release have not yet been declared.
+The Record is a working public implementation at package version `0.1.0` and schema version `1.0.0`. Its deterministic core is tested and publicly reproducible. A public contribution policy and packaged command-line release have not yet been declared.
+
+## License
+
+Copyright 2026 Dan Demarest.
+
+Licensed under the [Apache License 2.0](LICENSE).
