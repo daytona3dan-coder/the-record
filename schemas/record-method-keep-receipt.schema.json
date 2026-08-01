@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://therecordmethod.com/schemas/record-method-keep-receipt.schema.json",
+  "title": "Record Method Keep Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "schema_version",
+    "sequence_number",
+    "action",
+    "imported_at",
+    "previous_receipt_sha256",
+    "receipt_sha256",
+    "source",
+    "disposition"
+  ],
+  "properties": {
+    "contract": { "const": "record_method_keep_receipt" },
+    "schema_version": { "const": "1.0.0" },
+    "sequence_number": { "type": "integer", "minimum": 1 },
+    "action": { "const": "INTAKE" },
+    "imported_at": { "type": "string", "format": "date-time" },
+    "previous_receipt_sha256": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+      ]
+    },
+    "receipt_sha256": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "original_filename",
+        "size_bytes",
+        "sha256",
+        "hash_algorithm",
+        "object_path",
+        "custody_mode",
+        "authority_tier"
+      ],
+      "properties": {
+        "original_filename": { "type": "string", "minLength": 1 },
+        "size_bytes": { "type": "integer", "minimum": 0 },
+        "sha256": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "hash_algorithm": { "const": "sha256" },
+        "object_path": { "type": "string", "pattern": "^objects/sha256/[0-9a-f]{64}$" },
+        "custody_mode": { "const": "copied_to_keep" },
+        "authority_tier": { "const": "source_evidence" }
+      }
+    },
+    "disposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "governance_effect", "human_action_required"],
+      "properties": {
+        "status": { "const": "unassigned" },
+        "governance_effect": { "const": "none" },
+        "human_action_required": { "const": true }
+      }
+    }
+  }
+}
+
