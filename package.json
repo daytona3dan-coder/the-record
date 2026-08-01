@@ -21,10 +21,15 @@
     "record:create-product": "node scripts/create-product-record.js",
     "record:intake": "node scripts/evidence-store.js intake",
     "record:verify-evidence": "node scripts/evidence-store.js verify",
-    "check:evidence-references": "node scripts/evidence-store.js check-references"
+    "check:evidence-references": "node scripts/evidence-store.js check-references",
+    "keep:init": "node scripts/record-method-keep.js init",
+    "keep:intake": "node scripts/record-method-keep.js intake",
+    "keep:verify": "node scripts/record-method-keep.js verify",
+    "keep:list": "node scripts/record-method-keep.js list"
   },
   "dependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1"
   }
 }
+
