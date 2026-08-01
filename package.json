@@ -1,7 +1,7 @@
 {
   "name": "the-record",
   "version": "0.1.0",
-  "description": "Repository-backed continuity and governance system for the MAXAI ecosystem.",
+  "description": "Shared open core for the independent Record Method and Record Method Keep products.",
   "license": "Apache-2.0",
   "private": true,
   "type": "module",
@@ -32,4 +32,3 @@
     "ajv-formats": "^3.0.1"
   }
 }
-

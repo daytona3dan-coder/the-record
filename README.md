@@ -54,14 +54,17 @@ No language model participates in validation, supersession, state generation, or
 
 ## Interfaces and Public Representation
 
-The Record repository is the governed, deterministic core. It is intentionally usable without a website, but it is not intended to remain invisible:
+This repository is the shared open core. Sharing one repository does **not** turn the products below into one product or make either one a ChatVaultAI feature:
 
-- **ChatVaultAI Desktop** already provides an integrated **Record Method + Keep** dashboard for local evidence intake, human project assignment, candidate work, and handoff context.
-- **TheRecordMethod.com** explains and distributes the method.
-- **RecordMethodKeep.com** represents the cataloging and retrieval layer; it does not replace The Record as the source of authority.
+- **The Record Method**, represented by **TheRecordMethod.com**, is an independent governance and continuity product.
+- **Record Method Keep**, represented by **RecordMethodKeep.com**, is an independent local custody and retrieval product that can be used on its own.
+- Neither independent product requires ChatVaultAI, a ChatVaultAI account, or a paid ChatVaultAI plan.
+- **ChatVaultAI Desktop** may provide private, branded, compatible Record Method and Keep tools. Those embedded tools belong in ChatVaultAI's free Starter tier; the Complete tier is for scale and automation, not access to the method or Keep.
 - **The Record Console** is the planned broader dashboard over governed files and registries.
 
 These interfaces may present, navigate, and help prepare proposed work over The Record. They do not acquire authority to approve canon, rewrite merged entries, or bypass validation.
+
+See [Product Boundaries](docs/PRODUCT_BOUNDARIES.md) for the ownership, packaging, and compatibility rules.
 
 ## Verified Public Status
 
@@ -242,4 +245,3 @@ Copyright 2026 Dan Demarest.
 Licensed under the [Apache License 2.0](LICENSE). This software is licensed under an Open Source Initiative Approved License®.
 
 The OSI logo trademark is the trademark of Open Source Initiative. OSI and Open Source Initiative are trademarks of Open Source Initiative. The Record Method is not affiliated with or endorsed by OSI.
-
