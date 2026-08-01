@@ -1,10 +1,10 @@
 # Record Method Keep
 
-Record Method Keep is an independent local custody and catalog product represented by **RecordMethodKeep.com**. It is built from the same public open core as The Record Method, but it can be used on its own.
+Record Method Keep is the open local custody and catalog tool represented by **RecordMethodKeep.com**. Its public technology lives in The Record repository alongside The Record Method.
 
 It copies exact source bytes into a content-addressed local object store, records every new intake in one ordered SHA-256-linked receipt ledger, and verifies both the objects and the receipt chain. Intake remains unassigned and has no governance effect. A human must decide what the material means and whether it should inform a Record Entry.
 
-It does not require TheRecordMethod.com, ChatVaultAI Desktop, a ChatVaultAI account, or a paid ChatVaultAI plan. ChatVaultAI Desktop may include a compatible private implementation in its free Starter tier, but that does not make Record Method Keep a ChatVaultAI-owned product or dependency.
+It does not require a paid ChatVaultAI subscription. Its supported visual dashboard is included in **ChatVaultAI Starter, free forever**, while advanced users may run the public command-line implementation directly without the Desktop. ChatVaultAI may keep its branded interface private without owning or closing the underlying Keep technology.
 
 It is not a hosted service, cloud vault, automatic canonizer, or automatic source of governing authority.
 
