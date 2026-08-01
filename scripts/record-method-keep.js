@@ -99,10 +99,16 @@ function readMarker(paths) {
 }
 
 function receiptFiles(paths) {
-  if (!fs.existsSync(paths.receipts)) return [];
-  return fs.readdirSync(paths.receipts)
-    .filter((name) => /^\d{12}-[0-9a-f]{16}\.json$/.test(name))
-    .sort();
+  if (!fs.existsSync(paths.receipts) || !fs.lstatSync(paths.receipts).isDirectory()) {
+    fail('Keep receipts directory is missing');
+  }
+  const entries = fs.readdirSync(paths.receipts, { withFileTypes: true });
+  const unexpected = entries.filter((entry) =>
+    !entry.isFile() || !/^\d{12}-[0-9a-f]{16}\.json$/.test(entry.name));
+  if (unexpected.length > 0) {
+    fail(`Unexpected receipt ledger entry: ${unexpected[0].name}`);
+  }
+  return entries.map((entry) => entry.name).sort();
 }
 
 function receiptHash(receipt) {
@@ -147,6 +153,9 @@ export function initializeKeep(rootPath, now = new Date()) {
 export async function verifyKeep(rootPath) {
   const paths = keepPaths(path.resolve(rootPath));
   const marker = readMarker(paths);
+  if (!fs.existsSync(paths.objects) || !fs.lstatSync(paths.objects).isDirectory()) {
+    fail('Keep object directory is missing');
+  }
   const names = receiptFiles(paths);
   let previous = ZERO_HASH;
   const objects = new Set();
@@ -172,10 +181,11 @@ export async function verifyKeep(rootPath) {
       fail(`Receipt ${expectedSequence} has invalid custody metadata`);
     }
     const storedObject = objectPath(paths, source.sha256);
-    if (!fs.existsSync(storedObject) || !fs.statSync(storedObject).isFile()) {
+    const objectStat = fs.lstatSync(storedObject, { throwIfNoEntry: false });
+    if (!objectStat || objectStat.isSymbolicLink() || !objectStat.isFile()) {
       fail(`Object missing for receipt ${expectedSequence}`);
     }
-    const storedSize = fs.statSync(storedObject).size;
+    const storedSize = objectStat.size;
     if (storedSize !== source.size_bytes) {
       fail(`Object size failed for receipt ${expectedSequence}`);
     }
@@ -185,6 +195,14 @@ export async function verifyKeep(rootPath) {
     }
     objects.add(source.sha256);
     previous = receipt.receipt_sha256;
+  }
+
+  const objectEntries = fs.readdirSync(paths.objects, { withFileTypes: true });
+  for (const entry of objectEntries) {
+    const objectSha = `sha256:${entry.name}`;
+    if (!entry.isFile() || !/^[0-9a-f]{64}$/.test(entry.name) || !objects.has(objectSha)) {
+      fail(`Unexpected or unreceipted Keep object: ${entry.name}`);
+    }
   }
 
   if (marker.receipt_count !== names.length) fail('KEEP.json receipt count does not match the ledger');
@@ -220,7 +238,11 @@ export async function intakeFile(rootPath, sourcePath, options = {}) {
     }
 
     const storedObject = objectPath(paths, sourceSha);
-    if (!fs.existsSync(storedObject)) {
+    const existingObject = fs.lstatSync(storedObject, { throwIfNoEntry: false });
+    if (existingObject?.isSymbolicLink() || (existingObject && !existingObject.isFile())) {
+      fail('Keep object path is not a regular file');
+    }
+    if (!existingObject) {
       fs.copyFileSync(source, storedObject, fs.constants.COPYFILE_EXCL);
     }
     const copiedSha = await sha256File(storedObject);
