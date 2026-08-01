@@ -98,6 +98,28 @@ test('fails closed when a receipt or its chain link changes', async () => {
   }
 });
 
+test('fails closed on an undeclared receipt ledger entry', async () => {
+  const { root, keep } = fixture();
+  try {
+    initializeKeep(keep);
+    fs.writeFileSync(path.join(keep, 'receipts', 'not-a-receipt.txt'), 'undeclared', 'utf8');
+    await assert.rejects(verifyKeep(keep), /Unexpected receipt ledger entry/);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('fails closed on an unreceipted object', async () => {
+  const { root, keep } = fixture();
+  try {
+    initializeKeep(keep);
+    fs.writeFileSync(path.join(keep, 'objects', 'sha256', 'a'.repeat(64)), 'undeclared', 'utf8');
+    await assert.rejects(verifyKeep(keep), /Unexpected or unreceipted Keep object/);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test('rejects symbolic-link intake', async (t) => {
   const { root, keep, source } = fixture();
   const link = path.join(root, 'linked.chatvault.json');
