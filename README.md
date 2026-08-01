@@ -16,6 +16,7 @@ It turns decisions, operational state, evidence references, and unresolved work 
 - [Review the public reproducibility receipt](docs/PUBLIC_REPRODUCIBILITY_RECEIPT.md)
 - [Integrate deterministic agent bootstrap](docs/AGENT_BOOTSTRAP.md)
 - [Use the local evidence store](docs/LOCAL_EVIDENCE_STORE.md)
+- [Create and verify your own Record Method Keep](keep/README.md)
 
 ## Why It Exists
 
@@ -155,7 +156,8 @@ Bootstrap validates state and profiles, regenerates next-session context in memo
 | `schemas/` | JSON Schemas for entries, state, profiles, and evidence references |
 | `ecosystem/entries/` | Append-only ecosystem Record Entries |
 | `products/<id>/entries/` | Append-only product Record Entries |
-| `scripts/` | Deterministic validation, state, supersession, evidence, and bootstrap tools |
+| `scripts/` | Deterministic validation, state, supersession, evidence, Keep, and bootstrap tools |
+| `keep/` | Local, content-addressed Record Method Keep reference implementation |
 | `templates/` | Starting structures for new records and products |
 | `tests/` and `fixtures/` | Positive and fail-closed behavioral coverage |
 | `docs/` | Quickstart, host integration, local evidence, and verification receipts |
@@ -188,6 +190,11 @@ npm run generate:next-chat -- --product chatvaultai
 
 # Verify repository evidence references
 npm run check:evidence-references
+
+# Create and verify a local Record Method Keep
+npm run keep:init -- --keep <folder>
+npm run keep:intake -- --keep <folder> --file <source-file>
+npm run keep:verify -- --keep <folder>
 
 # Create a product record scaffold
 npm run record:create-product -- <product_id> "<Display Name>"
@@ -235,3 +242,4 @@ Copyright 2026 Dan Demarest.
 Licensed under the [Apache License 2.0](LICENSE). This software is licensed under an Open Source Initiative Approved License®.
 
 The OSI logo trademark is the trademark of Open Source Initiative. OSI and Open Source Initiative are trademarks of Open Source Initiative. The Record Method is not affiliated with or endorsed by OSI.
+
