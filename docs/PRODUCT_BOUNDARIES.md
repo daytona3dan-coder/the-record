@@ -2,7 +2,7 @@
 
 ## The products
 
-The Record Method and Record Method Keep are independent products with their own public identities:
+The Record Method and Record Method Keep are open tools with their own public identities:
 
 | Product | Public address | Purpose |
 |---|---|---|
@@ -10,20 +10,20 @@ The Record Method and Record Method Keep are independent products with their own
 | Record Method Keep | RecordMethodKeep.com | Local custody, integrity verification, cataloging, and retrieval |
 | ChatVaultAI Desktop | ChatVaultAI.com | A separate commercial desktop application for local AI evidence workflows |
 
-The Record Method and Record Method Keep may share this public repository as an open core. Repository layout is an engineering choice; it does not combine the products, transfer their ownership to ChatVaultAI, or require them to share a commercial plan.
+The Record Method and Record Method Keep share this public repository as their open-source home. ChatVaultAI Desktop provides their supported visual dashboards in the free Starter tier. This preserves one fluid local workspace instead of creating duplicate applications or separate data stores.
 
-## Independent use
+## Free and open use
 
-- The Record Method can be used without ChatVaultAI.
-- Record Method Keep can be used without ChatVaultAI and without The Record Method user interface.
-- Neither product requires a ChatVaultAI account or paid ChatVaultAI entitlement.
-- Each product should keep its own name, domain, entry point, documentation, and distribution path even when code or specifications are shared.
+- Neither tool requires a paid ChatVaultAI subscription.
+- Both visual dashboards are included in ChatVaultAI Starter, free forever.
+- Advanced users may operate the public command-line tools directly without ChatVaultAI Desktop.
+- Each tool keeps its own name, domain, and documentation while sharing one open repository and one compatible local workspace.
 
 ## ChatVaultAI compatibility
 
-ChatVaultAI Desktop may contain private, branded implementations of Record Method and Record Method Keep workflows. Inside ChatVaultAI, those human-operated tools are part of the free Starter tier. A Complete plan may add scale, automation, model assistance, bulk operations, or advanced exports, but it must not unlock or restrict access to the embedded Method or Keep.
+ChatVaultAI Desktop is the supported visual host for Record Method and Record Method Keep workflows. Inside ChatVaultAI, those human-operated tools are part of the free Starter tier forever. A Complete plan may add scale, automation, model assistance, bulk operations, or advanced exports, but it must not unlock or restrict access to the Method or Keep dashboards.
 
-Compatibility does not change product identity. ChatVaultAI consumes the public contracts; it does not become the authority over either independent product.
+ChatVaultAI may keep its branded interface private while consuming the public contracts. It does not close the underlying tools or become the governing authority over their records.
 
 ## Capture helpers
 
