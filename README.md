@@ -54,15 +54,16 @@ No language model participates in validation, supersession, state generation, or
 
 ## Interfaces and Public Representation
 
-This repository is the shared open core. Sharing one repository does **not** turn the products below into one product or make either one a ChatVaultAI feature:
+This repository is the shared open-source home for The Record Method and Record Method Keep:
 
 - **The Record Method**, represented by **TheRecordMethod.com**, is an independent governance and continuity product.
 - **Record Method Keep**, represented by **RecordMethodKeep.com**, is an independent local custody and retrieval product that can be used on its own.
-- Neither independent product requires ChatVaultAI, a ChatVaultAI account, or a paid ChatVaultAI plan.
-- **ChatVaultAI Desktop** may provide private, branded, compatible Record Method and Keep tools. Those embedded tools belong in ChatVaultAI's free Starter tier; the Complete tier is for scale and automation, not access to the method or Keep.
+- Neither tool requires a paid ChatVaultAI subscription. Their visual dashboards are included in **ChatVaultAI Starter, free forever**; the Complete tier is for scale and automation, not access to the method or Keep.
+- Advanced users may operate the public command-line tools directly without ChatVaultAI Desktop. Ordinary users receive the supported, fluid visual experience through free ChatVaultAI Starter.
+- **ChatVaultAI Desktop** may keep its branded interface private while consuming the same public contracts.
 - **The Record Console** is the planned broader dashboard over governed files and registries.
 
-These interfaces may present, navigate, and help prepare proposed work over The Record. They do not acquire authority to approve canon, rewrite merged entries, or bypass validation.
+These interfaces may present, navigate, and help prepare proposed work over The Record. They do not acquire authority to approve canon, rewrite merged entries, or bypass validation. Separate public identities do not require duplicate applications or separate data stores.
 
 See [Product Boundaries](docs/PRODUCT_BOUNDARIES.md) for the ownership, packaging, and compatibility rules.
 
